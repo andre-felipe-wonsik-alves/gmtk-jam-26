@@ -94,6 +94,11 @@ func _advance_instances(delta: float) -> void:
 			continue
 		var draggable := moving.instance.get_node_or_null("InteractableComponent/Draggable") as Draggable
 		if draggable != null and draggable.is_dragging():
+			var shake_strength := 0.8  # pixels
+			var shake_rotation := 0.07  # radians
+			var jitter := Vector2(randf_range(-1, 1), randf_range(-1, 1)) * shake_strength
+			var global_jitter = jitter + moving.instance.global_position
+			moving.instance.transform = Transform2D(shake_rotation*jitter.x, global_jitter)
 			continue
 		var direction := -1.0 if reverse_path else 1.0
 		moving.distance += speed * delta * direction

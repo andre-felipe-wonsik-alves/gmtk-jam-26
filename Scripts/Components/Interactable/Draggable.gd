@@ -11,6 +11,7 @@ func interaction_started(mouse_position: Vector2, _button: MouseButton) -> void:
 	if target == null:
 		return
 	_dragging = true
+	
 	_offset = target.global_position - mouse_position
 
 
