@@ -6,7 +6,7 @@ extends Control
 # Instruções para cada minigame (pode ser mapeado pelo índice)
 var instructions: Array[String] = [
 	"[center]Clique nos objetos [color=red]VERMELHOS![/color][/center]",
-	"Clique nos objetos [color=green]VERDES![/color]"
+	"Decore a sequência de cores!",
 ]
 
 func _ready() -> void:
