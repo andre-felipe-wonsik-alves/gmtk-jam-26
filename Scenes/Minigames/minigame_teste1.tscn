@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://c4c1qwqhnvk4l"]
+
+[ext_resource type="Script" uid="uid://bla8wc22bcw8t" path="res://Scripts/Minigames/MinigameTeste1.gd" id="1_t1m54"]
+
+[node name="MinigameTeste1" type="Node2D" unique_id=2039331278]
+script = ExtResource("1_t1m54")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1613018744]
+offset_left = -3.0
+offset_top = -1.0
+offset_right = 1154.0
+offset_bottom = 651.0
+mouse_filter = 2
+
+[node name="Button" type="Button" parent="." unique_id=2011987051]
+offset_left = 416.0
+offset_top = 149.0
+offset_right = 717.0
+offset_bottom = 328.0
+text = "CLIQUE AQUI!"
+
+[node name="Button2" type="Button" parent="." unique_id=1991319466]
+offset_left = 416.0
+offset_top = 406.0
+offset_right = 717.0
+offset_bottom = 585.0
+text = "NÃO CLIQUE AQUI!"
