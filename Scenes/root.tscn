@@ -1,3 +1,13 @@
 [gd_scene format=3 uid="uid://brxfp4keowq7"]
 
+[ext_resource type="PackedScene" uid="uid://dw7nuint0go5y" path="res://Scenes/player.tscn" id="1_i04dx"]
+[ext_resource type="PackedScene" uid="uid://bb7ogwr5tr7p2" path="res://Scenes/Npc/ant.tscn" id="2_ant"]
+
 [node name="root" type="Node2D" unique_id=1324049618]
+
+[node name="Player" parent="." unique_id=1982141801 instance=ExtResource("1_i04dx")]
+position = Vector2(16, 15)
+closed_hand_texture = null
+
+[node name="Ant" parent="." unique_id=895389540 instance=ExtResource("2_ant")]
+position = Vector2(576, 324)

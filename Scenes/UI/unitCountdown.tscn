@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://c04e05vkkre8g"]
+
+[node name="Countdown" type="Control" unique_id=1894812876]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BoxContainer" type="BoxContainer" parent="." unique_id=567092845]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="BoxContainer" unique_id=340780897]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BoxContainer/MarginContainer" unique_id=2136400393]
+layout_mode = 2
+
+[node name="current" type="Label" parent="BoxContainer/MarginContainer/HBoxContainer" unique_id=310078471]
+layout_mode = 2
+text = "0"
+
+[node name="divisor" type="Label" parent="BoxContainer/MarginContainer/HBoxContainer" unique_id=1161859527]
+layout_mode = 2
+text = "/"
+
+[node name="goal" type="Label" parent="BoxContainer/MarginContainer/HBoxContainer" unique_id=2085113533]
+layout_mode = 2
+text = "10"
