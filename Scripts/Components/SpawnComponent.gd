@@ -3,6 +3,8 @@ class_name SpawnComponent extends Node
 signal spawned(instance: Node2D)
 
 @export var spawn_scene: PackedScene
+## Optional array of scenes to pick randomly from on each spawn. If set and not empty, overrides spawn_scene.
+@export var spawn_scenes: Array[PackedScene] = []
 ## Optional marker. If empty, the parent marker or first Marker2D child is used.
 @export var spawn_marker: Marker2D
 @export var path: Path2D
@@ -64,9 +66,10 @@ func stop_spawning() -> void:
 
 
 func _spawn() -> void:
-	if spawn_scene == null or _spawn_marker == null:
+	var scene_to_spawn := _get_scene_to_spawn()
+	if scene_to_spawn == null or _spawn_marker == null:
 		return
-	var instance := spawn_scene.instantiate() as Node2D
+	var instance := scene_to_spawn.instantiate() as Node2D
 	if instance == null:
 		push_error("SpawnComponent spawn_scene must have a Node2D root.")
 		return
@@ -77,6 +80,12 @@ func _spawn() -> void:
 		var marker_on_path := path.to_local(_spawn_marker.global_position)
 		var initial_distance := path.curve.get_closest_offset(marker_on_path)
 		_moving_instances.append(SpawnedInstance.new(instance, initial_distance))
+
+
+func _get_scene_to_spawn() -> PackedScene:
+	if not spawn_scenes.is_empty():
+		return spawn_scenes.pick_random()
+	return spawn_scene
 
 
 func _advance_instances(delta: float) -> void:
