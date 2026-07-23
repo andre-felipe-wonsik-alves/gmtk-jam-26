@@ -186,7 +186,6 @@ script = ExtResource("8_spawn")
 spawn_scene = ExtResource("2_h0nov")
 path = NodePath("../LeafRoad")
 path_follow = NodePath("../LeafRoad/PathFollow2D")
-spawn_interval_seconds = 15
 loop_path = true
 
 [node name="LeafRoad" type="Path2D" parent="SpawnPools/LeafSpawn" unique_id=180956454]

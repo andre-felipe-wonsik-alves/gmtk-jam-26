@@ -7,8 +7,8 @@ signal spawned(instance: Node2D)
 @export var spawn_marker: Marker2D
 @export var path: Path2D
 @export var path_follow: PathFollow2D
-@export_range(0.1, 30.0, 0.1) var spawn_interval_seconds := 5
-@export_range(1.0, 500.0, 1.0) var speed := 40
+@export_range(0.1, 30.0, 0.1) var spawn_interval_seconds := 2.5
+@export_range(1.0, 500.0, 1.0) var speed := 120
 @export var reverse_path := false
 @export var loop_path := false
 @export var autostart := true
@@ -94,8 +94,8 @@ func _advance_instances(delta: float) -> void:
 			continue
 		var draggable := moving.instance.get_node_or_null("InteractableComponent/Draggable") as Draggable
 		if draggable != null and draggable.is_dragging():
-			var shake_strength := 1.0  # pixels
-			var shake_rotation := 0.10  # radians
+			var shake_strength := 1.3  # pixels
+			var shake_rotation := 0.15  # radians
 			var jitter := Vector2(randf_range(-1, 1), randf_range(-1, 1)) * shake_strength
 			var global_jitter = jitter + moving.instance.global_position
 			moving.instance.transform = Transform2D(shake_rotation*jitter.x, global_jitter)
