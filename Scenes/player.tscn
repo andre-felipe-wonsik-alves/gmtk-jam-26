@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://dw7nuint0go5y"]
+
+[ext_resource type="Script" uid="uid://dve831droglky" path="res://Scripts/Orchestrators/player.gd" id="1_6t5aa"]
+[ext_resource type="Script" uid="uid://dy0tc323y46m5" path="res://Scripts/Components/InputComponent.gd" id="2_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://k2ff3fwhhj56" path="res://Assets/Debug/hand_open.png" id="2_vgqql"]
+[ext_resource type="Script" uid="uid://6fw286gmv7mb" path="res://Scripts/Components/InteractComponent.gd" id="4_vgqql"]
+[ext_resource type="Texture2D" uid="uid://dbq652qiwili0" path="res://Assets/Debug/hand_closed.png" id="5_closed_hand"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_86cna"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_v2a3n"]
+
+[node name="Player" type="CharacterBody2D" unique_id=1982141801]
+scale = Vector2(3.498236, 3.8620431)
+script = ExtResource("1_6t5aa")
+closed_hand_texture = ExtResource("5_closed_hand")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=140214539]
+shape = SubResource("RectangleShape2D_86cna")
+
+[node name="Model" type="MeshInstance2D" parent="." unique_id=1841874111]
+rotation = 3.1415927
+scale = Vector2(20.125, 20.125)
+mesh = SubResource("QuadMesh_v2a3n")
+texture = ExtResource("2_vgqql")
+
+[node name="CameraAnchor" type="Node2D" parent="." unique_id=1666381024]
+
+[node name="Camera2D" type="Camera2D" parent="CameraAnchor" unique_id=399474621]
+enabled = false
+limit_left = 0
+limit_top = 0
+limit_right = 1152
+limit_bottom = 648
+
+[node name="InputComponent" type="Node" parent="." unique_id=887898522]
+script = ExtResource("2_cvnsp")
+metadata/_custom_type_script = "uid://dy0tc323y46m5"
+
+[node name="InteractComponent" type="Node" parent="." unique_id=56402494]
+script = ExtResource("4_vgqql")
+metadata/_custom_type_script = "uid://6fw286gmv7mb"

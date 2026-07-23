@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://bb7ogwr5tr7p2"]
+
+[ext_resource type="Texture2D" uid="uid://yaowlekel273" path="res://Assets/Levels/Ant/formiguinha1.png" id="1_toop8"]
+[ext_resource type="Script" uid="uid://6wybcapgxvhw" path="res://Scripts/Components/InteractableComponent.gd" id="2_interactable"]
+[ext_resource type="Texture2D" uid="uid://dyxyek1uxp208" path="res://Assets/Levels/Ant/formiguinha2.png" id="2_x3760"]
+[ext_resource type="Texture2D" uid="uid://bffymo3alp2kv" path="res://Assets/Levels/Ant/formiguinha3.png" id="3_4xu3x"]
+[ext_resource type="Script" uid="uid://8l5lmsbj58dn" path="res://Scripts/Components/Interactable/Draggable.gd" id="3_draggable"]
+[ext_resource type="Texture2D" uid="uid://c21jaaix3vwwt" path="res://Assets/Levels/Ant/formiguinha4.png" id="4_0kbeu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_86cna"]
+size = Vector2(160, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_86cna"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_toop8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_x3760")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4xu3x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0kbeu")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Ant" type="AnimatableBody2D" unique_id=605012984]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=276992453]
+shape = SubResource("RectangleShape2D_86cna")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1539184617]
+position = Vector2(0, 0.1)
+rotation = -1.5707964
+scale = Vector2(0.52000034, 0.52000034)
+sprite_frames = SubResource("SpriteFrames_86cna")
+autoplay = "default"
+frame_progress = 0.61896443
+offset = Vector2(0.1931169, 46.365063)
+
+[node name="InteractableComponent" type="Node" parent="." unique_id=1267381219]
+script = ExtResource("2_interactable")
+
+[node name="Draggable" type="Node" parent="InteractableComponent" unique_id=740946829]
+script = ExtResource("3_draggable")
