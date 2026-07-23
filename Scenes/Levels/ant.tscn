@@ -3,14 +3,15 @@
 [ext_resource type="Script" uid="uid://4kji0xrb872o" path="res://Scripts/Levels/ant.gd" id="1_13djf"]
 [ext_resource type="PackedScene" uid="uid://bb7ogwr5tr7p2" path="res://Scenes/Npc/ant.tscn" id="2_h0nov"]
 [ext_resource type="Texture2D" uid="uid://el5etotj35b8" path="res://Assets/Levels/Ant/ant_surface.jpg" id="3_0qjec"]
+[ext_resource type="PackedScene" uid="uid://coydmjh6uvmjl" path="res://Scenes/Particles/exploding_particles.tscn" id="3_3l2sg"]
 [ext_resource type="Texture2D" uid="uid://b8xcy583yfp16" path="res://Assets/Levels/Ant/leaf_ant_1.png" id="4_t7bdh"]
 [ext_resource type="Texture2D" uid="uid://cym6ccp5dtqiv" path="res://Assets/Levels/Ant/leaf_ant_2.png" id="5_ur2nf"]
 [ext_resource type="PackedScene" uid="uid://dh38ajtlp75jh" path="res://Scenes/UI/timerCountdown.tscn" id="6_0qjec"]
-[ext_resource type="Shader" uid="uid://b7g066boam7u0" path="res://Scripts/Shaders/leaf_shader.gdshader" id="7_3trrv"]
+[ext_resource type="Shader" uid="uid://b7g066boam7u0" path="res://Scripts/Shaders/LeafSway.gdshader" id="7_3trrv"]
 [ext_resource type="PackedScene" uid="uid://dw7nuint0go5y" path="res://Scenes/player.tscn" id="7_player"]
 [ext_resource type="Script" uid="uid://bdqsdxu1hqmfg" path="res://Scripts/Components/SpawnComponent.gd" id="8_spawn"]
 [ext_resource type="AudioStream" uid="uid://btfv71er525f" path="res://Assets/Sounds/Music/formigas.mp3" id="9_ikxix"]
-[ext_resource type="Shader" uid="uid://cpkva7vta32o" path="res://Scripts/Shaders/ambient_shadows.gdshader" id="11_oin5b"]
+[ext_resource type="Shader" uid="uid://cpkva7vta32o" path="res://Scripts/Shaders/AmbientShadows.gdshader" id="11_oin5b"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_86cna"]
 radius = 5.919108
@@ -110,6 +111,8 @@ position = Vector2(779, 572)
 position = Vector2(11.999999, 14.999999)
 scale = Vector2(5.24, 5.24)
 shape = SubResource("CircleShape2D_86cna")
+
+[node name="ExplodingParticles" parent="Bucket" unique_id=979341273 instance=ExtResource("3_3l2sg")]
 
 [node name="SpawnPools" type="Node" parent="." unique_id=375312093]
 

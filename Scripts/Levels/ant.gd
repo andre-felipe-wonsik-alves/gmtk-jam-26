@@ -54,6 +54,8 @@ func _on_bucket_body_entered(body: Node2D) -> void:
 	captured_ants += 1
 	_remove_ant(body)
 	AudioUtils._play_sound_effect(self, load("res://Assets/Sounds/Effects/woosh_balde.mp3"))
+	var particles = bucket.get_node("ExplodingParticles/CPUParticles2D")
+	particles._explode()
 
 
 func _remove_ant(ant: Node2D) -> void:
