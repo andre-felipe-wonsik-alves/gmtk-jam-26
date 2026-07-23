@@ -62,15 +62,15 @@ shader_parameter/sway_speed = 0.8
 shader_parameter/sway_height_start = 0.0
 
 [sub_resource type="Gradient" id="Gradient_oin5b"]
-offsets = PackedFloat32Array(0, 0.35074627, 1)
-colors = PackedColorArray(0, 0, 0, 1, 0.003921569, 0.003921569, 0, 0.5568628, 0.012617188, 0.012617188, 0, 0)
+offsets = PackedFloat32Array(0, 0.6641791, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.2627451, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_2d1bf"]
 gradient = SubResource("Gradient_oin5b")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_s0gqc"]
-noise_type = 3
-frequency = 0.0132
+noise_type = 2
+frequency = 0.0044
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_oin5b"]
 noise = SubResource("FastNoiseLite_s0gqc")
@@ -229,8 +229,8 @@ follow_viewport_enabled = true
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=755257369]
 material = SubResource("ShaderMaterial_t2orw")
-offset_left = -95.0
-offset_top = -305.0
-offset_right = 1222.0
-offset_bottom = 1393.0
+offset_left = -97.0
+offset_top = -68.0
+offset_right = 1220.0
+offset_bottom = 687.0
 mouse_filter = 2

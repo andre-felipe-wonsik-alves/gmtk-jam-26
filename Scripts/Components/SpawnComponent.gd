@@ -83,6 +83,8 @@ func _advance_instances(delta: float) -> void:
 	if path == null or path.curve == null:
 		return
 	var path_length := path.curve.get_baked_length()
+	path_follow.rotates = true
+	
 	if is_zero_approx(path_length):
 		return
 	for index in range(_moving_instances.size() - 1, -1, -1):
@@ -102,8 +104,9 @@ func _advance_instances(delta: float) -> void:
 			_moving_instances.remove_at(index)
 			continue
 			
-		#path_follow.progress = moving.distance
+		var sample_dist = clamp(moving.distance, 0.0, path_length)
+		var ahead = clamp(sample_dist - 1.0, 0.0, path_length)
+		var behind = clamp(sample_dist + 1.0, 0.0, path_length)
 
-		#moving.instance.global_position = path_follow.global_position
-		#moving.instance.global_rotation = path_follow.global_rotation
-		moving.instance.global_position = path.to_global(path.curve.sample_baked(moving.distance))
+		var tangent: Vector2 = path.curve.sample_baked(ahead) - path.curve.sample_baked(behind)
+		moving.instance.transform = Transform2D(tangent.angle(), path.to_global(path.curve.sample_baked(sample_dist)))

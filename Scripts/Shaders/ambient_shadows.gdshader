@@ -16,7 +16,7 @@ void fragment() {
 	float pixelColor = texture(TEXTURE, UV).r;
 	float noiseColor = texture(noise, UV+scroll2*TIME).r;
 	float noise2Color = texture(noise2, UV+scroll*TIME).r;
-	float energy = pixelColor + (noise2Color * noiseColor - (size - UV.y));
+	float energy = pixelColor * (noise2Color*0.7 + noiseColor);
 	COLOR = texture(gradient, vec2(energy));
 }
 
