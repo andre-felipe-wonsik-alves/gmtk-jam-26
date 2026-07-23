@@ -8,7 +8,7 @@ func _ready() -> void:
 	menu_button.pressed.connect(_on_menu_pressed)
 
 func _on_retry_pressed() -> void:
-	# Reinicia do minijogo atual onde ele errou
+	# Reinicia do minigame atual onde ele errou
 	GameManager.load_current_minigame_instruction()
 
 func _on_menu_pressed() -> void:

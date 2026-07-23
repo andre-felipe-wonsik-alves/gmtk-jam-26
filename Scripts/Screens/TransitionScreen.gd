@@ -3,7 +3,7 @@ extends Control
 @onready var label: RichTextLabel = $RichTextLabel
 @onready var timer: Timer = $Timer
 
-# Instruções para cada minijogo (pode ser mapeado pelo índice)
+# Instruções para cada minigame (pode ser mapeado pelo índice)
 var instructions: Array[String] = [
 	"[center]Clique nos objetos [color=red]VERMELHOS![/color][/center]",
 	"Clique nos objetos [color=green]VERDES![/color]"

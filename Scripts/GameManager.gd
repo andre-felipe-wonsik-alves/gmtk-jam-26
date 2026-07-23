@@ -1,4 +1,3 @@
-# game_manager.gd
 extends Node
 
 # Sinais para avisar o restante do jogo sobre mudanças de estado
@@ -9,13 +8,13 @@ signal minigame_passed
 var current_level_index: int = 0
 var score: int = 0
 
-# Lista com os caminhos das cenas dos seus minijogos
+# Lista com os caminhos das cenas dos minigames
 var minigames: Array[String] = [
-	"res://Scenes/Minigames/minigame_teste1.tscn", # Exemplo de minijogo 1
-	#"res://minigames/minigame_green_click.tscn" # Exemplo de minijogo 2
+	"res://Scenes/Minigames/minigame_teste1.tscn", # Exemplo de minigame 1
+	#"res://minigames/minigame_green_click.tscn" # Exemplo de minigame 2
 ]
 
-# Método para iniciar a partida
+# Método para iniciar o minigame
 func start_game() -> void:
 	current_level_index = 0
 	score = 0

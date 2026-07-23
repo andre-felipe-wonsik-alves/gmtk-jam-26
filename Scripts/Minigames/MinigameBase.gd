@@ -1,7 +1,7 @@
 class_name MinigameBase
 extends Node2D
 
-# Sinais próprios do minijogo
+# Sinais próprios do minigame
 signal won
 signal lost
 
@@ -9,7 +9,7 @@ signal lost
 var is_active: bool = true
 
 func _ready() -> void:
-	# Conecta os próprios sinais ao GameManager para descentralizar a lógica
+	# Conecta os próprios sinais ao GameManager
 	won.connect(_on_won)
 	lost.connect(_on_lost)
 
