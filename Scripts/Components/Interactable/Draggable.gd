@@ -24,7 +24,10 @@ func interaction_updated(mouse_position: Vector2) -> void:
 		return
 	var target := _target()
 	if target != null:
-		target.global_position = mouse_position + _offset
+		var shake_strength := 1.0  # pixels
+		var shake_rotation := 0.10  # radians
+		var jitter := Vector2(randf_range(-1, 1), randf_range(-1, 1)) * shake_strength
+		target.transform = Transform2D(shake_rotation*jitter.x, jitter + mouse_position + _offset)
 
 
 func is_dragging() -> bool:
