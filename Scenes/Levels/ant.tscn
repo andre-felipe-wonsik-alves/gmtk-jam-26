@@ -63,8 +63,8 @@ shader_parameter/sway_speed = 0.8
 shader_parameter/sway_height_start = 0.0
 
 [sub_resource type="Gradient" id="Gradient_oin5b"]
-offsets = PackedFloat32Array(0, 0.6641791, 1)
-colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.2627451, 0, 0, 0, 0)
+offsets = PackedFloat32Array(0, 0.46268657, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0.06879827, 0.06879828, 0.06879828, 0.37254903, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_2d1bf"]
 gradient = SubResource("Gradient_oin5b")
@@ -79,8 +79,8 @@ seamless = true
 seamless_blend_skirt = 1.0
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_8ifh5"]
-noise_type = 2
-frequency = 0.0021
+noise_type = 3
+frequency = 0.0033
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3l2sg"]
 noise = SubResource("FastNoiseLite_8ifh5")
@@ -89,6 +89,8 @@ seamless_blend_skirt = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t2orw"]
 shader = ExtResource("11_oin5b")
+shader_parameter/point_A = 0.20000000298024
+shader_parameter/point_B = 0.70000001043084
 shader_parameter/scroll = Vector2(0.023, 0.025)
 shader_parameter/scroll2 = Vector2(0.025, 0.03)
 shader_parameter/size = 0.8

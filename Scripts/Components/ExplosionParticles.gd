@@ -11,4 +11,6 @@ func _process(delta: float) -> void:
 	pass
 	
 func _explode() -> void:
+	if(self.emitting):
+		self.emitting = false
 	self.emitting = true
