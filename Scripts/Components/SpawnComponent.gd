@@ -102,8 +102,8 @@ func _advance_instances(delta: float) -> void:
 			_moving_instances.remove_at(index)
 			continue
 			
-		path_follow.progress = moving.distance
+		#path_follow.progress = moving.distance
 
-		moving.instance.global_position = path_follow.global_position
-		moving.instance.global_rotation = path_follow.global_rotation
-		#moving.instance.global_position = path.to_global(path.curve.sample_baked(moving.distance))
+		#moving.instance.global_position = path_follow.global_position
+		#moving.instance.global_rotation = path_follow.global_rotation
+		moving.instance.global_position = path.to_global(path.curve.sample_baked(moving.distance))

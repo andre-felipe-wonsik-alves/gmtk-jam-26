@@ -53,6 +53,7 @@ func _on_bucket_body_entered(body: Node2D) -> void:
 		return
 	captured_ants += 1
 	_remove_ant(body)
+	AudioUtils._play_sound_effect(self, load("res://Assets/Sounds/Effects/woosh_balde.mp3"))
 
 
 func _remove_ant(ant: Node2D) -> void:
