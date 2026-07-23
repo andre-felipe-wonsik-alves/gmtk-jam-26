@@ -6,8 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://b8xcy583yfp16" path="res://Assets/Levels/Ant/leaf_ant_1.png" id="4_t7bdh"]
 [ext_resource type="Texture2D" uid="uid://cym6ccp5dtqiv" path="res://Assets/Levels/Ant/leaf_ant_2.png" id="5_ur2nf"]
 [ext_resource type="PackedScene" uid="uid://dh38ajtlp75jh" path="res://Scenes/UI/timerCountdown.tscn" id="6_0qjec"]
+[ext_resource type="Shader" uid="uid://b7g066boam7u0" path="res://Scripts/Shaders/leaf_shader.gdshader" id="7_3trrv"]
 [ext_resource type="PackedScene" uid="uid://dw7nuint0go5y" path="res://Scenes/player.tscn" id="7_player"]
 [ext_resource type="Script" uid="uid://bdqsdxu1hqmfg" path="res://Scripts/Components/SpawnComponent.gd" id="8_spawn"]
+[ext_resource type="AudioStream" uid="uid://btfv71er525f" path="res://Assets/Sounds/Music/formigas.mp3" id="9_ikxix"]
+[ext_resource type="Shader" uid="uid://cpkva7vta32o" path="res://Scripts/Shaders/ambient_shadows.gdshader" id="11_oin5b"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_86cna"]
 radius = 5.919108
@@ -35,6 +38,61 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 560, 39, 0, 0, 0, 0, 476, 36, 0, 0, 0, 0, 473, 66, 0, 0, 0, 0, 501, 92, 0, 0, 0, 0, 540, 77, 0, 0, 0, 0, 576, 93, 0, 0, 0, 0, 608, 108, 0, 0, 0, 0, 655, 111, 0, 0, 0, 0, 671, 96, 0, 0, 0, 0, 673, 51, 0, 0, 0, 0, 649, 32, 0, 0, 0, 0, 614, 27, 0, 0, 0, 0, 580, 6, 0, 0, 0, 0, 559, 39)
 }
 point_count = 14
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_okvwm"]
+shader = ExtResource("7_3trrv")
+shader_parameter/margin_scale = 1.0
+shader_parameter/wind_strength = 1.0
+shader_parameter/wind_scale = 10.0
+shader_parameter/wind_speed = 0.1
+shader_parameter/wind_height_start = 0.0
+shader_parameter/sway_strength = 0.06000000285
+shader_parameter/sway_speed = 0.9
+shader_parameter/sway_height_start = 0.022000001045
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3trrv"]
+shader = ExtResource("7_3trrv")
+shader_parameter/margin_scale = 1.0
+shader_parameter/wind_strength = 1.0
+shader_parameter/wind_scale = 10.0
+shader_parameter/wind_speed = 0.1
+shader_parameter/wind_height_start = 0.0
+shader_parameter/sway_strength = 0.0950000045125
+shader_parameter/sway_speed = 0.8
+shader_parameter/sway_height_start = 0.0
+
+[sub_resource type="Gradient" id="Gradient_oin5b"]
+colors = PackedColorArray(0, 0, 0, 0.7764706, 0.012617188, 0.012617188, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_2d1bf"]
+gradient = SubResource("Gradient_oin5b")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_s0gqc"]
+noise_type = 2
+frequency = 0.0043
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_oin5b"]
+noise = SubResource("FastNoiseLite_s0gqc")
+seamless = true
+seamless_blend_skirt = 1.0
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_8ifh5"]
+noise_type = 2
+frequency = 0.0037
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3l2sg"]
+noise = SubResource("FastNoiseLite_8ifh5")
+seamless = true
+seamless_blend_skirt = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t2orw"]
+shader = ExtResource("11_oin5b")
+shader_parameter/scroll = Vector2(0.025, 0.025)
+shader_parameter/scroll2 = Vector2(0.025, 0.05)
+shader_parameter/size = 0.8
+shader_parameter/noise = SubResource("NoiseTexture2D_oin5b")
+shader_parameter/noise2 = SubResource("NoiseTexture2D_3l2sg")
+shader_parameter/gradient = SubResource("GradientTexture1D_2d1bf")
 
 [node name="AntLevel" type="Node2D" unique_id=843907795]
 script = ExtResource("1_13djf")
@@ -148,12 +206,30 @@ scale = Vector2(0.6399982, 0.6399982)
 texture = ExtResource("3_0qjec")
 
 [node name="LeafAnt1" type="Sprite2D" parent="Scenery" unique_id=445968814]
+material = SubResource("ShaderMaterial_okvwm")
 position = Vector2(371, 441)
 scale = Vector2(0.40000063, 0.40000063)
 texture = ExtResource("4_t7bdh")
 
 [node name="LeafAnt2" type="Sprite2D" parent="Scenery" unique_id=1457218897]
+material = SubResource("ShaderMaterial_3trrv")
 position = Vector2(965, 383)
 rotation = -2.9592805
 scale = Vector2(0.59937745, 0.59937745)
 texture = ExtResource("5_ur2nf")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=93410625]
+stream = ExtResource("9_ikxix")
+autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1394821978]
+layer = 2
+follow_viewport_enabled = true
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=755257369]
+material = SubResource("ShaderMaterial_t2orw")
+offset_left = -95.0
+offset_top = -305.0
+offset_right = 1222.0
+offset_bottom = 1393.0
+mouse_filter = 2
