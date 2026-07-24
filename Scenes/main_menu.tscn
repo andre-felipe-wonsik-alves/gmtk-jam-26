@@ -1,22 +1,152 @@
 [gd_scene format=3 uid="uid://ylvi75g7b7n5"]
 
-[ext_resource type="Script" uid="uid://dmmc0qxnrlylg" path="res://Scripts/Screens/MainMenu.gd" id="1_28flt"]
+[ext_resource type="Script" uid="uid://cgxls02aqgvau" path="res://Scripts/Screens/MainMenu.gd" id="1_28flt"]
+[ext_resource type="Theme" path="res://Themes/main_theme.tres" id="2_theme"]
 
-[node name="MainMenu" type="Control" unique_id=1838064]
+[sub_resource type="StyleBoxFlat" id="Panel_Card"]
+content_margin_left = 56.0
+content_margin_top = 48.0
+content_margin_right = 56.0
+content_margin_bottom = 48.0
+bg_color = Color(1, 1, 1, 0.045)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.75, 0.25, 0.9, 0.5)
+corner_radius_top_left = 28
+corner_radius_top_right = 28
+corner_radius_bottom_right = 28
+corner_radius_bottom_left = 28
+shadow_color = Color(0, 0, 0, 0.35)
+shadow_size = 18
+
+[sub_resource type="StyleBoxFlat" id="Btn_Normal"]
+content_margin_left = 40.0
+content_margin_top = 14.0
+content_margin_right = 40.0
+content_margin_bottom = 14.0
+bg_color = Color(0.62, 0.12, 0.75, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
+[sub_resource type="StyleBoxFlat" id="Btn_Pressed"]
+content_margin_left = 40.0
+content_margin_top = 14.0
+content_margin_right = 40.0
+content_margin_bottom = 14.0
+bg_color = Color(0.42, 0.06, 0.52, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
+[sub_resource type="StyleBoxFlat" id="Btn_Hover"]
+content_margin_left = 40.0
+content_margin_top = 14.0
+content_margin_right = 40.0
+content_margin_bottom = 14.0
+bg_color = Color(0.78, 0.22, 0.92, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
+[sub_resource type="StyleBoxFlat" id="Btn_Quit_Normal"]
+content_margin_left = 40.0
+content_margin_top = 14.0
+content_margin_right = 40.0
+content_margin_bottom = 14.0
+bg_color = Color(1, 1, 1, 0.08)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
+[sub_resource type="StyleBoxFlat" id="Btn_Quit_Pressed"]
+content_margin_left = 40.0
+content_margin_top = 14.0
+content_margin_right = 40.0
+content_margin_bottom = 14.0
+bg_color = Color(1, 1, 1, 0.22)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
+[sub_resource type="StyleBoxFlat" id="Btn_Quit_Hover"]
+content_margin_left = 40.0
+content_margin_top = 14.0
+content_margin_right = 40.0
+content_margin_bottom = 14.0
+bg_color = Color(1, 1, 1, 0.16)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
+[node name="MainMenu" type="Control" unique_id=1789508342]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_theme")
 script = ExtResource("1_28flt")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1339341155]
+[node name="Background" type="ColorRect" parent="." unique_id=1277387179]
 layout_mode = 0
-offset_right = 1164.0
-offset_bottom = 660.0
-color = Color(0.7262582, 0.00040526091, 0.7264163, 1)
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.078, 0.055, 0.11, 1)
 
-[node name="PlayButton" type="Button" parent="." unique_id=878751368]
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=633412799]
 layout_mode = 0
-offset_left = 359.0
-offset_top = 222.0
-offset_right = 838.0
-offset_bottom = 461.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Card" type="PanelContainer" parent="CenterContainer" unique_id=1957141739]
+layout_mode = 2
+theme_override_styles/panel = SubResource("Panel_Card")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Card" unique_id=1777919477]
+layout_mode = 2
+theme_override_constants/separation = 28
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="CenterContainer/Card/VBoxContainer" unique_id=999888703]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.93, 0.7, 1, 1)
+theme_override_font_sizes/font_size = 52
+text = "NOME DO JOGO"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="CenterContainer/Card/VBoxContainer" unique_id=131719207]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.75, 0.75, 0.8, 0.8)
+theme_override_font_sizes/font_size = 18
+text = "Aperte para começar a diversão!"
+horizontal_alignment = 1
+
+[node name="PlayButton" type="Button" parent="CenterContainer/Card/VBoxContainer" unique_id=838096308]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+theme_override_styles/normal = SubResource("Btn_Normal")
+theme_override_styles/pressed = SubResource("Btn_Pressed")
+theme_override_styles/hover = SubResource("Btn_Hover")
 text = "JOGAR"
+
+[node name="QuitButton" type="Button" parent="CenterContainer/Card/VBoxContainer" unique_id=372134991]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+theme_override_styles/normal = SubResource("Btn_Quit_Normal")
+theme_override_styles/pressed = SubResource("Btn_Quit_Pressed")
+theme_override_styles/hover = SubResource("Btn_Quit_Hover")
+text = "SAIR"

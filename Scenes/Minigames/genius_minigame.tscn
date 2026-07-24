@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://cxc7yivwrmh2o" path="res://Scripts/Components/MonitorDisplayComponent.gd" id="5_mon"]
 [ext_resource type="Script" uid="uid://cs1i16a0oqd38" path="res://Scripts/Components/ColorButtonComponent.gd" id="6_btn"]
 
+[sub_resource type="Theme" id="Theme_j3stb"]
+
 [node name="GeniusMinigame" type="Node2D" unique_id=270707829]
 script = ExtResource("1_genius")
 
@@ -62,6 +64,7 @@ offset_right = 100.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_j3stb")
 theme_override_font_sizes/font_size = 24
 text = "Aguardando..."
 horizontal_alignment = 1
@@ -255,7 +258,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 22
-text = "🚨 DESATIVAR ALARME"
+text = "DESATIVAR ALARME"
 horizontal_alignment = 1
 vertical_alignment = 1
 

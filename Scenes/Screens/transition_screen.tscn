@@ -1,19 +1,69 @@
 [gd_scene format=3 uid="uid://cloig71bbxwbn"]
 
-[ext_resource type="Script" uid="uid://ce1e2ut4we48l" path="res://Scripts/Screens/TransitionScreen.gd" id="1_y408c"]
+[ext_resource type="Script" uid="uid://bb420bt3pj315" path="res://Scripts/Screens/TransitionScreen.gd" id="1_y408c"]
+[ext_resource type="Theme" path="res://Themes/main_theme.tres" id="2_theme"]
 
-[node name="TransitionScreen" type="Control" unique_id=863703888]
+[sub_resource type="StyleBoxFlat" id="Progress_Bg"]
+bg_color = Color(1, 1, 1, 0.08)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="Progress_Fill"]
+bg_color = Color(0.6, 0.55, 0.95, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="TransitionScreen" type="Control" unique_id=1822946574]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_theme")
 script = ExtResource("1_y408c")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=474637796]
+[node name="Background" type="ColorRect" parent="." unique_id=1520402297]
 layout_mode = 0
-offset_top = -3.0
-offset_right = 267.0
-offset_bottom = 149.0
-bbcode_enabled = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.07, 0.07, 0.1, 1)
 
-[node name="Timer" type="Timer" parent="." unique_id=1130741475]
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1982386117]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1438771325]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer/VBoxContainer" unique_id=1609661077]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="CenterContainer/VBoxContainer" unique_id=1262857718]
+custom_minimum_size = Vector2(0, 14)
+layout_mode = 2
+theme_override_styles/background = SubResource("Progress_Bg")
+theme_override_styles/fill = SubResource("Progress_Fill")
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="." unique_id=254852857]
 wait_time = 1.5
 one_shot = true
