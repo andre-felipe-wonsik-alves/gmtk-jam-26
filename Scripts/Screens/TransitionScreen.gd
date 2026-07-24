@@ -1,5 +1,6 @@
 extends Control
 
+@onready var progress_bar: ProgressBar = $ProgressBar
 @onready var title: Label = $Label
 @onready var hint: RichTextLabel = $RichTextLabel
 @onready var image: Sprite2D = $Image
@@ -37,9 +38,19 @@ func _ready() -> void:
 	else:
 		hint.text = "Prepare-se!"
 	
+	# Começa a progressbar cheia
+	progress_bar.max_value = timer.wait_time
+	progress_bar.value = timer.wait_time
+	
 	# Conectando o sinal de término do Timer via código
 	timer.timeout.connect(_on_timer_timeout)
 	timer.start()
+
+func _process(_delta: float) -> void:
+	# Esvazia a barra conforme o tempo passa, dando feedback visual
+	# de quanto falta para o minigame começar
+	if not timer.is_stopped():
+		progress_bar.value = timer.time_left
 
 func _on_timer_timeout() -> void:
 	GameManager.load_current_minigame()
