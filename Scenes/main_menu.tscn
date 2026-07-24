@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ylvi75g7b7n5"]
 
-[ext_resource type="Script" uid="uid://dmmc0qxnrlylg" path="res://Scripts/Screens/MainMenu.gd" id="1_28flt"]
+[ext_resource type="Script" uid="uid://cgxls02aqgvau" path="res://Scripts/Screens/MainMenu.gd" id="1_28flt"]
 [ext_resource type="Texture2D" uid="uid://cuf05wp537u7s" path="res://Assets/Levels/Menu/screenshot-2026-07-23_21-58-22.png" id="2_48xlc"]
 [ext_resource type="StyleBox" uid="uid://ce6lacdhlhrkt" path="res://Scenes/UI/MenuButton.tres" id="2_n45e2"]
 [ext_resource type="AudioStream" uid="uid://b0jx4t3jasmj0" path="res://Assets/Sounds/Music/genius.mp3" id="3_1ehe0"]
@@ -10,98 +10,9 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ew4di"]
 
-[sub_resource type="StyleBoxFlat" id="Panel_Card"]
-content_margin_left = 56.0
-content_margin_top = 48.0
-content_margin_right = 56.0
-content_margin_bottom = 48.0
-bg_color = Color(1, 1, 1, 0.045)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.75, 0.25, 0.9, 0.5)
-corner_radius_top_left = 28
-corner_radius_top_right = 28
-corner_radius_bottom_right = 28
-corner_radius_bottom_left = 28
-shadow_color = Color(0, 0, 0, 0.35)
-shadow_size = 18
-
-[sub_resource type="StyleBoxFlat" id="Btn_Normal"]
-content_margin_left = 40.0
-content_margin_top = 14.0
-content_margin_right = 40.0
-content_margin_bottom = 14.0
-bg_color = Color(0.62, 0.12, 0.75, 1)
-corner_radius_top_left = 14
-corner_radius_top_right = 14
-corner_radius_bottom_right = 14
-corner_radius_bottom_left = 14
-
-[sub_resource type="StyleBoxFlat" id="Btn_Pressed"]
-content_margin_left = 40.0
-content_margin_top = 14.0
-content_margin_right = 40.0
-content_margin_bottom = 14.0
-bg_color = Color(0.42, 0.06, 0.52, 1)
-corner_radius_top_left = 14
-corner_radius_top_right = 14
-corner_radius_bottom_right = 14
-corner_radius_bottom_left = 14
-
-[sub_resource type="StyleBoxFlat" id="Btn_Hover"]
-content_margin_left = 40.0
-content_margin_top = 14.0
-content_margin_right = 40.0
-content_margin_bottom = 14.0
-bg_color = Color(0.78, 0.22, 0.92, 1)
-corner_radius_top_left = 14
-corner_radius_top_right = 14
-corner_radius_bottom_right = 14
-corner_radius_bottom_left = 14
-
-[sub_resource type="StyleBoxFlat" id="Btn_Quit_Normal"]
-content_margin_left = 40.0
-content_margin_top = 14.0
-content_margin_right = 40.0
-content_margin_bottom = 14.0
-bg_color = Color(1, 1, 1, 0.08)
-corner_radius_top_left = 14
-corner_radius_top_right = 14
-corner_radius_bottom_right = 14
-corner_radius_bottom_left = 14
-
-[sub_resource type="StyleBoxFlat" id="Btn_Quit_Pressed"]
-content_margin_left = 40.0
-content_margin_top = 14.0
-content_margin_right = 40.0
-content_margin_bottom = 14.0
-bg_color = Color(1, 1, 1, 0.22)
-corner_radius_top_left = 14
-corner_radius_top_right = 14
-corner_radius_bottom_right = 14
-corner_radius_bottom_left = 14
-
-[sub_resource type="StyleBoxFlat" id="Btn_Quit_Hover"]
-content_margin_left = 40.0
-content_margin_top = 14.0
-content_margin_right = 40.0
-content_margin_bottom = 14.0
-bg_color = Color(1, 1, 1, 0.16)
-corner_radius_top_left = 14
-corner_radius_top_right = 14
-corner_radius_bottom_right = 14
-corner_radius_bottom_left = 14
-
-[node name="MainMenu" type="Control" unique_id=1789508342]
+[node name="MainMenu" type="Control" unique_id=1838064]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("2_theme")
+anchors_preset = 0
 script = ExtResource("1_28flt")
 
 [node name="PlayButton" type="Button" parent="." unique_id=1525011396]

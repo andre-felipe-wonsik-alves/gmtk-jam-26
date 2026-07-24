@@ -3,14 +3,12 @@ extends CanvasLayer
 @onready var color_rect: ColorRect = $ColorRect
 @onready var anim: AnimationPlayer = $AnimationPlayer
 
-var countdown = preload("res://Scenes/Screens/StartCountdown.tscn").instantiate()
+const COUNTDOWN_SCENE = preload("res://Scenes/Screens/StartCountdown.tscn")
 
 func _ready() -> void:
 	# Garante que ao iniciar o jogo, o retângulo não bloqueie cliques nem fique visível
 	color_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	color_rect.color.a = 0.0
-	# pra não travar o countdown
-	countdown.process_mode = Node.PROCESS_MODE_ALWAYS
 
 # Função principal de transição
 func change_scene(target_scene_path: String, anim_name: String = "fade_in", show_countdown: bool = false) -> void:
@@ -38,9 +36,12 @@ func change_scene(target_scene_path: String, anim_name: String = "fade_in", show
 
 	# 5. Countdown roda por cima da cena congelada
 	if show_countdown:
+		var countdown = COUNTDOWN_SCENE.instantiate()
+		countdown.process_mode = Node.PROCESS_MODE_ALWAYS
 		get_tree().current_scene.add_child(countdown)
 		await countdown.countdown_finished
-		get_tree().current_scene.remove_child(countdown)
+		if is_instance_valid(countdown):
+			get_tree().current_scene.remove_child(countdown)
 
 	# 6. Despausa — a cena começa a rodar
 	get_tree().paused = false

@@ -58,7 +58,7 @@ func start_genius_round() -> void:
 	if secondary_button_color_rect:
 		secondary_button_color_rect.color = Color(0.5, 0.5, 0.5, 1)
 	if secondary_button_text:
-		secondary_button_text.text = "DESATIVAR ALARME"
+		secondary_button_text.text = "RESTART TIMER"
 		
 	# 1. Gerar a sequência aleatória
 	current_sequence = sequence_generator.generate_sequence(sequence_length)

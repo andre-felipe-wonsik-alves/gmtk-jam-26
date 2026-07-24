@@ -20,7 +20,6 @@ config/icon="res://Assets/icon.svg"
 GameSession="*res://Scripts/Autoload/GameSession.gd"
 GameManager="*uid://holr7krbu8p1"
 SceneTransition="*uid://c50vknnevtb6k"
-GameSession="*res://Scripts/Autoload/GameSession.gd"
 
 [display]
 

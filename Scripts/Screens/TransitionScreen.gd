@@ -36,7 +36,7 @@ func _ready() -> void:
 		hint.add_theme_color_override("font_color", Color.BLACK)
 		image.texture = load(images[index])
 	else:
-		hint.text = "Prepare-se!"
+		hint.text = "Get ready!"
 	
 	# Começa a progressbar cheia
 	progress_bar.max_value = timer.wait_time

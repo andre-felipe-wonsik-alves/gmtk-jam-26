@@ -1,4 +1,4 @@
-extends Node2D
+extends CanvasLayer
 
 @onready var image: Sprite2D = $CenterContainer/Sprite2D
 
@@ -15,7 +15,7 @@ var current_index = 0
 func _ready() -> void:
 	image.texture = null
 	image.modulate.a = 0.0
-	image.position = get_viewport_rect().size / 2
+	image.position = get_viewport().get_visible_rect().size / 2.0
 	image.top_level = true
 	start_countdown()
 

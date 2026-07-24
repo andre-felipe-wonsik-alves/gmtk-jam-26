@@ -20,7 +20,7 @@ func set_visual_active(active: bool) -> void:
 # Faz o botão piscar por um curto período de tempo
 func flash(duration: float = 0.3) -> void:
 	set_visual_active(true)
-	await get_tree().create_timer(duration).timeout
+	await get_tree().create_timer(duration, false).timeout
 	set_visual_active(false)
 
 # Quando o botão é pressionado, ele pisca e emite um sinal com o ID da cor correspondente
