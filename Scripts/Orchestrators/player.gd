@@ -40,5 +40,6 @@ func _show_open_hand() -> void:
 
 
 func _show_closed_hand() -> void:
+	AudioUtils._play_sound_effect(self, load("res://Assets/Sounds/Effects/dragon-studio-clean-whoosh-382726.mp3"))
 	if closed_hand_texture != null:
 		model.texture = closed_hand_texture
