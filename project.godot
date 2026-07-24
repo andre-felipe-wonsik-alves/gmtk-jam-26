@@ -11,13 +11,15 @@ config_version=5
 [application]
 
 config/name="entry"
-run/main_scene="uid://coa4jk3w0pso7"
+run/main_scene="uid://ylvi75g7b7n5"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://Assets/icon.svg"
 
 [autoload]
 
 GameSession="*res://Scripts/Autoload/GameSession.gd"
+GameManager="*uid://holr7krbu8p1"
+SceneTransition="*uid://c50vknnevtb6k"
 
 [display]
 

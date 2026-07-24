@@ -1,0 +1,276 @@
+[gd_scene format=3 uid="uid://dpvdn33fxwqa6"]
+
+[ext_resource type="Script" uid="uid://t8k5sbc2vlmw" path="res://Scripts/Minigames/GeniusMinigame.gd" id="1_genius"]
+[ext_resource type="Script" uid="uid://3jtvndxdpow0" path="res://Scripts/Components/SequenceGeneratorComponent.gd" id="2_gen"]
+[ext_resource type="Script" uid="uid://ftboe3bhcu17" path="res://Scripts/Components/SequenceValidatorComponent.gd" id="3_val"]
+[ext_resource type="Script" uid="uid://c03qcqua5x3xd" path="res://Scripts/Components/TimerComponent.gd" id="4_timer"]
+[ext_resource type="Script" uid="uid://cxc7yivwrmh2o" path="res://Scripts/Components/MonitorDisplayComponent.gd" id="5_mon"]
+[ext_resource type="Script" uid="uid://cs1i16a0oqd38" path="res://Scripts/Components/ColorButtonComponent.gd" id="6_btn"]
+
+[node name="GeniusMinigame" type="Node2D" unique_id=270707829]
+script = ExtResource("1_genius")
+
+[node name="Background" type="ColorRect" parent="." unique_id=446328112]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.08, 0.08, 0.12, 1)
+
+[node name="Components" type="Node" parent="." unique_id=1429039005]
+
+[node name="SequenceGeneratorComponent" type="Node" parent="Components" unique_id=326420544]
+script = ExtResource("2_gen")
+
+[node name="SequenceValidatorComponent" type="Node" parent="Components" unique_id=1018446873]
+script = ExtResource("3_val")
+
+[node name="TimerComponent" type="Node" parent="Components" unique_id=895934577]
+script = ExtResource("4_timer")
+
+[node name="SecondaryTimerComponent" type="Node" parent="Components" unique_id=895934578]
+script = ExtResource("4_timer")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1593499422]
+
+[node name="MonitorDisplayComponent" type="Control" parent="UI" unique_id=519258914]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 80.0
+offset_top = 40.0
+offset_right = 480.0
+offset_bottom = 240.0
+script = ExtResource("5_mon")
+
+[node name="ScreenRect" type="ColorRect" parent="UI/MonitorDisplayComponent" unique_id=1232671412]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1, 0.1, 0.15, 1)
+
+[node name="StatusLabel" type="Label" parent="UI/MonitorDisplayComponent" unique_id=1776633887]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -20.0
+offset_right = 100.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "Aguardando..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimerLabel" type="Label" parent="UI" unique_id=84261161]
+offset_left = 620.0
+offset_top = 40.0
+offset_right = 1072.0
+offset_bottom = 90.0
+theme_override_font_sizes/font_size = 28
+text = "Tempo Principal: 15.0s"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonGrid" type="GridContainer" parent="UI" unique_id=709174494]
+offset_left = 80.0
+offset_top = 270.0
+offset_right = 480.0
+offset_bottom = 570.0
+columns = 2
+
+[node name="ButtonBlue" type="Button" parent="UI/ButtonGrid" unique_id=1516187206]
+custom_minimum_size = Vector2(196, 146)
+layout_mode = 2
+script = ExtResource("6_btn")
+normal_color = Color(0.2, 0.4, 1, 1)
+active_color = Color(0.5, 0.7, 1, 1)
+
+[node name="ColorRect" type="ColorRect" parent="UI/ButtonGrid/ButtonBlue" unique_id=205182867]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.2, 0.4, 1, 1)
+
+[node name="ButtonRed" type="Button" parent="UI/ButtonGrid" unique_id=909903191]
+custom_minimum_size = Vector2(196, 146)
+layout_mode = 2
+script = ExtResource("6_btn")
+color_id = 1
+normal_color = Color(1, 0.2, 0.2, 1)
+active_color = Color(1, 0.6, 0.6, 1)
+
+[node name="ColorRect" type="ColorRect" parent="UI/ButtonGrid/ButtonRed" unique_id=1749668857]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="ButtonYellow" type="Button" parent="UI/ButtonGrid" unique_id=905627959]
+custom_minimum_size = Vector2(196, 146)
+layout_mode = 2
+script = ExtResource("6_btn")
+color_id = 2
+normal_color = Color(1, 0.9, 0.1, 1)
+active_color = Color(1, 0.95, 0.6, 1)
+
+[node name="ColorRect" type="ColorRect" parent="UI/ButtonGrid/ButtonYellow" unique_id=1148386977]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 0.9, 0.1, 1)
+
+[node name="ButtonGreen" type="Button" parent="UI/ButtonGrid" unique_id=100456885]
+custom_minimum_size = Vector2(196, 146)
+layout_mode = 2
+script = ExtResource("6_btn")
+color_id = 3
+normal_color = Color(0.2, 0.9, 0.2, 1)
+active_color = Color(0.6, 1, 0.6, 1)
+
+[node name="ColorRect" type="ColorRect" parent="UI/ButtonGrid/ButtonGreen" unique_id=1334981414]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.2, 0.9, 0.2, 1)
+
+[node name="EmergencyPanel" type="Control" parent="UI" unique_id=400100200]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 620.0
+offset_top = 110.0
+offset_right = 1072.0
+offset_bottom = 570.0
+
+[node name="PanelBackground" type="ColorRect" parent="UI/EmergencyPanel" unique_id=400100201]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.14, 0.12, 0.2, 1)
+
+[node name="HeaderRect" type="ColorRect" parent="UI/EmergencyPanel" unique_id=400100202]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 50.0
+grow_horizontal = 2
+color = Color(0.8, 0.2, 0.2, 1)
+
+[node name="HeaderLabel" type="Label" parent="UI/EmergencyPanel" unique_id=400100203]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 8.0
+offset_bottom = 42.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 20
+text = "TEMPORIZADOR DE EMERGÊNCIA"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SecondaryTimerLabel" type="Label" parent="UI/EmergencyPanel" unique_id=400100204]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 20.0
+offset_top = 70.0
+offset_right = -20.0
+offset_bottom = 120.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.4, 0.4, 1)
+theme_override_font_sizes/font_size = 26
+text = "Emergência: 7.0s"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InstructionLabel" type="Label" parent="UI/EmergencyPanel" unique_id=400100205]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 20.0
+offset_top = 130.0
+offset_right = -20.0
+offset_bottom = 180.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 15
+text = "Aperte o botão de emergência antes que o tempo dele acabe!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="SecondaryButton" type="Button" parent="UI/EmergencyPanel" unique_id=400100206]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -170.0
+offset_top = -15.0
+offset_right = 170.0
+offset_bottom = 105.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 22
+
+[node name="ButtonColorRect" type="ColorRect" parent="UI/EmergencyPanel/SecondaryButton" unique_id=400100207]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.85, 0.25, 0.25, 1)
+
+[node name="ButtonText" type="Label" parent="UI/EmergencyPanel/SecondaryButton" unique_id=400100208]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 22
+text = "🚨 DESATIVAR ALARME"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatusLabel" type="Label" parent="UI/EmergencyPanel" unique_id=400100209]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -50.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 0.3, 0.3, 1)
+theme_override_font_sizes/font_size = 18
+text = "STATUS: AGUARDANDO..."
+horizontal_alignment = 1
+vertical_alignment = 1
