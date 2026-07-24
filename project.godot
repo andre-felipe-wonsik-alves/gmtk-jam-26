@@ -24,6 +24,7 @@ SceneTransition="*uid://c50vknnevtb6k"
 [display]
 
 window/size/mode=2
+window/size/borderless=true
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 

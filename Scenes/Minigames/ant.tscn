@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://coa4jk3w0pso7"]
+[gd_scene format=3 uid="uid://1c7yo4yjc24o"]
 
 [ext_resource type="Script" uid="uid://4kji0xrb872o" path="res://Scripts/Levels/ant.gd" id="1_13djf"]
 [ext_resource type="PackedScene" uid="uid://bb7ogwr5tr7p2" path="res://Scenes/Npc/ant.tscn" id="2_h0nov"]
@@ -39,7 +39,7 @@ _data = {
 point_count = 14
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_okvwm"]
-shader = ExtResource("8_msd2v")
+shader = ExtResource("7_3trrv")
 shader_parameter/margin_scale = 1.0
 shader_parameter/wind_strength = 1.0
 shader_parameter/wind_scale = 10.0
@@ -50,7 +50,7 @@ shader_parameter/sway_speed = 0.9
 shader_parameter/sway_height_start = 0.022000001045
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3trrv"]
-shader = ExtResource("8_msd2v")
+shader = ExtResource("7_3trrv")
 shader_parameter/margin_scale = 1.0
 shader_parameter/wind_strength = 1.0
 shader_parameter/wind_scale = 10.0
@@ -86,7 +86,7 @@ seamless = true
 seamless_blend_skirt = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t2orw"]
-shader = ExtResource("12_atxch")
+shader = ExtResource("11_oin5b")
 shader_parameter/point_A = 0.20000000298024
 shader_parameter/point_B = 0.70000001043084
 shader_parameter/scroll = Vector2(0.023, 0.025)
@@ -97,9 +97,9 @@ shader_parameter/noise2 = SubResource("NoiseTexture2D_3l2sg")
 shader_parameter/gradient = SubResource("GradientTexture1D_2d1bf")
 
 [node name="AntLevel" type="Node2D" unique_id=843907795]
-script = ExtResource("1_rscn2")
+script = ExtResource("1_13djf")
 
-[node name="Player" parent="." unique_id=1814912243 instance=ExtResource("2_j0c28")]
+[node name="Player" parent="." unique_id=1814912243 instance=ExtResource("7_player")]
 top_level = true
 position = Vector2(377, 220.99998)
 
@@ -114,8 +114,8 @@ top_level = true
 position = Vector2(1154, -45)
 
 [node name="SpawnComponent" type="Node" parent="SpawnPools/TopRoadSpawn" unique_id=1935042455 node_paths=PackedStringArray("path", "path_follow")]
-script = ExtResource("4_kkrb4")
-spawn_scene = ExtResource("5_5vlyh")
+script = ExtResource("8_spawn")
+spawn_scene = ExtResource("2_h0nov")
 path = NodePath("../RightRoad")
 path_follow = NodePath("../RightRoad/PathFollow2D")
 
@@ -133,8 +133,8 @@ top_level = true
 position = Vector2(-81, 197)
 
 [node name="SpawnComponent" type="Node" parent="SpawnPools/LeftRoadSpawn" unique_id=25430763 node_paths=PackedStringArray("path", "path_follow")]
-script = ExtResource("4_kkrb4")
-spawn_scene = ExtResource("5_5vlyh")
+script = ExtResource("8_spawn")
+spawn_scene = ExtResource("2_h0nov")
 path = NodePath("../LeftRoad")
 path_follow = NodePath("../LeftRoad/LeftRoadPath")
 loop_path = true
@@ -152,8 +152,8 @@ top_level = true
 position = Vector2(527, 703)
 
 [node name="SpawnComponent" type="Node" parent="SpawnPools/BottomRoadSpawn" unique_id=1334088843 node_paths=PackedStringArray("path", "path_follow")]
-script = ExtResource("4_kkrb4")
-spawn_scene = ExtResource("5_5vlyh")
+script = ExtResource("8_spawn")
+spawn_scene = ExtResource("2_h0nov")
 path = NodePath("../BottomRoad")
 path_follow = NodePath("../BottomRoad/BottomRoadPath")
 loop_path = true
@@ -171,8 +171,8 @@ top_level = true
 position = Vector2(560, 12)
 
 [node name="SpawnComponent" type="Node" parent="SpawnPools/LeafSpawn" unique_id=272337550 node_paths=PackedStringArray("path", "path_follow")]
-script = ExtResource("4_kkrb4")
-spawn_scene = ExtResource("5_5vlyh")
+script = ExtResource("8_spawn")
+spawn_scene = ExtResource("2_h0nov")
 path = NodePath("../LeafRoad")
 path_follow = NodePath("../LeafRoad/PathFollow2D")
 loop_path = true
@@ -195,7 +195,6 @@ spawn_marker = NodePath("..")
 metadata/_custom_type_script = "uid://bdqsdxu1hqmfg"
 
 [node name="Countdown" parent="." unique_id=1894812876 instance=ExtResource("6_0qjec")]
-
 offset_left = 1099.0
 offset_top = 575.0
 offset_right = 1099.0
@@ -214,17 +213,17 @@ texture = ExtResource("7_3l2sg")
 material = SubResource("ShaderMaterial_okvwm")
 position = Vector2(371, 441)
 scale = Vector2(0.40000063, 0.40000063)
-texture = ExtResource("9_a72sj")
+texture = ExtResource("4_t7bdh")
 
 [node name="LeafAnt2" type="Sprite2D" parent="Scenery" unique_id=1457218897]
 material = SubResource("ShaderMaterial_3trrv")
 position = Vector2(965, 383)
 rotation = -2.9592805
 scale = Vector2(0.59937745, 0.59937745)
-texture = ExtResource("10_ypw12")
+texture = ExtResource("5_ur2nf")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=93410625]
-stream = ExtResource("11_ob15v")
+stream = ExtResource("9_ikxix")
 autoplay = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1394821978]

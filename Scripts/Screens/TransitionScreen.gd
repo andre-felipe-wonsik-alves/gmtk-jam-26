@@ -9,18 +9,21 @@ extends Control
 var names: Array[String] = [
 	"ANT HAVOC",
 	"REMEMBER THE COLORS",
+	"CITY SORTING"
 ]
 
 # Instruções para cada minigame (pode ser mapeado pelo índice)
 var instructions: Array[String] = [
 	"Catch all the ants!\nHint: Beware of the frogs and anteaters.",
-	"Decore a sequência de cores!",
+	"Remember the colors!",
+	"Select all the red things!"
 ]
 
 # Imagens de cada
 var images: Array[String] = [
 	"res://Assets/Levels/Menu/ants.png",
-	"res://Assets/Levels/Menu/genius.png"
+	"res://Assets/Levels/Menu/genius.png",
+	"res://Assets/Levels/Menu/city.png"
 ]
 
 func _ready() -> void:
