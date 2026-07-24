@@ -28,10 +28,11 @@ func load_current_minigame_instruction() -> void:
 	SceneTransition.change_scene("res://Scenes/Screens/transition_screen.tscn", "fade_in")
 
 # Chama o minigame atual
-func load_current_minigame() -> void:
+func load_current_minigame(show_countdown: bool = false) -> void:
 	if current_level_index < minigames.size():
 		# Transição padrão suave
-		SceneTransition.change_scene(minigames[current_level_index], "fade_in")
+		SceneTransition.change_scene(minigames[current_level_index], "fade_in", show_countdown)
+			
 
 # Chamado quando o jogador passa de fase
 func pass_minigame() -> void:

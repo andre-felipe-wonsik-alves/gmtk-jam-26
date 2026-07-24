@@ -53,4 +53,4 @@ func _process(_delta: float) -> void:
 		progress_bar.value = timer.time_left
 
 func _on_timer_timeout() -> void:
-	GameManager.load_current_minigame()
+	GameManager.load_current_minigame(true)
