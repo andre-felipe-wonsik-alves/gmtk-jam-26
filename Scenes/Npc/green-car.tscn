@@ -1,18 +1,18 @@
 [gd_scene format=3 uid="uid://dw50tasy8rc7b"]
 
-[ext_resource type="Texture2D" uid="uid://ceukar58dgufd" path="res://Assets/Levels/City/wrong-car.png" id="1_4wdpa"]
+[ext_resource type="Texture2D" uid="uid://bfhuo3ljql7ig" path="res://Assets/Levels/City/green-car.png" id="1_ne018"]
 [ext_resource type="Script" uid="uid://6wybcapgxvhw" path="res://Scripts/Components/InteractableComponent.gd" id="2_a3frx"]
 [ext_resource type="Script" uid="uid://cmrqf7p1u3hd7" path="res://Scripts/Components/Interactable/Wrong.gd" id="3_4wdpa"]
 [ext_resource type="AudioStream" uid="uid://el5ue53edxfh" path="res://Assets/Sounds/Effects/apebble-fart-3-228243.mp3" id="4_a3frx"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8odeo"]
-size = Vector2(128, 62)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_382f7"]
+size = Vector2(143, 60)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_1snrl"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_smd1s"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_4wdpa")
+"texture": ExtResource("1_ne018")
 }],
 "loop": 1,
 "name": &"default",
@@ -20,17 +20,18 @@ animations = [{
 }]
 
 [node name="Car" type="AnimatableBody2D" unique_id=1876073245]
+scale = Vector2(2, 2)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2030024330]
-position = Vector2(1, -11)
-shape = SubResource("RectangleShape2D_8odeo")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1808584172]
+position = Vector2(-0.5, -10)
+shape = SubResource("RectangleShape2D_382f7")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1305526116]
-position = Vector2(0, -7)
-scale = Vector2(0.23999934, 0.23999934)
-sprite_frames = SubResource("SpriteFrames_1snrl")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2042302553]
+position = Vector2(1.9073486e-06, -4)
+scale = Vector2(0.080001436, 0.080001436)
+sprite_frames = SubResource("SpriteFrames_smd1s")
 autoplay = "default"
-offset = Vector2(0.1931169, -11.690617)
+offset = Vector2(-12.306427, -74.18906)
 
 [node name="InteractableComponent" type="Node" parent="." unique_id=1792679841]
 script = ExtResource("2_a3frx")

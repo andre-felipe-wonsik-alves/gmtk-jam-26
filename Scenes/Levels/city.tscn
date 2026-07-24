@@ -6,8 +6,28 @@
 [ext_resource type="Script" uid="uid://bdqsdxu1hqmfg" path="res://Scripts/Components/SpawnComponent.gd" id="3_1m7hl"]
 [ext_resource type="PackedScene" uid="uid://dvypd6srkfcjr" path="res://Scenes/Npc/woman.tscn" id="3_dta0y"]
 [ext_resource type="PackedScene" uid="uid://dyn5iw7y47xdp" path="res://Scenes/Npc/car.tscn" id="4_3yl78"]
-[ext_resource type="PackedScene" uid="uid://dw50tasy8rc7b" path="res://Scenes/Npc/wrong-car.tscn" id="6_aem5b"]
+[ext_resource type="Texture2D" uid="uid://cg72e2m4fcqlu" path="res://Assets/Levels/City/Scenery/front_pathway.png" id="4_320g1"]
+[ext_resource type="Texture2D" uid="uid://uyacfbuu1wy3" path="res://Assets/Levels/City/Scenery/grass.png" id="5_lwyr8"]
+[ext_resource type="PackedScene" uid="uid://dw50tasy8rc7b" path="res://Scenes/Npc/green-car.tscn" id="6_aem5b"]
+[ext_resource type="Texture2D" uid="uid://dki1kf6shl5io" path="res://Assets/Levels/City/Scenery/pole2.png" id="6_o4t3i"]
+[ext_resource type="Texture2D" uid="uid://h7yumdoedqxb" path="res://Assets/Levels/City/Scenery/pole.png" id="7_0kupl"]
 [ext_resource type="PackedScene" uid="uid://dl54ikwipnilr" path="res://Scenes/Npc/random_dude.tscn" id="7_kxfw3"]
+[ext_resource type="PackedScene" uid="uid://cve8rd6uht2ny" path="res://Scenes/Npc/purple-car.tscn" id="7_s7f8u"]
+[ext_resource type="PackedScene" uid="uid://c60tdgru3csrw" path="res://Scenes/Npc/yellow-car.tscn" id="8_u0s6v"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_86cna"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_o4t3i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_0kupl")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="Curve2D" id="Curve2D_aem5b"]
 _data = {
@@ -34,6 +54,8 @@ _data = {
 point_count = 4
 
 [node name="City" type="Node2D" unique_id=1970652152]
+position = Vector2(42.176178, 0.5657654)
+scale = Vector2(0.8366256, 0.9730459)
 script = ExtResource("1_1m7hl")
 
 [node name="Player" parent="." unique_id=1982141801 instance=ExtResource("1_t1nu0")]
@@ -42,20 +64,56 @@ top_level = true
 [node name="Scenery" type="Node" parent="." unique_id=865049262]
 
 [node name="background" type="Sprite2D" parent="Scenery" unique_id=725243874]
+visible = false
 show_behind_parent = true
 z_index = -1
 position = Vector2(569, 322)
 scale = Vector2(0.7584259, 0.7584259)
 texture = ExtResource("2_3yl78")
 
+[node name="frontPathway" type="Sprite2D" parent="Scenery" unique_id=134609681]
+z_index = -2
+position = Vector2(576.17615, 544.56573)
+scale = Vector2(0.60236937, 0.7005918)
+texture = ExtResource("4_320g1")
+
+[node name="leftGrass" type="Sprite2D" parent="Scenery" unique_id=613921093]
+z_index = -1
+position = Vector2(180.17618, 441.56573)
+scale = Vector2(0.60236937, 0.7005918)
+texture = ExtResource("5_lwyr8")
+
+[node name="rightGrass" type="Sprite2D" parent="Scenery" unique_id=767072801]
+z_index = -1
+position = Vector2(969.1763, 441.56573)
+scale = Vector2(0.60236937, 0.7005918)
+texture = ExtResource("5_lwyr8")
+flip_h = true
+
+[node name="rightPole" type="AnimatedSprite2D" parent="Scenery" unique_id=1531148028]
+position = Vector2(980.93726, 276.7889)
+scale = Vector2(0.52237, 0.6075477)
+sprite_frames = SubResource("SpriteFrames_86cna")
+autoplay = "default"
+frame_progress = 0.88958013
+
+[node name="leftPole" type="AnimatedSprite2D" parent="Scenery" unique_id=987890627]
+position = Vector2(154.93712, 276.78897)
+scale = Vector2(0.52237, 0.6075477)
+sprite_frames = SubResource("SpriteFrames_86cna")
+autoplay = "default"
+frame_progress = 0.5816786
+flip_h = true
+
 [node name="SpawnPools" type="Node" parent="." unique_id=663536681]
 
 [node name="RoadLeft" type="Marker2D" parent="SpawnPools" unique_id=649712608]
+visible = false
 position = Vector2(-214, 279)
 
 [node name="SpawnComponent" type="Node" parent="SpawnPools/RoadLeft" unique_id=1009406731 node_paths=PackedStringArray("spawn_marker", "path", "path_follow")]
 script = ExtResource("3_1m7hl")
-spawn_scene = ExtResource("4_3yl78")
+spawn_scenes = Array[PackedScene]([ExtResource("4_3yl78"), ExtResource("6_aem5b"), ExtResource("7_s7f8u"), ExtResource("8_u0s6v")])
 spawn_marker = NodePath("..")
 path = NodePath("../Path2D")
 path_follow = NodePath("../Path2D/PathFollow2D")
@@ -70,11 +128,12 @@ position = Vector2(-1, 6)
 rotation = 0.0013468005
 
 [node name="RoadRight" type="Marker2D" parent="SpawnPools" unique_id=1343910942]
+visible = false
 position = Vector2(1299, 379)
 
 [node name="SpawnComponent" type="Node" parent="SpawnPools/RoadRight" unique_id=557816890 node_paths=PackedStringArray("spawn_marker", "path", "path_follow")]
 script = ExtResource("3_1m7hl")
-spawn_scene = ExtResource("6_aem5b")
+spawn_scenes = Array[PackedScene]([ExtResource("4_3yl78"), ExtResource("8_u0s6v"), ExtResource("7_s7f8u"), ExtResource("6_aem5b")])
 spawn_marker = NodePath("..")
 path = NodePath("../Path2D")
 path_follow = NodePath("../Path2D/PathFollow2D")
@@ -89,6 +148,7 @@ position = Vector2(-14, 1)
 rotation = -3.1342838
 
 [node name="Sidewalk" type="Marker2D" parent="SpawnPools" unique_id=1446052177]
+visible = false
 position = Vector2(-219, 646)
 
 [node name="SpawnComponent" type="Node" parent="SpawnPools/Sidewalk" unique_id=1730645144 node_paths=PackedStringArray("spawn_marker", "path", "path_follow")]
@@ -97,7 +157,6 @@ spawn_scenes = Array[PackedScene]([ExtResource("3_dta0y"), ExtResource("7_kxfw3"
 spawn_marker = NodePath("..")
 path = NodePath("../Path2D")
 path_follow = NodePath("../Path2D/PathFollow2D")
-spawn_interval_seconds = 6
 metadata/_custom_type_script = "uid://bdqsdxu1hqmfg"
 
 [node name="Path2D" type="Path2D" parent="SpawnPools/Sidewalk" unique_id=686773727]
@@ -108,6 +167,7 @@ position = Vector2(-1, 3)
 rotation = -0.0063410695
 
 [node name="SidewalkCrosser" type="Marker2D" parent="SpawnPools" unique_id=140212517]
+visible = false
 position = Vector2(1384, 646)
 
 [node name="SpawnComponent" type="Node" parent="SpawnPools/SidewalkCrosser" unique_id=1129921582 node_paths=PackedStringArray("spawn_marker", "path", "path_follow")]
