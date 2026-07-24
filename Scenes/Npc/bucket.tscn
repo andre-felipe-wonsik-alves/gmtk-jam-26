@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dcvqlrtnak862"]
+
+[ext_resource type="PackedScene" uid="uid://coydmjh6uvmjl" path="res://Scenes/Particles/exploding_particles.tscn" id="1_dewe5"]
+[ext_resource type="Texture2D" uid="uid://c4onmdw7lr6tx" path="res://Assets/Levels/Ant/bucket.png" id="2_bshmg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_86cna"]
+radius = 5.919108
+
+[sub_resource type="QuadMesh" id="QuadMesh_v2a3n"]
+
+[node name="Bucket" type="Area2D" unique_id=570120540]
+top_level = true
+scale = Vector2(1.2800006, 1.2800006)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=168963243]
+position = Vector2(9.536743e-07, 9.536743e-07)
+scale = Vector2(10, 10)
+shape = SubResource("CircleShape2D_86cna")
+
+[node name="ExplodingParticles" parent="CollisionShape2D" unique_id=979341273 instance=ExtResource("1_dewe5")]
+position = Vector2(2.3841858e-07, -9.536743e-08)
+scale = Vector2(0.1908397, 0.1908397)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=400140885]
+position = Vector2(-3, -3)
+scale = Vector2(200, 200)
+mesh = SubResource("QuadMesh_v2a3n")
+texture = ExtResource("2_bshmg")
