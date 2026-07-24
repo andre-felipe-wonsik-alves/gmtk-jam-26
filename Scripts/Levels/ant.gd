@@ -1,4 +1,5 @@
-class_name AntLevel extends Node2D
+class_name AntLevel 
+extends MinigameBase
 
 @export_range(1.0, 60.0, 0.5) var level_duration_seconds := 15.0
 
@@ -53,6 +54,9 @@ func _on_bucket_body_entered(body: Node2D) -> void:
 		return
 	captured_ants += 1
 	_remove_ant(body)
+	AudioUtils._play_sound_effect(self, load("res://Assets/Sounds/Effects/woosh_balde.mp3"))
+	var particles = bucket.get_node("CollisionShape2D/ExplodingParticles/CPUParticles2D")
+	particles._explode()
 
 
 func _remove_ant(ant: Node2D) -> void:
@@ -82,4 +86,4 @@ func _finish_level() -> void:
 		spawn_component.stop_spawning()
 	GameSession.save_level_result("Ant invasion", captured_ants, spawned_ants)
 	print("Ant invasion finished — captured: %d | spawned: %d" % [captured_ants, spawned_ants])
-	get_tree().quit()
+	won.emit()

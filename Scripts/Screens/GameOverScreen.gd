@@ -7,6 +7,11 @@ extends Control
 func _ready() -> void:
 	retry_button.pressed.connect(_on_retry_pressed)
 	menu_button.pressed.connect(_on_menu_pressed)
+	
+	await get_tree().process_frame
+	_add_button_juice(retry_button)
+	_add_button_juice(menu_button)
+	_animate_card_in()
 
 	await get_tree().process_frame
 	_add_button_juice(retry_button)

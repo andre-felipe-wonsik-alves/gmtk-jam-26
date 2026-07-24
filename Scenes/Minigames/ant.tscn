@@ -1,16 +1,18 @@
-[gd_scene format=3 uid="uid://coa4jk3w0pso7"]
+[gd_scene format=3 uid="uid://1c7yo4yjc24o"]
 
 [ext_resource type="Script" uid="uid://4kji0xrb872o" path="res://Scripts/Levels/ant.gd" id="1_13djf"]
 [ext_resource type="PackedScene" uid="uid://bb7ogwr5tr7p2" path="res://Scenes/Npc/ant.tscn" id="2_h0nov"]
-[ext_resource type="Texture2D" uid="uid://el5etotj35b8" path="res://Assets/Levels/Ant/ant_surface.jpg" id="3_0qjec"]
+[ext_resource type="PackedScene" uid="uid://dcvqlrtnak862" path="res://Scenes/Npc/bucket.tscn" id="3_3l2sg"]
 [ext_resource type="Texture2D" uid="uid://b8xcy583yfp16" path="res://Assets/Levels/Ant/leaf_ant_1.png" id="4_t7bdh"]
 [ext_resource type="Texture2D" uid="uid://cym6ccp5dtqiv" path="res://Assets/Levels/Ant/leaf_ant_2.png" id="5_ur2nf"]
 [ext_resource type="PackedScene" uid="uid://dh38ajtlp75jh" path="res://Scenes/UI/timerCountdown.tscn" id="6_0qjec"]
+[ext_resource type="PackedScene" uid="uid://7vqd1kithfvg" path="res://Scenes/Npc/frog.tscn" id="6_s0gqc"]
+[ext_resource type="Texture2D" uid="uid://bwv814exnwk5c" path="res://Assets/Levels/Ant/background.png" id="7_3l2sg"]
+[ext_resource type="Shader" uid="uid://b7g066boam7u0" path="res://Scripts/Shaders/LeafSway.gdshader" id="7_3trrv"]
 [ext_resource type="PackedScene" uid="uid://dw7nuint0go5y" path="res://Scenes/player.tscn" id="7_player"]
 [ext_resource type="Script" uid="uid://bdqsdxu1hqmfg" path="res://Scripts/Components/SpawnComponent.gd" id="8_spawn"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_86cna"]
-radius = 5.919108
+[ext_resource type="AudioStream" uid="uid://btfv71er525f" path="res://Assets/Sounds/Music/formigas.mp3" id="9_ikxix"]
+[ext_resource type="Shader" uid="uid://cpkva7vta32o" path="res://Scripts/Shaders/AmbientShadows.gdshader" id="11_oin5b"]
 
 [sub_resource type="Curve2D" id="Curve2D_8dq2h"]
 _data = {
@@ -36,6 +38,64 @@ _data = {
 }
 point_count = 14
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_okvwm"]
+shader = ExtResource("7_3trrv")
+shader_parameter/margin_scale = 1.0
+shader_parameter/wind_strength = 1.0
+shader_parameter/wind_scale = 10.0
+shader_parameter/wind_speed = 0.1
+shader_parameter/wind_height_start = 0.0
+shader_parameter/sway_strength = 0.06000000285
+shader_parameter/sway_speed = 0.9
+shader_parameter/sway_height_start = 0.022000001045
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3trrv"]
+shader = ExtResource("7_3trrv")
+shader_parameter/margin_scale = 1.0
+shader_parameter/wind_strength = 1.0
+shader_parameter/wind_scale = 10.0
+shader_parameter/wind_speed = 0.1
+shader_parameter/wind_height_start = 0.0
+shader_parameter/sway_strength = 0.0950000045125
+shader_parameter/sway_speed = 0.8
+shader_parameter/sway_height_start = 0.0
+
+[sub_resource type="Gradient" id="Gradient_oin5b"]
+offsets = PackedFloat32Array(0, 0.46268657, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0.06879827, 0.06879828, 0.06879828, 0.37254903, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_2d1bf"]
+gradient = SubResource("Gradient_oin5b")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_s0gqc"]
+noise_type = 2
+frequency = 0.0044
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_oin5b"]
+noise = SubResource("FastNoiseLite_s0gqc")
+seamless = true
+seamless_blend_skirt = 1.0
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_8ifh5"]
+noise_type = 3
+frequency = 0.0033
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3l2sg"]
+noise = SubResource("FastNoiseLite_8ifh5")
+seamless = true
+seamless_blend_skirt = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t2orw"]
+shader = ExtResource("11_oin5b")
+shader_parameter/point_A = 0.20000000298024
+shader_parameter/point_B = 0.70000001043084
+shader_parameter/scroll = Vector2(0.023, 0.025)
+shader_parameter/scroll2 = Vector2(0.025, 0.03)
+shader_parameter/size = 0.8
+shader_parameter/noise = SubResource("NoiseTexture2D_oin5b")
+shader_parameter/noise2 = SubResource("NoiseTexture2D_3l2sg")
+shader_parameter/gradient = SubResource("GradientTexture1D_2d1bf")
+
 [node name="AntLevel" type="Node2D" unique_id=843907795]
 script = ExtResource("1_13djf")
 
@@ -43,14 +103,9 @@ script = ExtResource("1_13djf")
 top_level = true
 position = Vector2(377, 220.99998)
 
-[node name="Bucket" type="Area2D" parent="." unique_id=464331064]
-top_level = true
-position = Vector2(779, 572)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bucket" unique_id=588102704]
-position = Vector2(11.999999, 14.999999)
-scale = Vector2(5.24, 5.24)
-shape = SubResource("CircleShape2D_86cna")
+[node name="Bucket" parent="." unique_id=570120540 instance=ExtResource("3_3l2sg")]
+z_index = -1
+position = Vector2(952.99994, 572)
 
 [node name="SpawnPools" type="Node" parent="." unique_id=375312093]
 
@@ -120,7 +175,6 @@ script = ExtResource("8_spawn")
 spawn_scene = ExtResource("2_h0nov")
 path = NodePath("../LeafRoad")
 path_follow = NodePath("../LeafRoad/PathFollow2D")
-spawn_interval_seconds = 15
 loop_path = true
 
 [node name="LeafRoad" type="Path2D" parent="SpawnPools/LeafSpawn" unique_id=180956454]
@@ -132,6 +186,14 @@ curve = SubResource("Curve2D_t7bdh")
 position = Vector2(560, 39)
 rotation = -3.1058936
 
+[node name="FrogSpawn" type="Marker2D" parent="SpawnPools" unique_id=512520915]
+
+[node name="SpawnComponent" type="Node" parent="SpawnPools/FrogSpawn" unique_id=2054312897 node_paths=PackedStringArray("spawn_marker")]
+script = ExtResource("8_spawn")
+spawn_scene = ExtResource("6_s0gqc")
+spawn_marker = NodePath("..")
+metadata/_custom_type_script = "uid://bdqsdxu1hqmfg"
+
 [node name="Countdown" parent="." unique_id=1894812876 instance=ExtResource("6_0qjec")]
 offset_left = 1099.0
 offset_top = 575.0
@@ -140,20 +202,38 @@ offset_bottom = 575.0
 
 [node name="Scenery" type="Node" parent="." unique_id=1848818570]
 
-[node name="Background" type="Sprite2D" parent="Scenery" unique_id=1707434044]
+[node name="Background" type="Sprite2D" parent="Scenery" unique_id=681381351]
 show_behind_parent = true
-z_index = -1
+z_index = -2
 position = Vector2(575, 323)
-scale = Vector2(0.6399982, 0.6399982)
-texture = ExtResource("3_0qjec")
+scale = Vector2(0.64000005, 0.64000005)
+texture = ExtResource("7_3l2sg")
 
 [node name="LeafAnt1" type="Sprite2D" parent="Scenery" unique_id=445968814]
+material = SubResource("ShaderMaterial_okvwm")
 position = Vector2(371, 441)
 scale = Vector2(0.40000063, 0.40000063)
 texture = ExtResource("4_t7bdh")
 
 [node name="LeafAnt2" type="Sprite2D" parent="Scenery" unique_id=1457218897]
+material = SubResource("ShaderMaterial_3trrv")
 position = Vector2(965, 383)
 rotation = -2.9592805
 scale = Vector2(0.59937745, 0.59937745)
 texture = ExtResource("5_ur2nf")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=93410625]
+stream = ExtResource("9_ikxix")
+autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1394821978]
+layer = 2
+follow_viewport_enabled = true
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=755257369]
+material = SubResource("ShaderMaterial_t2orw")
+offset_left = -91.0
+offset_top = -60.0
+offset_right = 1226.0
+offset_bottom = 695.0
+mouse_filter = 2

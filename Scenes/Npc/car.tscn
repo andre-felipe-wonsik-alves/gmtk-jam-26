@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dyn5iw7y47xdp"]
+
+[ext_resource type="Texture2D" uid="uid://cdo4dxp8bcvje" path="res://Assets/Levels/City/car.png" id="1_o408m"]
+[ext_resource type="Script" uid="uid://6wybcapgxvhw" path="res://Scripts/Components/InteractableComponent.gd" id="2_cfmeg"]
+[ext_resource type="Script" uid="uid://chs4h0hihuse6" path="res://Scripts/Components/Interactable/Poppable.gd" id="3_o408m"]
+[ext_resource type="AudioStream" uid="uid://clypsx251ujfi" path="res://Assets/Sounds/dragon-studio-clean-minimal-pop-467466.mp3" id="4_cfmeg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8odeo"]
+size = Vector2(157, 62)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_86cna"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_o408m")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Car" type="AnimatableBody2D" unique_id=1876073245]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2030024330]
+position = Vector2(0.5, -11)
+shape = SubResource("RectangleShape2D_8odeo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1305526116]
+position = Vector2(0, -1.0000019)
+scale = Vector2(0.35999927, 0.35999927)
+sprite_frames = SubResource("SpriteFrames_86cna")
+autoplay = "default"
+offset = Vector2(0.1931169, -11.690617)
+
+[node name="InteractableComponent" type="Node" parent="." unique_id=1792679841]
+script = ExtResource("2_cfmeg")
+
+[node name="Poppable" type="Node" parent="InteractableComponent" unique_id=1522760902]
+script = ExtResource("3_o408m")
+pop_sound = ExtResource("4_cfmeg")
+metadata/_custom_type_script = "uid://chs4h0hihuse6"
