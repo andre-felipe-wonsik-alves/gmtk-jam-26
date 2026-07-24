@@ -2,19 +2,17 @@
 
 [ext_resource type="Script" uid="uid://4kji0xrb872o" path="res://Scripts/Levels/ant.gd" id="1_13djf"]
 [ext_resource type="PackedScene" uid="uid://bb7ogwr5tr7p2" path="res://Scenes/Npc/ant.tscn" id="2_h0nov"]
-[ext_resource type="Texture2D" uid="uid://el5etotj35b8" path="res://Assets/Levels/Ant/ant_surface.jpg" id="3_0qjec"]
-[ext_resource type="PackedScene" uid="uid://coydmjh6uvmjl" path="res://Scenes/Particles/exploding_particles.tscn" id="3_3l2sg"]
+[ext_resource type="PackedScene" uid="uid://dcvqlrtnak862" path="res://Scenes/Npc/bucket.tscn" id="3_3l2sg"]
 [ext_resource type="Texture2D" uid="uid://b8xcy583yfp16" path="res://Assets/Levels/Ant/leaf_ant_1.png" id="4_t7bdh"]
 [ext_resource type="Texture2D" uid="uid://cym6ccp5dtqiv" path="res://Assets/Levels/Ant/leaf_ant_2.png" id="5_ur2nf"]
 [ext_resource type="PackedScene" uid="uid://dh38ajtlp75jh" path="res://Scenes/UI/timerCountdown.tscn" id="6_0qjec"]
+[ext_resource type="PackedScene" uid="uid://7vqd1kithfvg" path="res://Scenes/Npc/frog.tscn" id="6_s0gqc"]
+[ext_resource type="Texture2D" uid="uid://bwv814exnwk5c" path="res://Assets/Levels/Ant/background.png" id="7_3l2sg"]
 [ext_resource type="Shader" uid="uid://b7g066boam7u0" path="res://Scripts/Shaders/LeafSway.gdshader" id="7_3trrv"]
 [ext_resource type="PackedScene" uid="uid://dw7nuint0go5y" path="res://Scenes/player.tscn" id="7_player"]
 [ext_resource type="Script" uid="uid://bdqsdxu1hqmfg" path="res://Scripts/Components/SpawnComponent.gd" id="8_spawn"]
 [ext_resource type="AudioStream" uid="uid://btfv71er525f" path="res://Assets/Sounds/Music/formigas.mp3" id="9_ikxix"]
 [ext_resource type="Shader" uid="uid://cpkva7vta32o" path="res://Scripts/Shaders/AmbientShadows.gdshader" id="11_oin5b"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_86cna"]
-radius = 5.919108
 
 [sub_resource type="Curve2D" id="Curve2D_8dq2h"]
 _data = {
@@ -105,18 +103,9 @@ script = ExtResource("1_13djf")
 top_level = true
 position = Vector2(377, 220.99998)
 
-[node name="Bucket" type="Area2D" parent="." unique_id=464331064]
-top_level = true
-position = Vector2(777, 572)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bucket" unique_id=588102704]
-position = Vector2(11.999999, 12.999999)
-scale = Vector2(5.24, 5.24)
-shape = SubResource("CircleShape2D_86cna")
-
-[node name="ExplodingParticles" parent="Bucket/CollisionShape2D" unique_id=979341273 instance=ExtResource("3_3l2sg")]
-position = Vector2(-2.2900848, -2.480919)
-scale = Vector2(0.1908397, 0.1908397)
+[node name="Bucket" parent="." unique_id=570120540 instance=ExtResource("3_3l2sg")]
+z_index = -1
+position = Vector2(952.99994, 572)
 
 [node name="SpawnPools" type="Node" parent="." unique_id=375312093]
 
@@ -197,6 +186,14 @@ curve = SubResource("Curve2D_t7bdh")
 position = Vector2(560, 39)
 rotation = -3.1058936
 
+[node name="FrogSpawn" type="Marker2D" parent="SpawnPools" unique_id=512520915]
+
+[node name="SpawnComponent" type="Node" parent="SpawnPools/FrogSpawn" unique_id=2054312897 node_paths=PackedStringArray("spawn_marker")]
+script = ExtResource("8_spawn")
+spawn_scene = ExtResource("6_s0gqc")
+spawn_marker = NodePath("..")
+metadata/_custom_type_script = "uid://bdqsdxu1hqmfg"
+
 [node name="Countdown" parent="." unique_id=1894812876 instance=ExtResource("6_0qjec")]
 offset_left = 1099.0
 offset_top = 575.0
@@ -205,12 +202,12 @@ offset_bottom = 575.0
 
 [node name="Scenery" type="Node" parent="." unique_id=1848818570]
 
-[node name="Background" type="Sprite2D" parent="Scenery" unique_id=1707434044]
+[node name="Background" type="Sprite2D" parent="Scenery" unique_id=681381351]
 show_behind_parent = true
-z_index = -1
+z_index = -2
 position = Vector2(575, 323)
-scale = Vector2(0.6399982, 0.6399982)
-texture = ExtResource("3_0qjec")
+scale = Vector2(0.64000005, 0.64000005)
+texture = ExtResource("7_3l2sg")
 
 [node name="LeafAnt1" type="Sprite2D" parent="Scenery" unique_id=445968814]
 material = SubResource("ShaderMaterial_okvwm")

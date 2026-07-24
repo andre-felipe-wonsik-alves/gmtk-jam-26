@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dvypd6srkfcjr"]
+
+[ext_resource type="Texture2D" uid="uid://cgkcxp8emo24r" path="res://Assets/Levels/City/woman.png" id="1_p4hr2"]
+[ext_resource type="Script" uid="uid://6wybcapgxvhw" path="res://Scripts/Components/InteractableComponent.gd" id="2_dhchg"]
+[ext_resource type="Script" uid="uid://chs4h0hihuse6" path="res://Scripts/Components/Interactable/Poppable.gd" id="3_f4pax"]
+[ext_resource type="AudioStream" uid="uid://clypsx251ujfi" path="res://Assets/Sounds/dragon-studio-clean-minimal-pop-467466.mp3" id="4_f4pax"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5grla"]
+size = Vector2(69, 146)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mt5lt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_p4hr2")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Woman" type="AnimatableBody2D" unique_id=692033546]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=810202119]
+position = Vector2(-2.5, -9)
+shape = SubResource("RectangleShape2D_5grla")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=650621309]
+position = Vector2(0, -7)
+scale = Vector2(0.23999934, 0.23999934)
+sprite_frames = SubResource("SpriteFrames_mt5lt")
+autoplay = "default"
+offset = Vector2(0.1931169, -11.690617)
+
+[node name="InteractableComponent" type="Node" parent="." unique_id=2135864381]
+script = ExtResource("2_dhchg")
+
+[node name="Poppable" type="Node" parent="InteractableComponent" unique_id=52615634]
+script = ExtResource("3_f4pax")
+pop_sound = ExtResource("4_f4pax")
+metadata/_custom_type_script = "uid://chs4h0hihuse6"
