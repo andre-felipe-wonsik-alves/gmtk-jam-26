@@ -4,17 +4,20 @@ extends Node
 signal minigame_failed
 signal minigame_passed
 
+var number_levels := 2
 var current_level_index: int = 0
+var levels: Array
 
 # Lista com os caminhos das cenas dos minigames
 var minigames: Array[String] = [
-	"res://Scenes/Minigames/minigame_teste1.tscn", # Exemplo de minigame 1
+	"res://Scenes/Minigames/ant.tscn", # Exemplo de minigame 1
 	"res://Scenes/Minigames/genius_minigame.tscn"  # Minigame Genius
 ]
 
 # Método para iniciar o minigame
 func start_game() -> void:
-	current_level_index = 0
+	levels = generate_random_sequence(number_levels)
+	current_level_index = levels[0]
 	load_current_minigame_instruction()
 
 # Carrega a tela de instrução antes de entrar na fase
@@ -39,3 +42,17 @@ func fail_minigame() -> void:
 	minigame_failed.emit()
 	# Transição de morte/derrota
 	SceneTransition.change_scene("res://Scenes/Screens/game_over_screen.tscn", "fade_in")
+	
+# Criando um vetor para sortear os níveis
+func generate_random_sequence(n: int) -> Array:
+	var min_value = 0
+	var max_value = n-1
+	
+	var pool: Array = []
+	for i in range(min_value, max_value + 1):
+		pool.append(i)
+	
+	pool.shuffle()
+
+	# pega os primeiros n números
+	return pool.slice(0, n)
