@@ -3,12 +3,11 @@ class_name AntLevel extends Node2D
 @export_range(1.0, 60.0, 0.5) var level_duration_seconds := 15.0
 
 @onready var bucket: Area2D = $Bucket
-@onready var countdown_label: Label = $Countdown/BoxContainer/MarginContainer/HBoxContainer/current
+@onready var countdown: TimerCountdown = $Countdown
 @onready var background: Sprite2D = $Scenery/Background
 
 var captured_ants := 0
 var spawned_ants := 0
-var _remaining_seconds := 0.0
 var _is_running := false
 var _active_ants: Dictionary = {}
 var _spawn_components: Array[SpawnComponent] = []
@@ -22,18 +21,10 @@ func _ready() -> void:
 		spawn_component.start_spawning()
 	get_viewport().size_changed.connect(_fit_background_to_viewport)
 	_fit_background_to_viewport()
-	_remaining_seconds = level_duration_seconds
 	_is_running = true
-	_update_countdown()
-
-
-func _process(delta: float) -> void:
-	if not _is_running:
-		return
-	_remaining_seconds = maxf(_remaining_seconds - delta, 0.0)
-	_update_countdown()
-	if is_zero_approx(_remaining_seconds):
-		_finish_level()
+	if countdown:
+		countdown.countdown_finished.connect(_finish_level)
+		countdown.start_countdown(level_duration_seconds)
 
 
 func _find_spawn_components() -> Array[SpawnComponent]:
@@ -54,8 +45,9 @@ func _on_bucket_body_entered(body: Node2D) -> void:
 	captured_ants += 1
 	_remove_ant(body)
 	AudioUtils._play_sound_effect(self, load("res://Assets/Sounds/Effects/woosh_balde.mp3"))
-	var particles = bucket.get_node("CollisionShape2D/ExplodingParticles/CPUParticles2D")
-	particles._explode()
+	var particles = bucket.get_node_or_null("CollisionShape2D/ExplodingParticles/CPUParticles2D")
+	if particles and particles.has_method("_explode"):
+		particles._explode()
 
 
 func _remove_ant(ant: Node2D) -> void:
@@ -72,14 +64,11 @@ func _fit_background_to_viewport() -> void:
 	background.scale = Vector2.ONE * cover_scale
 
 
-func _update_countdown() -> void:
-	countdown_label.text = str(ceili(_remaining_seconds))
-
-
 func _finish_level() -> void:
 	_is_running = false
 	for ant in _active_ants.keys():
-		_remove_ant(ant as Node2D)
+		if is_instance_valid(ant):
+			_remove_ant(ant as Node2D)
 	_active_ants.clear()
 	for spawn_component in _spawn_components:
 		spawn_component.stop_spawning()

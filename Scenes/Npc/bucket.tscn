@@ -2,9 +2,15 @@
 
 [ext_resource type="PackedScene" uid="uid://coydmjh6uvmjl" path="res://Scenes/Particles/exploding_particles.tscn" id="1_dewe5"]
 [ext_resource type="Texture2D" uid="uid://c4onmdw7lr6tx" path="res://Assets/Levels/Ant/bucket.png" id="2_bshmg"]
+[ext_resource type="Shader" uid="uid://5804fful5gec" path="res://Scenes/Npc/outer-outline.gdshader" id="2_odjwu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_86cna"]
 radius = 5.919108
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pnfvh"]
+shader = ExtResource("2_odjwu")
+shader_parameter/line_color = Color(0.7647059, 1, 0.9882353, 1)
+shader_parameter/line_thickness = 3.0000001425
 
 [sub_resource type="QuadMesh" id="QuadMesh_v2a3n"]
 
@@ -18,10 +24,11 @@ scale = Vector2(10, 10)
 shape = SubResource("CircleShape2D_86cna")
 
 [node name="ExplodingParticles" parent="CollisionShape2D" unique_id=979341273 instance=ExtResource("1_dewe5")]
-position = Vector2(2.3841858e-07, -9.536743e-08)
-scale = Vector2(0.1908397, 0.1908397)
+z_index = 1
+scale = Vector2(0.5, 0.5)
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=400140885]
+material = SubResource("ShaderMaterial_pnfvh")
 position = Vector2(-3, -3)
 scale = Vector2(200, 200)
 mesh = SubResource("QuadMesh_v2a3n")
