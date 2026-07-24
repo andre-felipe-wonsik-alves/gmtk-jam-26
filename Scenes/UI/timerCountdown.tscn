@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://b4rtjnwue0c5y" path="res://Assets/Sounds/Effects/microsammy-clock-alarm-8761.mp3" id="3_qs4hr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_pnfxg"]
-font_size = 70
+font_size = 80
 font_color = Color(0, 0, 0, 1)
 
 [node name="Countdown" type="Control" unique_id=1894812876]
@@ -34,13 +34,14 @@ layout_mode = 2
 
 [node name="current" type="Label" parent="BoxContainer/MarginContainer/HBoxContainer/Control" unique_id=310078471]
 layout_mode = 0
-offset_left = -66.0
-offset_top = -51.0
-offset_right = -26.0
-offset_bottom = 45.0
-pivot_offset = Vector2(20, 49)
+offset_left = -87.00004
+offset_top = -57.50003
+offset_right = -7.000038
+offset_bottom = 52.49997
+pivot_offset = Vector2(36.5, 51)
 text = "0"
 label_settings = SubResource("LabelSettings_pnfxg")
+horizontal_alignment = 1
 
 [node name="Clock" parent="BoxContainer/MarginContainer/HBoxContainer/Control" unique_id=331901659 instance=ExtResource("1_85lpb")]
 z_index = -1

@@ -98,27 +98,23 @@ func _on_timeout() -> void:
 	if alarm_sound:
 		AudioUtils._play_sound_effect(self, alarm_sound)
 
-	# Intense wobble animation when reaching 0
+	# Intense wobble animation when reaching 0 (loops continuously)
 	if _wobble_tween and _wobble_tween.is_running():
 		_wobble_tween.kill()
 
-	_wobble_tween = create_tween()
-	_wobble_tween.set_trans(Tween.TRANS_ELASTIC)
-	_wobble_tween.set_ease(Tween.EASE_OUT)
+	_wobble_tween = create_tween().set_loops()
+	_wobble_tween.set_trans(Tween.TRANS_SINE)
+	_wobble_tween.set_ease(Tween.EASE_IN_OUT)
 
 	var target_node: Node2D = clock if clock else self
 	var base_scale := _original_clock_scale if clock else _original_scale
 
-	# Intense shake loop
-	for i in 6:
-		var rot_dir := 1.0 if i % 2 == 0 else -1.0
-		_wobble_tween.tween_property(target_node, "scale", base_scale * Vector2(1.3, 0.7), 0.04)
-		_wobble_tween.parallel().tween_property(target_node, "rotation", deg_to_rad(15.0 * rot_dir), 0.04)
+	_wobble_tween.tween_property(target_node, "scale", base_scale * Vector2(1.3, 0.7), 0.05)
+	_wobble_tween.parallel().tween_property(target_node, "rotation", deg_to_rad(15.0), 0.05)
 
-	_wobble_tween.tween_property(target_node, "scale", base_scale, 0.08)
-	_wobble_tween.parallel().tween_property(target_node, "rotation", 0.0, 0.08)
+	_wobble_tween.tween_property(target_node, "scale", base_scale * Vector2(0.7, 1.3), 0.05)
+	_wobble_tween.parallel().tween_property(target_node, "rotation", deg_to_rad(-15.0), 0.05)
 
-	await _wobble_tween.finished
-	await get_tree().create_timer(1.2).timeout
-
-	countdown_finished.emit()
+	get_tree().create_timer(1.5).timeout.connect(func():
+		countdown_finished.emit()
+	)

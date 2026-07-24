@@ -98,7 +98,7 @@ shader_parameter/gradient = SubResource("GradientTexture1D_2d1bf")
 
 [node name="AntLevel" type="Node2D" unique_id=843907795]
 script = ExtResource("1_13djf")
-level_duration_seconds = 30.0
+level_duration_seconds = 5.0
 
 [node name="Player" parent="." unique_id=1814912243 instance=ExtResource("7_player")]
 top_level = true

@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bywkjdpxk83oj" path="res://Assets/Levels/Ant/sapo_idle.png" id="3_f3ml4"]
 [ext_resource type="Texture2D" uid="uid://bstyxv6shnxo0" path="res://Assets/Levels/Ant/sapo_jump.png" id="4_guvb6"]
 [ext_resource type="Script" uid="uid://6wybcapgxvhw" path="res://Scripts/Components/InteractableComponent.gd" id="5_guvb6"]
+[ext_resource type="AudioStream" uid="uid://bdu06bmbamxvt" path="res://Assets/Sounds/Effects/frog.mp3" id="6_f3ml4"]
 [ext_resource type="Script" uid="uid://chs4h0hihuse6" path="res://Scripts/Components/Interactable/Poppable.gd" id="6_n40kv"]
 [ext_resource type="AudioStream" uid="uid://clypsx251ujfi" path="res://Assets/Sounds/Effects/dragon-studio-clean-minimal-pop-467466.mp3" id="7_nxt16"]
 [ext_resource type="Script" uid="uid://cdi0qekics24g" path="res://Scripts/Components/FrogBehavior.gd" id="8_frogbehavior"]
@@ -60,6 +61,7 @@ offset = Vector2(0.1931169, 46.365063)
 
 [node name="FrogBehavior" type="Node" parent="." unique_id=987123654]
 script = ExtResource("8_frogbehavior")
+frog_sound = ExtResource("6_f3ml4")
 
 [node name="InteractableComponent" type="Node" parent="." unique_id=1267381219]
 script = ExtResource("5_guvb6")

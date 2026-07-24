@@ -6,6 +6,7 @@ class_name FrogBehavior extends Node
 @export var attack_duration := 0.4
 @export var tongue_color := Color(0.98, 0.4, 0.65, 1.0)
 @export var tongue_width := 6.0
+@export var frog_sound: AudioStream
 
 var _target_ant: Node2D = null
 var _is_acting := false
@@ -85,6 +86,8 @@ func _hop_towards_target() -> void:
 	
 	parent.rotation = dir.angle() + (PI * 0.5)
 	
+	_play_sound(target_pos)
+	
 	# Hop step distance
 	var step_dist := minf(100.0, start_pos.distance_to(target_pos) - (attack_distance * 0.5))
 	step_dist = maxf(step_dist, 30.0)
@@ -158,3 +161,14 @@ func _find_random_ant() -> Node2D:
 
 func _parent_body() -> Node2D:
 	return get_parent() as Node2D
+	
+func _play_sound(global_pos: Vector2) -> void:
+	var frog := AudioStreamPlayer2D.new()
+	frog.stream = frog_sound
+	frog.global_position = global_pos
+	frog.autoplay = true
+	var tree := get_tree()
+	if tree and tree.current_scene:
+		tree.current_scene.add_child(frog)
+		frog.finished.connect(frog.queue_free)
+	
