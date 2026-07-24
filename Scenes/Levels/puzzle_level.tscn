@@ -1,0 +1,227 @@
+[gd_scene format=3 uid="uid://c66x277poni6j"]
+
+[ext_resource type="Script" uid="uid://6wybcapgxvhw" path="res://Scripts/Components/InteractableComponent.gd" id="1_g03vk"]
+[ext_resource type="Script" uid="uid://bvl8alptgs3ib" path="res://Scenes/Levels/puzzle_level.gd" id="1_gkudp"]
+[ext_resource type="Script" uid="uid://8l5lmsbj58dn" path="res://Scripts/Components/Interactable/Draggable.gd" id="2_8ltyb"]
+[ext_resource type="Script" uid="uid://b1sr21jucgvxw" path="res://Scenes/Levels/blue_sensor.gd" id="4_p21il"]
+[ext_resource type="Script" uid="uid://bjoksriccman1" path="res://Scenes/Levels/blue_gate.gd" id="5_gkudp"]
+[ext_resource type="Script" uid="uid://dy0tc323y46m5" path="res://Scripts/Components/InputComponent.gd" id="5_p21il"]
+[ext_resource type="Script" uid="uid://dr4e2vainjmkd" path="res://Scenes/Levels/yellow_platform.gd" id="6_cq7hf"]
+[ext_resource type="Script" uid="uid://dwdyq2klddxre" path="res://Scenes/Levels/red_sensor_pair.gd" id="6_g2njq"]
+[ext_resource type="Script" uid="uid://6fw286gmv7mb" path="res://Scripts/Components/InteractComponent.gd" id="6_gkudp"]
+[ext_resource type="Script" uid="uid://8w7u68hjvjop" path="res://Scripts/Components/Interactable/Clickable.gd" id="7_akh8a"]
+[ext_resource type="Script" uid="uid://qk114hsrlj4m" path="res://Scenes/Levels/red_gate.gd" id="9_tb1na"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t2vok"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o6j6p"]
+custom_solver_bias = 0.181
+radius = 52.009613
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o6j6p"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i34oc"]
+radius = 57.21888
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o1a0v"]
+size = Vector2(94, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_htogw"]
+size = Vector2(268, 79)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ylkw5"]
+size = Vector2(211, 51)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gd2aa"]
+
+[node name="PuzzleLevel" type="Node2D" unique_id=778752213]
+script = ExtResource("1_gkudp")
+
+[node name="Players" type="Node2D" parent="." unique_id=1586890140]
+z_index = 10
+
+[node name="Player1" type="CharacterBody2D" parent="Players" unique_id=1795687172 groups=["players"]]
+position = Vector2(257, 367)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Players/Player1" unique_id=696752690]
+shape = SubResource("CapsuleShape2D_t2vok")
+debug_color = Color(0.795587, 0.39581794, 0.42325306, 0.41960785)
+
+[node name="InteractableComponent" type="Node" parent="Players/Player1" unique_id=1033120693]
+script = ExtResource("1_g03vk")
+metadata/_custom_type_script = "uid://6wybcapgxvhw"
+
+[node name="Draggable" type="Node" parent="Players/Player1/InteractableComponent" unique_id=163076606]
+script = ExtResource("2_8ltyb")
+metadata/_custom_type_script = "uid://8l5lmsbj58dn"
+
+[node name="Polygon2D" type="Polygon2D" parent="Players/Player1" unique_id=1824701899]
+position = Vector2(-113, 10)
+color = Color(0.19215687, 0.59607846, 0.35686275, 1)
+polygon = PackedVector2Array(105, 33, 141.99997, -21.199997, 111.600006, -46.799995, 83.600006, -18)
+uv = PackedVector2Array(114, 6.800003, 141.99997, -21.199997, 111.600006, -46.799995, 83.600006, -18)
+
+[node name="Player2" type="CharacterBody2D" parent="Players" unique_id=1385626217 groups=["players"]]
+position = Vector2(457, 367)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Players/Player2" unique_id=1051495735]
+shape = SubResource("CapsuleShape2D_t2vok")
+
+[node name="InteractableComponent" type="Node" parent="Players/Player2" unique_id=906366461]
+script = ExtResource("1_g03vk")
+metadata/_custom_type_script = "uid://6wybcapgxvhw"
+
+[node name="Draggable" type="Node" parent="Players/Player2/InteractableComponent" unique_id=29016900]
+script = ExtResource("2_8ltyb")
+metadata/_custom_type_script = "uid://8l5lmsbj58dn"
+
+[node name="Polygon2D" type="Polygon2D" parent="Players/Player2" unique_id=2045467023]
+position = Vector2(-158, -43)
+color = Color(1, 0.4627451, 1, 1)
+polygon = PackedVector2Array(103, 10, 209, 2, 154, 95)
+
+[node name="Interactables" type="Node2D" parent="." unique_id=426596864]
+
+[node name="BlueSensor" type="Area2D" parent="Interactables" unique_id=1641348102]
+position = Vector2(200, 537)
+script = ExtResource("4_p21il")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/BlueSensor" unique_id=923078842]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_o6j6p")
+
+[node name="Polygon2D" type="Polygon2D" parent="Interactables/BlueSensor" unique_id=1398510596]
+position = Vector2(60, 4)
+polygon = PackedVector2Array(-112.80002, -14, -85.600006, -46.799995, -85.600006, -45.999996, -43.200012, -46.799995, -43.200012, -46.799995, -17.600006, -22.799995, -18.400024, -19.599998, -16, 6.800003, -16.800018, 9.200005, -44, 34.799995, -44, 34.799995, -85.600006, 33.999992, -85.600006, 33.999992)
+uv = PackedVector2Array(-112.80002, -14, -85.600006, -46.799995, -85.600006, -45.999996, -43.200012, -46.799995, -43.200012, -46.799995, -17.600006, -22.799995, -18.400024, -19.599998, -16, 6.800003, -16.800018, 9.200005, -44, 34.799995, -44, 34.799995, -85.600006, 33.999992, -85.600006, 33.999992)
+
+[node name="BlueGate" type="StaticBody2D" parent="Interactables" unique_id=1007552642]
+position = Vector2(157, 267)
+script = ExtResource("5_gkudp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/BlueGate" unique_id=1939371415]
+shape = SubResource("RectangleShape2D_o6j6p")
+
+[node name="Polygon2D" type="Polygon2D" parent="Interactables/BlueGate" unique_id=1376551588]
+position = Vector2(-164, -129)
+color = Color(0.10980392, 0.6627451, 1, 1)
+polygon = PackedVector2Array(50, 103, 182.71729, 102.99997, 256, 103, 258, 151, 55, 151)
+
+[node name="RedSensorPair" type="Node2D" parent="Interactables" unique_id=1890372094]
+position = Vector2(663, 98)
+script = ExtResource("6_g2njq")
+
+[node name="RedSensorLeft" type="Area2D" parent="Interactables/RedSensorPair" unique_id=814293674]
+position = Vector2(-67, -9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/RedSensorPair/RedSensorLeft" unique_id=752056732]
+position = Vector2(-5, 4)
+shape = SubResource("CircleShape2D_i34oc")
+
+[node name="Polygon2D" type="Polygon2D" parent="Interactables/RedSensorPair/RedSensorLeft" unique_id=1002096766]
+position = Vector2(99, 27)
+color = Color(1, 0.1254902, 0.20392157, 1)
+polygon = PackedVector2Array(-109.20001, -66.799995, -143.6, -44.399994, -143.6, -11.599998, -121.20001, 14, -71.600006, 14, -53.200012, -1.199997, -52.400024, -38.799995, -83.600006, -66.799995)
+uv = PackedVector2Array(-109.20001, -66.799995, -143.6, -44.399994, -143.6, -11.599998, -121.20001, 14, -71.600006, 14, -53.200012, -1.199997, -52.400024, -38.799995, -83.600006, -66.799995)
+
+[node name="RedSensorRight" type="Area2D" parent="Interactables/RedSensorPair" unique_id=1347242391]
+position = Vector2(64, -14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/RedSensorPair/RedSensorRight" unique_id=1636196313]
+position = Vector2(3.5999756, 1.7999878)
+shape = SubResource("CircleShape2D_i34oc")
+
+[node name="Polygon2D" type="Polygon2D" parent="Interactables/RedSensorPair/RedSensorRight" unique_id=740576225]
+position = Vector2(109.599976, 30.799988)
+color = Color(1, 0.1254902, 0.20392157, 1)
+polygon = PackedVector2Array(-109.20001, -66.799995, -143.6, -44.399994, -143.6, -11.599998, -121.20001, 14, -71.600006, 14, -53.200012, -1.199997, -52.400024, -38.799995, -83.600006, -66.799995)
+uv = PackedVector2Array(-109.20001, -66.799995, -143.6, -44.399994, -143.6, -11.599998, -121.20001, 14, -71.600006, 14, -53.200012, -1.199997, -52.400024, -38.799995, -83.600006, -66.799995)
+
+[node name="RotationLever" type="Node2D" parent="Interactables" unique_id=759872224]
+
+[node name="LeftButton" type="Area2D" parent="Interactables/RotationLever" unique_id=1373739766]
+position = Vector2(917, 425)
+
+[node name="Polygon2D" type="Polygon2D" parent="Interactables/RotationLever/LeftButton" unique_id=1562111620]
+position = Vector2(230.3999, 12.399994)
+polygon = PackedVector2Array(-276.39996, -18.799995, -242.79996, -48.399994, -241.99997, -30, -186.79996, -30, -185.99997, -0.40000153, -241.99997, -0.40000153, -241.99997, 18)
+uv = PackedVector2Array(-276.39996, -18.799995, -242.79996, -48.399994, -241.99997, -30, -186.79996, -30, -185.99997, -0.40000153, -241.99997, -0.40000153, -241.99997, 18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/RotationLever/LeftButton" unique_id=270498943]
+position = Vector2(2.3999023, -1.6000061)
+shape = SubResource("RectangleShape2D_o1a0v")
+
+[node name="InteractableComponent" type="Node" parent="Interactables/RotationLever/LeftButton" unique_id=533968456]
+script = ExtResource("1_g03vk")
+metadata/_custom_type_script = "uid://6wybcapgxvhw"
+
+[node name="Clickable" type="Node" parent="Interactables/RotationLever/LeftButton/InteractableComponent" unique_id=345036312]
+script = ExtResource("7_akh8a")
+metadata/_custom_type_script = "uid://8w7u68hjvjop"
+
+[node name="RightButton" type="Area2D" parent="Interactables/RotationLever" unique_id=1882292403]
+position = Vector2(1056, 423)
+
+[node name="Polygon2D" type="Polygon2D" parent="Interactables/RotationLever/RightButton" unique_id=260063446]
+position = Vector2(148, 11.799988)
+polygon = PackedVector2Array(-135.20001, -34.799995, -87.20001, -13.199997, -133.6, 22, -135.20001, 3.5999985, -204, 4.4000015, -202.4, -26, -144, -27, -135.20001, -24.399994)
+uv = PackedVector2Array(-135.20001, -34.799995, -87.20001, -13.199997, -133.6, 22, -135.20001, 3.5999985, -204, 4.4000015, -202.4, -26, -135.20001, -24.399994)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/RotationLever/RightButton" unique_id=1423816365]
+position = Vector2(0, 0.7999878)
+shape = SubResource("RectangleShape2D_o1a0v")
+
+[node name="InteractableComponent" type="Node" parent="Interactables/RotationLever/RightButton" unique_id=1851551479]
+script = ExtResource("1_g03vk")
+metadata/_custom_type_script = "uid://6wybcapgxvhw"
+
+[node name="Clickable" type="Node" parent="Interactables/RotationLever/RightButton/InteractableComponent" unique_id=376316351]
+script = ExtResource("7_akh8a")
+metadata/_custom_type_script = "uid://8w7u68hjvjop"
+
+[node name="YellowPlatform" type="Node2D" parent="Interactables" unique_id=89253966]
+position = Vector2(971, 539)
+script = ExtResource("6_cq7hf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/YellowPlatform" unique_id=1111743528]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_htogw")
+
+[node name="Polygon2D" type="Polygon2D" parent="Interactables/YellowPlatform" unique_id=364951937]
+position = Vector2(117, -3)
+color = Color(0.7019608, 0.7254902, 0.0627451, 1)
+polygon = PackedVector2Array(-277.6003, -43.712627, 7.999695, -43.712627, 7.999695, -11.712631, -32.000305, -11.712631, -32.000305, 13.087372, 4.7996826, 13.087372, 4.7996826, 43.487366, -281.6003, 43.487366)
+uv = PackedVector2Array(-277.6003, -43.712627, 7.999695, -43.712627, 7.999695, -11.712631, -32.000305, -11.712631, -32.000305, 13.087372, 4.7996826, 13.087372, 4.7996826, 43.487366, -281.6003, 43.487366)
+
+[node name="RedGate" type="StaticBody2D" parent="Interactables" unique_id=2094965636]
+position = Vector2(901, 235)
+script = ExtResource("9_tb1na")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/RedGate" unique_id=889020101]
+position = Vector2(-0.5, -0.7000122)
+shape = SubResource("RectangleShape2D_ylkw5")
+
+[node name="Polygon2D" type="Polygon2D" parent="Interactables/RedGate" unique_id=74770554]
+position = Vector2(16, -2.2000122)
+polygon = PackedVector2Array(-123.20001, -26.799995, -122.399994, 32.4, 93.599976, 32.4, 94.399994, -26.799995, -124, -26.799995)
+uv = PackedVector2Array(-123.20001, -49.999996, -122.399994, 32.4, 93.599976, 32.4, 94.399994, -26.799995, -124, -26.799995)
+
+[node name="TreasureRoom" type="Area2D" parent="." unique_id=1196045677]
+position = Vector2(-1769, -736)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TreasureRoom" unique_id=359945307]
+position = Vector2(-422, -165)
+shape = SubResource("RectangleShape2D_gd2aa")
+
+[node name="Scenery" type="Node2D" parent="." unique_id=849127189]
+position = Vector2(-635, -206)
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=736001555]
+
+[node name="InputComponent" type="Node" parent="." unique_id=560642908]
+script = ExtResource("5_p21il")
+metadata/_custom_type_script = "uid://dy0tc323y46m5"
+
+[node name="InteractComponent" type="Node" parent="." unique_id=1658183669]
+script = ExtResource("6_gkudp")
+metadata/_custom_type_script = "uid://6fw286gmv7mb"
