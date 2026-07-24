@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cloig71bbxwbn"]
+
+[ext_resource type="Script" uid="uid://ce1e2ut4we48l" path="res://Scripts/Screens/TransitionScreen.gd" id="1_y408c"]
+
+[node name="TransitionScreen" type="Control" unique_id=863703888]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_y408c")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=474637796]
+layout_mode = 0
+offset_top = -3.0
+offset_right = 267.0
+offset_bottom = 149.0
+bbcode_enabled = true
+
+[node name="Timer" type="Timer" parent="." unique_id=1130741475]
+wait_time = 1.5
+one_shot = true
