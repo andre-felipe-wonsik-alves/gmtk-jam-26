@@ -6,6 +6,7 @@ signal minigame_passed
 
 var number_levels := 2
 var current_level_index: int = 0
+var array_index = 0;
 var levels: Array
 
 # Lista com os caminhos das cenas dos minigames
@@ -17,7 +18,8 @@ var minigames: Array[String] = [
 # Método para iniciar o minigame
 func start_game() -> void:
 	levels = generate_random_sequence(number_levels)
-	current_level_index = levels[0]
+	current_level_index = levels[array_index]
+	array_index += 1
 	load_current_minigame_instruction()
 
 # Carrega a tela de instrução antes de entrar na fase
@@ -34,7 +36,8 @@ func load_current_minigame() -> void:
 # Chamado quando o jogador passa de fase
 func pass_minigame() -> void:
 	minigame_passed.emit()
-	current_level_index += 1
+	current_level_index = levels[array_index]
+	array_index += 1
 	load_current_minigame_instruction()
 
 # Chamado quando o jogador erra/morre
