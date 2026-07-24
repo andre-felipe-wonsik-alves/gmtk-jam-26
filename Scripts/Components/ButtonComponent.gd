@@ -1,9 +1,6 @@
-class_name ColorButtonComponent
+class_name ButtonComponent
 extends BaseButton
 
-signal color_pressed(color_id: int)
-
-@export var color_id: int = 0
 @export var normal_color: Color = Color.RED
 @export var active_color: Color = Color(1.0, 0.4, 0.4)
 
@@ -26,4 +23,3 @@ func flash(duration: float = 0.3) -> void:
 # Quando o botão é pressionado, ele pisca e emite um sinal com o ID da cor correspondente
 func _on_pressed() -> void:
 	flash(0.15)
-	color_pressed.emit(color_id)
