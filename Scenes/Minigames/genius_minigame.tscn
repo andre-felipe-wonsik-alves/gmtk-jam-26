@@ -40,17 +40,17 @@ color = Color(0.12, 0.12, 0.16, 1)
 
 [node name="RoomBackground" type="Control" parent="UI" unique_id=238825912]
 layout_mode = 3
-anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 320.0
+anchor_bottom = 0.493827
 grow_horizontal = 2
 
 [node name="PosterPlaceholder" type="ColorRect" parent="UI/RoomBackground" unique_id=1507295867]
-layout_mode = 0
-offset_left = 180.0
-offset_top = 40.0
-offset_right = 380.0
-offset_bottom = 260.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.15625
+anchor_top = 0.125
+anchor_right = 0.329861
+anchor_bottom = 0.8125
 color = Color(0.2, 0.2, 0.25, 1)
 
 [node name="PosterLabel" type="Label" parent="UI/RoomBackground/PosterPlaceholder" unique_id=1779904217]
@@ -65,11 +65,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="WindowPlaceholder" type="ColorRect" parent="UI/RoomBackground" unique_id=2108683880]
-layout_mode = 0
-offset_left = 650.0
-offset_top = 40.0
-offset_right = 880.0
-offset_bottom = 260.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.564236
+anchor_top = 0.125
+anchor_right = 0.763889
+anchor_bottom = 0.8125
 color = Color(0.25, 0.3, 0.35, 1)
 
 [node name="WindowLabel" type="Label" parent="UI/RoomBackground/WindowPlaceholder" unique_id=607108731]
@@ -84,19 +85,17 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TimerPanel" type="Panel" parent="UI" unique_id=1269140963]
-anchors_preset = 1
-anchor_left = 1.0
+anchors_preset = -1
+anchor_left = 0.822917
 anchor_right = 1.0
-offset_left = -204.0
-offset_bottom = 90.0
+anchor_bottom = 0.138889
 grow_horizontal = 0
 
 [node name="TimerLabel" type="Label" parent="UI" unique_id=84261161]
-anchors_preset = 1
-anchor_left = 1.0
+anchors_preset = -1
+anchor_left = 0.822917
 anchor_right = 1.0
-offset_left = -204.0
-offset_bottom = 90.0
+anchor_bottom = 0.138889
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 26
 text = "20.0s"
@@ -104,18 +103,18 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="UpperDeskDivider" type="ColorRect" parent="UI" unique_id=317522876]
-offset_top = 317.0
-offset_right = 1152.0
-offset_bottom = 322.0
+anchors_preset = -1
+anchor_top = 0.489198
+anchor_right = 1.0
+anchor_bottom = 0.496914
 color = Color(0.3, 0.3, 0.35, 1)
 
 [node name="MonitorDisplayComponent" type="Control" parent="UI" unique_id=519258914]
 layout_mode = 3
-anchors_preset = 0
-offset_left = 109.0
-offset_top = 340.0
-offset_right = 429.0
-offset_bottom = 480.0
+anchor_left = 0.094618
+anchor_top = 0.524691
+anchor_right = 0.372396
+anchor_bottom = 0.740741
 script = ExtResource("5_mon")
 
 [node name="ScreenRect" type="ColorRect" parent="UI/MonitorDisplayComponent" unique_id=1232671412]
@@ -147,16 +146,18 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="LowerDeskDivider" type="ColorRect" parent="UI" unique_id=1522738184]
-offset_top = 500.0
-offset_right = 1152.0
-offset_bottom = 505.0
+anchors_preset = -1
+anchor_top = 0.771605
+anchor_right = 1.0
+anchor_bottom = 0.779321
 color = Color(0.25, 0.25, 0.3, 1)
 
 [node name="ButtonGrid" type="HBoxContainer" parent="UI" unique_id=709174494]
-offset_left = 80.0
-offset_top = 535.0
-offset_right = 460.0
-offset_bottom = 605.0
+anchors_preset = -1
+anchor_left = 0.069444
+anchor_top = 0.825617
+anchor_right = 0.399306
+anchor_bottom = 0.933642
 theme_override_constants/separation = 10
 
 [node name="ButtonRed" type="Button" parent="UI/ButtonGrid" unique_id=909903191]
@@ -232,18 +233,18 @@ color = Color(1, 0.9, 0.1, 1)
 
 [node name="EmergencyPanel" type="Control" parent="UI" unique_id=400100200]
 layout_mode = 3
-anchors_preset = 0
-offset_left = 661.0
-offset_top = 510.0
-offset_right = 1074.0
-offset_bottom = 631.0
+anchor_left = 0.573785
+anchor_top = 0.787037
+anchor_right = 0.932292
+anchor_bottom = 0.973765
 
 [node name="SecondaryButton" type="Button" parent="UI/EmergencyPanel" unique_id=400100206]
-layout_mode = 0
-offset_left = 22.0
-offset_top = 14.0
-offset_right = 156.0
-offset_bottom = 105.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.053269
+anchor_top = 0.115702
+anchor_right = 0.377724
+anchor_bottom = 0.867769
 script = ExtResource("7_fayor")
 
 [node name="ColorRect" type="ColorRect" parent="UI/EmergencyPanel/SecondaryButton" unique_id=400100207]
@@ -269,19 +270,21 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="PaperNote" type="ColorRect" parent="UI/EmergencyPanel" unique_id=308947984]
-layout_mode = 0
-offset_left = 222.0
-offset_top = 9.0
-offset_right = 382.0
-offset_bottom = 109.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.53753
+anchor_top = 0.07438
+anchor_right = 0.925182
+anchor_bottom = 0.900826
 color = Color(0.95, 0.92, 0.75, 1)
 
 [node name="InstructionLabel" type="Label" parent="UI/EmergencyPanel" unique_id=400100205]
-layout_mode = 0
-offset_left = 228.0
-offset_top = 25.0
-offset_right = 378.0
-offset_bottom = 95.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.552058
+anchor_top = 0.206612
+anchor_right = 0.915254
+anchor_bottom = 0.785124
 theme_override_colors/font_color = Color(0.15, 0.15, 0.15, 1)
 theme_override_font_sizes/font_size = 12
 text = "DESATIVE O ALARME DE EMERGÊNCIA!"
@@ -290,17 +293,23 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="SecondaryTimerPanel" type="Panel" parent="UI/EmergencyPanel" unique_id=1547741481]
-layout_mode = 0
-offset_left = 10.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.024213
+anchor_right = 0.399517
+offset_left = 6.999694
 offset_top = -147.0
-offset_right = 165.0
+offset_right = 6.999695
 offset_bottom = -56.0
 
 [node name="SecondaryTimerLabel" type="Label" parent="UI/EmergencyPanel" unique_id=974113656]
-layout_mode = 0
-offset_left = 10.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.024213
+anchor_right = 0.399517
+offset_left = 6.999694
 offset_top = -147.0
-offset_right = 165.0
+offset_right = 6.999695
 offset_bottom = -55.0
 theme_override_font_sizes/font_size = 50
 text = "7.0s"
