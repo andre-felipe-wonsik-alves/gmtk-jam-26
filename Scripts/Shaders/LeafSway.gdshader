@@ -12,6 +12,7 @@ group_uniforms sway;
 uniform float sway_strength: hint_range(0, 10) = 0.5;
 uniform float sway_speed = 0.5;
 uniform float sway_height_start: hint_range(0, 1) = 0.;
+uniform float sway_direction: hint_range(-1, 1) = 1;
 group_uniforms;
 
 
@@ -53,7 +54,7 @@ void fragment() {
 	wind_offset /= region_size_px.x;
 
 	// sway offset applied from height_start to the top of the texture
-	float sway_offset = max(0., (1.0 - pixelated_local_uv.y - sway_height_start))*sin(TIME*sway_speed);
+	float sway_offset = max(0., (1.0 - pixelated_local_uv.y - sway_height_start)) * sin(TIME*sway_speed) * sway_direction;
 
 	pixelated_local_uv.x += sway_offset * sway_strength + wind_offset * wind_strength;
 	

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dcvqqq4j32ntt"]
+
+[ext_resource type="Script" path="res://Scripts/Screens/StartCountdown.gd" id="1_t41nm"]
+
+[node name="StartCountdown" type="Node2D" unique_id=925569777]
+script = ExtResource("1_t41nm")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=610298574]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="CenterContainer" unique_id=2146853761]
