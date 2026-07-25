@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://cve8rd6uht2ny" path="res://Scenes/Npc/purple-car.tscn" id="7_s7f8u"]
 [ext_resource type="Texture2D" uid="uid://3dvpti352b51" path="res://Assets/Levels/City/Scenery/road.png" id="8_lwyr8"]
 [ext_resource type="PackedScene" uid="uid://c60tdgru3csrw" path="res://Scenes/Npc/yellow-car.tscn" id="8_u0s6v"]
+[ext_resource type="Texture2D" uid="uid://cd258cpgpx5di" path="res://Assets/Levels/City/Scenery/back_pathway.png" id="9_o4t3i"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_86cna"]
 animations = [{
@@ -27,7 +28,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"default",
-"speed": 5.0
+"speed": 4.0
 }]
 
 [sub_resource type="Curve2D" id="Curve2D_aem5b"]
@@ -94,7 +95,7 @@ position = Vector2(981, 311)
 scale = Vector2(0.52237, 0.6075477)
 sprite_frames = SubResource("SpriteFrames_86cna")
 autoplay = "default"
-frame_progress = 0.4005887
+frame_progress = 0.9333187
 
 [node name="leftPole" type="AnimatedSprite2D" parent="Scenery" unique_id=987890627]
 position = Vector2(155, 311)
@@ -106,10 +107,16 @@ flip_h = true
 
 [node name="road" type="Sprite2D" parent="Scenery" unique_id=1143039805]
 z_index = -3
-position = Vector2(530.00006, 434.00003)
-scale = Vector2(0.7599988, 0.7599988)
+position = Vector2(530.00006, 385)
+scale = Vector2(0.9148575, 0.9148575)
 skew = -0.5305801
 texture = ExtResource("8_lwyr8")
+
+[node name="Sprite2D" type="Sprite2D" parent="Scenery" unique_id=103572109]
+z_index = -5
+position = Vector2(588.99994, 334.99994)
+scale = Vector2(0.6400006, 0.6400006)
+texture = ExtResource("9_o4t3i")
 
 [node name="SpawnPools" type="Node" parent="." unique_id=663536681]
 
