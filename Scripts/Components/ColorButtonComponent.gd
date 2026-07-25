@@ -1,29 +1,33 @@
 class_name ColorButtonComponent
-extends BaseButton
+extends TextureButton
 
 signal color_pressed(color_id: int)
 
 @export var color_id: int = 0
-@export var normal_color: Color = Color.RED
-@export var active_color: Color = Color(1.0, 0.4, 0.4)
 
-@onready var color_rect: ColorRect = $ColorRect
+var _original_modulate: Color
 
 func _ready() -> void:
 	pressed.connect(_on_pressed)
-	set_visual_active(false)
+	_original_modulate = modulate
+	_generate_click_mask()
 
-func set_visual_active(active: bool) -> void:
-	if color_rect:
-		color_rect.color = active_color if active else normal_color
-
-# Faz o botão piscar por um curto período de tempo
+# Faz o botão piscar (clareia brevemente) por um curto período de tempo
 func flash(duration: float = 0.3) -> void:
-	set_visual_active(true)
+	modulate = _original_modulate * 2.0  # Clareia para indicar ativação
 	await get_tree().create_timer(duration, false).timeout
-	set_visual_active(false)
+	modulate = _original_modulate
 
 # Quando o botão é pressionado, ele pisca e emite um sinal com o ID da cor correspondente
 func _on_pressed() -> void:
 	flash(0.15)
 	color_pressed.emit(color_id)
+
+# Gera um click mask a partir da textura para que apenas os pixels opacos sejam clicáveis
+func _generate_click_mask() -> void:
+	if texture_normal:
+		var image: Image = texture_normal.get_image()
+		if image:
+			var mask := BitMap.new()
+			mask.create_from_image_alpha(image, 0.1)
+			texture_click_mask = mask

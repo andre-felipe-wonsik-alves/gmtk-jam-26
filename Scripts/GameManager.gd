@@ -5,7 +5,7 @@ signal minigame_failed
 signal minigame_passed
 
 var current_level_index: int = 0
-var array_index = 0;
+var array_index = 0
 var levels: Array
 
 # Lista com os caminhos das cenas dos minigames

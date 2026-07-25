@@ -1,9 +1,9 @@
 class_name GeniusMinigame
 extends MinigameBase
 
-@export var sequence_length: int = 4
+@export var sequence_length: int = 7
 @export var turn_time_limit: float = 20.0
-@export var secondary_time_limit: float = 7.0
+@export var secondary_time_limit: float = 5.0
 
 @onready var sequence_generator: SequenceGeneratorComponent = $Components/SequenceGeneratorComponent
 @onready var sequence_validator: SequenceValidatorComponent = $Components/SequenceValidatorComponent
@@ -15,9 +15,7 @@ extends MinigameBase
 @onready var buttons: Array[Node] = $UI/ButtonGrid.get_children()
 
 @onready var secondary_timer_label: Label = $UI/EmergencyPanel/SecondaryTimerLabel
-@onready var secondary_button: Button = $UI/EmergencyPanel/SecondaryButton
-@onready var secondary_button_color_rect: ColorRect = $UI/EmergencyPanel/SecondaryButton/ColorRect
-@onready var secondary_button_text: Label = $UI/EmergencyPanel/SecondaryButton/ButtonText
+@onready var secondary_button: TextureButton = $UI/EmergencyPanel/SecondaryButton
 
 var current_sequence: Array[int] = []
 var secondary_button_pressed: bool = false
@@ -55,10 +53,6 @@ func start_genius_round() -> void:
 	if secondary_timer_label:
 		secondary_timer_label.text = "%.1fs" % secondary_time_limit
 		secondary_timer_label.add_theme_color_override("font_color", Color(1.0, 0.4, 0.4))
-	if secondary_button_color_rect:
-		secondary_button_color_rect.color = Color(0.5, 0.5, 0.5, 1)
-	if secondary_button_text:
-		secondary_button_text.text = "RESTART TIMER"
 		
 	# 1. Gerar a sequência aleatória
 	current_sequence = sequence_generator.generate_sequence(sequence_length)
@@ -71,9 +65,8 @@ func start_genius_round() -> void:
 	
 	if secondary_button:
 		secondary_button.disabled = false
-	if secondary_button_color_rect:
-		secondary_button_color_rect.color = Color(0.85, 0.25, 0.25, 1)
 	secondary_timer_component.start_timer(secondary_time_limit)
+	
 
 func _on_display_finished() -> void:
 	# 4. Sequência terminou: preparar validador, ativar botões e iniciar temporizador principal

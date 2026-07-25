@@ -5,7 +5,7 @@ signal display_started
 signal display_finished
 
 @export var flash_duration: float = 0.5  # Duração do flash em segundos
-@export var pause_duration: float = 0.25 # Duração da pausa entre flashes em segundos 
+@export var pause_duration: float = 0.4 # Duração da pausa entre flashes em segundos 
 
 @onready var screen_rect: ColorRect = $ScreenRect
 @onready var status_label: Label = $StatusLabel

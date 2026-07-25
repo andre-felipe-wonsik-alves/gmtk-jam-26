@@ -125,7 +125,7 @@ alignment = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0.98, 0.4, 0.42, 1)
 theme_override_font_sizes/font_size = 56
-text = "VOCÊ PERDEU!!!"
+text = "YOU LOST!!!"
 horizontal_alignment = 1
 
 [node name="RetryButton" type="Button" parent="CenterContainer/Card/VBoxContainer" unique_id=341478459]
@@ -134,7 +134,7 @@ layout_mode = 2
 theme_override_styles/normal = SubResource("Btn_Retry_Normal")
 theme_override_styles/pressed = SubResource("Btn_Retry_Pressed")
 theme_override_styles/hover = SubResource("Btn_Retry_Hover")
-text = "TENTAR NOVAMENTE"
+text = "TRY AGAIN"
 
 [node name="MenuButton" type="Button" parent="CenterContainer/Card/VBoxContainer" unique_id=1931091463]
 custom_minimum_size = Vector2(300, 0)
@@ -142,4 +142,4 @@ layout_mode = 2
 theme_override_styles/normal = SubResource("Btn_Menu_Normal")
 theme_override_styles/pressed = SubResource("Btn_Menu_Pressed")
 theme_override_styles/hover = SubResource("Btn_Menu_Hover")
-text = "MENU PRINCIPAL"
+text = "MAIN MENU"
