@@ -32,7 +32,7 @@ func show_next_number() -> void:
 	if current_index < countdown_images.size()-1:
 		AudioUtils._play_sound_effect(self, load("res://Assets/Sounds/Effects/freesound_community-buzzer-of-car-wash-107990.mp3"))
 	else: 
-		AudioUtils._play_sound_effect(self, load("res://Assets/Sounds/Effects/GOOOOO.mp3"))
+		AudioUtils._play_sound_effect(self, load("res://Assets/Sounds/Effects/bizin_editado.mp3"))
 
 	image.texture = load(countdown_images[current_index])
 	_animate_pop()
