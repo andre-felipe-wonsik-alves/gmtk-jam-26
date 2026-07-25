@@ -169,7 +169,7 @@ texture = ExtResource("2_3yl78")
 
 [node name="frontPathway" type="Sprite2D" parent="Scenery" unique_id=134609681]
 z_index = -2
-position = Vector2(576, 642)
+position = Vector2(576, 621)
 scale = Vector2(0.60236937, 0.7005918)
 texture = ExtResource("4_5ruwa")
 
@@ -192,7 +192,7 @@ position = Vector2(981, 311)
 scale = Vector2(0.52237, 0.6075477)
 sprite_frames = SubResource("SpriteFrames_86cna")
 autoplay = "default"
-frame_progress = 0.9333187
+frame_progress = 0.8845736
 
 [node name="leftPole" type="AnimatedSprite2D" parent="Scenery" unique_id=987890627]
 position = Vector2(155, 311)
@@ -227,6 +227,7 @@ spawn_scenes = Array[PackedScene]([ExtResource("4_3yl78"), ExtResource("6_aem5b"
 spawn_marker = NodePath("..")
 path = NodePath("../Path2D")
 path_follow = NodePath("../Path2D/PathFollow2D")
+spawn_interval_seconds = 7.0
 speed = 70
 metadata/_custom_type_script = "uid://bdqsdxu1hqmfg"
 
@@ -247,6 +248,7 @@ spawn_scenes = Array[PackedScene]([ExtResource("4_3yl78"), ExtResource("14_bdscv
 spawn_marker = NodePath("..")
 path = NodePath("../Path2D")
 path_follow = NodePath("../Path2D/PathFollow2D")
+spawn_interval_seconds = 7.0
 speed = 70
 metadata/_custom_type_script = "uid://bdqsdxu1hqmfg"
 

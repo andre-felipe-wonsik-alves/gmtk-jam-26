@@ -1,12 +1,11 @@
 [gd_scene format=3 uid="uid://dl54ikwipnilr"]
 
-[ext_resource type="Texture2D" uid="uid://bvunaiy5gr2sh" path="res://Assets/Levels/City/random_dude.png" id="1_8p0bs"]
+[ext_resource type="Texture2D" uid="uid://cw61e3u35xds" path="res://Assets/Levels/City/red-dude.png" id="1_8p0bs"]
 [ext_resource type="Script" uid="uid://6wybcapgxvhw" path="res://Scripts/Components/InteractableComponent.gd" id="2_5irar"]
-[ext_resource type="Script" uid="uid://cmrqf7p1u3hd7" path="res://Scripts/Components/Interactable/Wrong.gd" id="3_eqpa6"]
-[ext_resource type="AudioStream" uid="uid://el5ue53edxfh" path="res://Assets/Sounds/Effects/apebble-fart-3-228243.mp3" id="4_bhc13"]
+[ext_resource type="Script" uid="uid://chs4h0hihuse6" path="res://Scripts/Components/Interactable/Poppable.gd" id="3_wgv3a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5grla"]
-size = Vector2(69, 146)
+size = Vector2(113, 311)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mt5lt"]
 animations = [{
@@ -22,7 +21,7 @@ animations = [{
 [node name="RandomDude" type="AnimatableBody2D" unique_id=692033546]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=810202119]
-position = Vector2(-2.5, -9)
+position = Vector2(1.5, -9.5)
 shape = SubResource("RectangleShape2D_5grla")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=650621309]
@@ -35,7 +34,6 @@ offset = Vector2(0.1931169, -11.690617)
 [node name="InteractableComponent" type="Node" parent="." unique_id=2135864381]
 script = ExtResource("2_5irar")
 
-[node name="Wrong" type="Node" parent="InteractableComponent" unique_id=295738170]
-script = ExtResource("3_eqpa6")
-wrong_sound = ExtResource("4_bhc13")
-metadata/_custom_type_script = "uid://cmrqf7p1u3hd7"
+[node name="Poppable" type="Node" parent="InteractableComponent" unique_id=729016443]
+script = ExtResource("3_wgv3a")
+metadata/_custom_type_script = "uid://chs4h0hihuse6"

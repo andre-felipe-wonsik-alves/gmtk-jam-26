@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ceukar58dgufd"
-path="res://.godot/imported/wrong-car.png-8e71904824fd62ed4817660636387368.ctex"
+uid="uid://bebbldp47w533"
+path="res://.godot/imported/red-girl.png-ad6f804aa49b6b6676114237338ff1cb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Levels/City/wrong-car.png"
-dest_files=["res://.godot/imported/wrong-car.png-8e71904824fd62ed4817660636387368.ctex"]
+source_file="res://Assets/Levels/City/red-girl.png"
+dest_files=["res://.godot/imported/red-girl.png-ad6f804aa49b6b6676114237338ff1cb.ctex"]
 
 [params]
 
