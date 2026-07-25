@@ -1,24 +1,56 @@
 extends Control
 
-@onready var label: RichTextLabel = $RichTextLabel
+@onready var progress_bar: ProgressBar = $ProgressBar
+@onready var title: Label = $Label
+@onready var hint: RichTextLabel = $RichTextLabel
+@onready var image: Sprite2D = $Image
 @onready var timer: Timer = $Timer
+
+# Títulos para cada minigame 
+var names: Array[String] = [
+	"ANT HAVOC",
+	"REMEMBER THE COLORS",
+	"CITY SORTING"
+]
 
 # Instruções para cada minigame (pode ser mapeado pelo índice)
 var instructions: Array[String] = [
-	"[center]Clique nos objetos [color=red]VERMELHOS![/color][/center]",
-	"Decore a sequência de cores!",
+	"Catch all the ants!\nHint: Beware of the frogs and anteaters.",
+	"Remember the colors!",
+	"Select all the red things!"
+]
+
+# Imagens de cada
+var images: Array[String] = [
+	"res://Assets/Levels/Menu/ants.png",
+	"res://Assets/Levels/Menu/genius.png",
+	"res://Assets/Levels/Menu/city.png"
 ]
 
 func _ready() -> void:
 	var index = GameManager.current_level_index
 	if index < instructions.size():
-		label.text = instructions[index]
+		title.text = names[index]
+		title.add_theme_color_override("font_color", Color.BLACK)
+		hint.text = instructions[index]
+		hint.add_theme_color_override("font_color", Color.BLACK)
+		image.texture = load(images[index])
 	else:
-		label.text = "Prepare-se!"
+		hint.text = "Prepare-se!"
+	
+	# Começa a progressbar cheia
+	progress_bar.max_value = timer.wait_time
+	progress_bar.value = timer.wait_time
 	
 	# Conectando o sinal de término do Timer via código
 	timer.timeout.connect(_on_timer_timeout)
 	timer.start()
 
+func _process(_delta: float) -> void:
+	# Esvazia a barra conforme o tempo passa, dando feedback visual
+	# de quanto falta para o minigame começar
+	if not timer.is_stopped():
+		progress_bar.value = timer.time_left
+
 func _on_timer_timeout() -> void:
-	GameManager.load_current_minigame()
+	GameManager.load_current_minigame(true)

@@ -1,4 +1,5 @@
-class_name AntLevel extends Node2D
+class_name AntLevel 
+extends MinigameBase
 
 @export_range(1.0, 60.0, 0.5) var level_duration_seconds := 15.0
 
@@ -85,4 +86,4 @@ func _finish_level() -> void:
 		spawn_component.stop_spawning()
 	GameSession.save_level_result("Ant invasion", captured_ants, spawned_ants)
 	print("Ant invasion finished — captured: %d | spawned: %d" % [captured_ants, spawned_ants])
-	get_tree().quit()
+	won.emit()

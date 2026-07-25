@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://c03qcqua5x3xd" path="res://Scripts/Components/TimerComponent.gd" id="4_timer"]
 [ext_resource type="Script" uid="uid://cxc7yivwrmh2o" path="res://Scripts/Components/MonitorDisplayComponent.gd" id="5_mon"]
 [ext_resource type="Script" uid="uid://cs1i16a0oqd38" path="res://Scripts/Components/ColorButtonComponent.gd" id="6_btn"]
+[ext_resource type="AudioStream" uid="uid://b0jx4t3jasmj0" path="res://Assets/Sounds/Music/genius.mp3" id="7_fayor"]
 
 [node name="GeniusMinigame" type="Node2D" unique_id=270707829]
 script = ExtResource("1_genius")
@@ -274,3 +275,7 @@ theme_override_font_sizes/font_size = 18
 text = "STATUS: AGUARDANDO..."
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=817590488]
+stream = ExtResource("7_fayor")
+autoplay = true
