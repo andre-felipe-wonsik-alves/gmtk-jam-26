@@ -4,7 +4,7 @@ extends MinigameBase
 @export var sequence_length: int = 2
 @export var turn_time_limit: float = 20.0
 @export var secondary_time_limit: float = 5.0
-@export var explosion_frame_duration: float = 0.15
+@export var explosion_frame_duration: float = 0.25
 @export var victory_display_duration: float = 2.0
 @export var victory_slide_duration: float = 0.3
 @export var victory_slide_distance: float = 145.0
@@ -160,6 +160,8 @@ func _play_victory_then_win() -> void:
 		await tween.finished
 
 	await get_tree().create_timer(victory_display_duration, false).timeout
+	# Garante que não chamará de novo
+	var won_signal := won
 	won.emit()
 
 func _on_sequence_failed() -> void:
