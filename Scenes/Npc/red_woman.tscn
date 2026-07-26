@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bebbldp47w533" path="res://Assets/Levels/City/red-girl.png" id="1_o33s1"]
 [ext_resource type="Script" uid="uid://6wybcapgxvhw" path="res://Scripts/Components/InteractableComponent.gd" id="2_rxj60"]
 [ext_resource type="Script" uid="uid://chs4h0hihuse6" path="res://Scripts/Components/Interactable/Poppable.gd" id="3_4kijh"]
+[ext_resource type="AudioStream" uid="uid://clypsx251ujfi" path="res://Assets/Sounds/Effects/dragon-studio-clean-minimal-pop-467466.mp3" id="4_rxj60"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5grla"]
 size = Vector2(113, 312.09433)
@@ -38,4 +39,5 @@ script = ExtResource("2_rxj60")
 
 [node name="Poppable" type="Node" parent="InteractableComponent" unique_id=729016443]
 script = ExtResource("3_4kijh")
+pop_sound = ExtResource("4_rxj60")
 metadata/_custom_type_script = "uid://chs4h0hihuse6"
