@@ -96,7 +96,7 @@ func _play_tick_feedback() -> void:
 
 func _on_timeout() -> void:
 	if alarm_sound:
-		AudioUtils._play_sound_effect(self, alarm_sound)
+		AudioUtils._play_sound_effect(self, alarm_sound, -3.0)
 
 	# Intense wobble animation when reaching 0 (loops continuously)
 	if _wobble_tween and _wobble_tween.is_running():

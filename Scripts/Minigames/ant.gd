@@ -1,6 +1,8 @@
-class_name AntLevel extends Node2D
+class_name AntLevel 
+extends MinigameBase
 
 @export_range(1.0, 60.0, 0.5) var level_duration_seconds := 15.0
+@export_range(1, 100, 1) var ants_required_to_win := 17
 
 @onready var bucket: Area2D = $Bucket
 @onready var countdown: TimerCountdown = $Countdown
@@ -14,6 +16,7 @@ var _spawn_components: Array[SpawnComponent] = []
 
 
 func _ready() -> void:
+	super._ready()
 	bucket.body_entered.connect(_on_bucket_body_entered)
 	_spawn_components = _find_spawn_components()
 	for spawn_component in _spawn_components:
@@ -73,5 +76,10 @@ func _finish_level() -> void:
 	for spawn_component in _spawn_components:
 		spawn_component.stop_spawning()
 	GameSession.save_level_result("Ant invasion", captured_ants, spawned_ants)
-	print("Ant invasion finished — captured: %d | spawned: %d" % [captured_ants, spawned_ants])
-	get_tree().quit()
+	print("Ant invasion finished — captured: %d | needed: %d | spawned: %d" % [captured_ants, ants_required_to_win, spawned_ants])
+	if captured_ants >= ants_required_to_win:
+		print("won (ant.gd)")
+		won.emit()
+	else:
+		print("lost (ant.gd)")
+		lost.emit()
