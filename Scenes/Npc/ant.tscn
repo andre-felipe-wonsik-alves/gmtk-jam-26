@@ -30,7 +30,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Ant" type="AnimatableBody2D" unique_id=605012984 groups=["ant"]]
+[node name="Ant" type="AnimatableBody2D" unique_id=605012984 groups=["ants"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=276992453]
 shape = SubResource("RectangleShape2D_86cna")

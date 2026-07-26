@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cgkcxp8emo24r" path="res://Assets/Levels/City/woman.png" id="1_p4hr2"]
 [ext_resource type="Script" uid="uid://6wybcapgxvhw" path="res://Scripts/Components/InteractableComponent.gd" id="2_dhchg"]
 [ext_resource type="Script" uid="uid://chs4h0hihuse6" path="res://Scripts/Components/Interactable/Poppable.gd" id="3_f4pax"]
-[ext_resource type="AudioStream" uid="uid://clypsx251ujfi" path="res://Assets/Sounds/dragon-studio-clean-minimal-pop-467466.mp3" id="4_f4pax"]
+[ext_resource type="AudioStream" uid="uid://clypsx251ujfi" path="res://Assets/Sounds/Effects/dragon-studio-clean-minimal-pop-467466.mp3" id="4_f4pax"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5grla"]
 size = Vector2(69, 146)
