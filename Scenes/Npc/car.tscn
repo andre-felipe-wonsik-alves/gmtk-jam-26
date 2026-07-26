@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://clypsx251ujfi" path="res://Assets/Sounds/Effects/dragon-studio-clean-minimal-pop-467466.mp3" id="4_cfmeg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8odeo"]
-size = Vector2(143, 60)
+size = Vector2(71.5, 33.279675)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_86cna"]
 animations = [{
@@ -23,12 +23,13 @@ animations = [{
 scale = Vector2(2, 2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2030024330]
-position = Vector2(-0.5, -10)
+position = Vector2(7.6806946, -10.7947235)
+scale = Vector2(5.095964, 5.210705)
 shape = SubResource("RectangleShape2D_8odeo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1305526116]
 position = Vector2(1.9073486e-06, -4)
-scale = Vector2(0.080001436, 0.080001436)
+scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_86cna")
 autoplay = "default"
 offset = Vector2(-12.306427, -74.18906)

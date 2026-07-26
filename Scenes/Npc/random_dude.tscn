@@ -19,13 +19,14 @@ animations = [{
 }]
 
 [node name="RandomDude" type="AnimatableBody2D" unique_id=692033546]
+scale = Vector2(0.63671565, 0.5979564)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=810202119]
-position = Vector2(1.5, -9.5)
+position = Vector2(-62, -155)
 shape = SubResource("RectangleShape2D_5grla")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=650621309]
-position = Vector2(0, -7)
+position = Vector2(-59.000004, -154)
 scale = Vector2(0.23999934, 0.23999934)
 sprite_frames = SubResource("SpriteFrames_mt5lt")
 autoplay = "default"
