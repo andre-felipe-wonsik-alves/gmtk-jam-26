@@ -1,8 +1,9 @@
-[gd_scene format=3 uid="uid://cu5dynwp1t45y"]
+[gd_scene format=3 uid="uid://yk08gnm1s32r"]
 
-[ext_resource type="Script" uid="uid://c2hucp1iqcklf" path="res://Scripts/Screens/GameEndScreen.gd" id="1_0gua7"]
-[ext_resource type="Theme" path="res://Themes/main_theme.tres" id="2_theme"]
-[ext_resource type="Texture2D" uid="uid://c7ea00edlgbtc" path="res://Assets/Levels/Menu/sad_star.png" id="3_f41m0"]
+[ext_resource type="Theme" path="res://Themes/main_theme.tres" id="1_w2lnb"]
+[ext_resource type="Script" uid="uid://c2hucp1iqcklf" path="res://Scripts/Screens/GameEndScreen.gd" id="2_14juv"]
+[ext_resource type="Texture2D" uid="uid://dmg88tjwph68o" path="res://Assets/Levels/Menu/winning_star.png" id="3_kdey8"]
+[ext_resource type="Texture2D" uid="uid://bplgmvosmaivd" path="res://Assets/Levels/Menu/happy_star.png" id="4_14juv"]
 
 [sub_resource type="StyleBoxFlat" id="Panel_Card"]
 content_margin_left = 56.0
@@ -14,7 +15,7 @@ border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color(0.95, 0.28, 0.32, 0.55)
+border_color = Color(0.28, 0.95, 0.55, 0.55)
 corner_radius_top_left = 28
 corner_radius_top_right = 28
 corner_radius_bottom_right = 28
@@ -27,7 +28,7 @@ content_margin_left = 40.0
 content_margin_top = 14.0
 content_margin_right = 40.0
 content_margin_bottom = 14.0
-bg_color = Color(0.85, 0.2, 0.24, 1)
+bg_color = Color(0.2, 0.85, 0.35, 1)
 corner_radius_top_left = 14
 corner_radius_top_right = 14
 corner_radius_bottom_right = 14
@@ -38,7 +39,7 @@ content_margin_left = 40.0
 content_margin_top = 14.0
 content_margin_right = 40.0
 content_margin_bottom = 14.0
-bg_color = Color(0.6, 0.1, 0.14, 1)
+bg_color = Color(0.1, 0.6, 0.2, 1)
 corner_radius_top_left = 14
 corner_radius_top_right = 14
 corner_radius_bottom_right = 14
@@ -49,7 +50,7 @@ content_margin_left = 40.0
 content_margin_top = 14.0
 content_margin_right = 40.0
 content_margin_bottom = 14.0
-bg_color = Color(0.95, 0.3, 0.34, 1)
+bg_color = Color(0.3, 0.95, 0.45, 1)
 corner_radius_top_left = 14
 corner_radius_top_right = 14
 corner_radius_bottom_right = 14
@@ -88,25 +89,17 @@ corner_radius_top_right = 14
 corner_radius_bottom_right = 14
 corner_radius_bottom_left = 14
 
-[node name="GameOverScreen" type="Control" unique_id=875948902]
+[node name="VictoryScreen" type="Control" unique_id=875948902]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("2_theme")
-script = ExtResource("1_0gua7")
+theme = ExtResource("1_w2lnb")
+script = ExtResource("2_14juv")
 
-[node name="Background" type="ColorRect" parent="." unique_id=863992715]
-layout_mode = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.09, 0.04, 0.05, 1)
-
-[node name="StarIcon" type="TextureRect" parent="." unique_id=1118221770]
+[node name="StarIcon" type="TextureRect" parent="." unique_id=1220640244]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 0
 offset_left = 149.00012
@@ -116,11 +109,11 @@ offset_bottom = 401.0
 scale = Vector2(3.591493, 3.3126776)
 pivot_offset = Vector2(64, 64)
 size_flags_horizontal = 4
-texture = ExtResource("3_f41m0")
+texture = ExtResource("3_kdey8")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="StarIcon2" type="TextureRect" parent="." unique_id=1976622874]
+[node name="StarIcon2" type="TextureRect" parent="." unique_id=411315156]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 0
 offset_left = 933.0
@@ -130,9 +123,18 @@ offset_bottom = 398.0
 scale = Vector2(3.3576438, 3.162049)
 pivot_offset = Vector2(64, 64)
 size_flags_horizontal = 4
-texture = ExtResource("3_f41m0")
+texture = ExtResource("4_14juv")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="Background" type="ColorRect" parent="." unique_id=863992715]
+z_index = -1
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.04, 0.09, 0.05, 1)
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=579509306]
 layout_mode = 0
@@ -152,9 +154,9 @@ alignment = 1
 
 [node name="Label" type="Label" parent="CenterContainer/Card/VBoxContainer" unique_id=1994467999]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.98, 0.4, 0.42, 1)
+theme_override_colors/font_color = Color(0.4, 0.98, 0.52, 1)
 theme_override_font_sizes/font_size = 56
-text = "YOU LOST!!!"
+text = "YOU WIN!"
 horizontal_alignment = 1
 
 [node name="RetryButton" type="Button" parent="CenterContainer/Card/VBoxContainer" unique_id=341478459]
@@ -163,7 +165,7 @@ layout_mode = 2
 theme_override_styles/normal = SubResource("Btn_Retry_Normal")
 theme_override_styles/pressed = SubResource("Btn_Retry_Pressed")
 theme_override_styles/hover = SubResource("Btn_Retry_Hover")
-text = "TRY AGAIN"
+text = "PLAY AGAIN"
 
 [node name="MenuButton" type="Button" parent="CenterContainer/Card/VBoxContainer" unique_id=1931091463]
 custom_minimum_size = Vector2(300, 0)

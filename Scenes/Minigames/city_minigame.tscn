@@ -36,7 +36,6 @@ point_count = 4
 
 [node name="City" type="Node2D" unique_id=1970652152]
 script = ExtResource("1_fmfq8")
-score_required_to_win = 10
 
 [node name="Player" parent="." unique_id=1982141801 instance=ExtResource("2_rejuu")]
 top_level = true

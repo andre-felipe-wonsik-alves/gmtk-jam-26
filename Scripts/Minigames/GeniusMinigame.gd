@@ -1,8 +1,8 @@
 class_name GeniusMinigame
 extends MinigameBase
 
-@export var sequence_length: int = 2
-@export var turn_time_limit: float = 20.0
+@export var sequence_length: int = 5
+@export var turn_time_limit: float = 15.0
 @export var secondary_time_limit: float = 5.0
 @export var explosion_frame_duration: float = 0.25
 @export var victory_display_duration: float = 2.0
@@ -14,6 +14,7 @@ extends MinigameBase
 @onready var timer_component: TimerComponent = $Components/TimerComponent
 @onready var secondary_timer_component: TimerComponent = $Components/SecondaryTimerComponent
 @onready var monitor_display: MonitorDisplayComponent = $UI/MonitorDisplayComponent
+@onready var countdown: TimerCountdown = $UI/Countdown
 
 @onready var timer_label: Label = $UI/TimerLabel
 @onready var buttons: Array[Node] = $UI/ButtonGrid.get_children()
@@ -81,6 +82,10 @@ func _ready() -> void:
 			btn.disabled = true # Desativado durante o piscar do monitor
 
 	start_genius_round()
+	
+	if countdown:
+		countdown.countdown_finished.connect(_play_explosion_then_lose)
+		countdown.start_countdown(turn_time_limit)
 
 func start_genius_round() -> void:
 	secondary_button_pressed = false
