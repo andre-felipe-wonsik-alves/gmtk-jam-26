@@ -140,15 +140,15 @@ fill = 1
 fill_from = Vector2(0.5117647, 0.011764706)
 fill_to = Vector2(0.47058824, 0.5529412)
 
-[sub_resource type="Curve2D" id="Curve2D_aem5b"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1389, -11, 0, 0, 0, 0, -46, -20)
-}
-point_count = 2
-
 [sub_resource type="Curve2D" id="Curve2D_kxfw3"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 63, 37, 0, 0, 0, 0, -1586, 42)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_lsclp"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -6.25, 46, 0, 0, 0, 0, -736.6063, 53)
 }
 point_count = 2
 
@@ -248,29 +248,8 @@ blend_mode = 1
 
 [node name="SpawnPools" type="Node" parent="." unique_id=663536681]
 
-[node name="RoadLeft" type="Marker2D" parent="SpawnPools" unique_id=649712608]
-position = Vector2(-214, 279)
-
-[node name="SpawnComponent" type="Node" parent="SpawnPools/RoadLeft" unique_id=1009406731 node_paths=PackedStringArray("spawn_marker", "path", "path_follow")]
-script = ExtResource("4_kasov")
-spawn_scenes = Array[PackedScene]([ExtResource("5_s78fr"), ExtResource("6_63m4s"), ExtResource("14_fgejj"), ExtResource("15_ftbhi")])
-spawn_marker = NodePath("..")
-path = NodePath("../Path2D")
-path_follow = NodePath("../Path2D/PathFollow2D")
-spawn_interval_seconds = 7.0
-speed = 200
-metadata/_custom_type_script = "uid://bdqsdxu1hqmfg"
-
-[node name="Path2D" type="Path2D" parent="SpawnPools/RoadLeft" unique_id=1602728181]
-position = Vector2(187, 35)
-curve = SubResource("Curve2D_aem5b")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="SpawnPools/RoadLeft/Path2D" unique_id=480007606]
-position = Vector2(1389, -11)
-rotation = -3.135321
-
 [node name="RoadRight" type="Marker2D" parent="SpawnPools" unique_id=1343910942]
-position = Vector2(1297, 368)
+position = Vector2(1297, 378)
 
 [node name="SpawnComponent" type="Node" parent="SpawnPools/RoadRight" unique_id=557816890 node_paths=PackedStringArray("spawn_marker", "path", "path_follow")]
 script = ExtResource("4_kasov")
@@ -295,6 +274,34 @@ target = NodePath("..")
 bob_height = 5.0
 bob_speed = 100.0
 metadata/_custom_type_script = "uid://bidlto0mxvg6g"
+
+[node name="RoadRight2" type="Marker2D" parent="SpawnPools" unique_id=371235314]
+position = Vector2(1297, 242)
+scale = Vector2(2.2400024, 1)
+
+[node name="SpawnComponent" type="Node" parent="SpawnPools/RoadRight2" unique_id=1052361455 node_paths=PackedStringArray("spawn_marker", "path", "path_follow")]
+script = ExtResource("4_kasov")
+spawn_scenes = Array[PackedScene]([ExtResource("5_s78fr"), ExtResource("15_ftbhi"), ExtResource("14_fgejj"), ExtResource("6_63m4s")])
+spawn_marker = NodePath("..")
+path = NodePath("../Path2D")
+path_follow = NodePath("../Path2D/PathFollow2D")
+spawn_interval_seconds = 8.0
+speed = 250
+metadata/_custom_type_script = "uid://bdqsdxu1hqmfg"
+
+[node name="WalkBobComponent" type="Node" parent="SpawnPools/RoadRight2" unique_id=1100503484 node_paths=PackedStringArray("target")]
+script = ExtResource("22_lsclp")
+target = NodePath("..")
+bob_height = 5.0
+bob_speed = 100.0
+metadata/_custom_type_script = "uid://bidlto0mxvg6g"
+
+[node name="Path2D" type="Path2D" parent="SpawnPools/RoadRight2" unique_id=1301472455]
+curve = SubResource("Curve2D_lsclp")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="SpawnPools/RoadRight2/Path2D" unique_id=717412427]
+position = Vector2(-6.25, 46)
+rotation = 3.1320086
 
 [node name="Sidewalk" type="Marker2D" parent="SpawnPools" unique_id=140212517]
 z_index = 1
