@@ -13,12 +13,17 @@
 [ext_resource type="Texture2D" uid="uid://blhtp4opwmju3" path="res://Assets/Levels/Genius/botaozao_idle.png" id="11_big_idle"]
 [ext_resource type="Texture2D" uid="uid://cvgf0pij2kknw" path="res://Assets/Levels/Genius/botaozao_pressed.png" id="12_big_pressed"]
 [ext_resource type="Texture2D" uid="uid://bq0xgpdiw3kbi" path="res://Assets/Levels/Genius/cockpit_deserto.png" id="13_rq3m5"]
+[ext_resource type="Texture2D" uid="uid://ottq7t44vmxe" path="res://Assets/Levels/Genius/boom1.png" id="14_boom1"]
+[ext_resource type="Texture2D" uid="uid://cdl5h7ve5ril7" path="res://Assets/Levels/Genius/guy.png" id="15_guy"]
+[ext_resource type="Texture2D" uid="uid://dkj1xgwb2cbtj" path="res://Assets/Levels/Genius/guy_joinha.png" id="16_joinha"]
 
 [sub_resource type="Theme" id="Theme_j3stb"]
 
 [node name="GeniusMinigame" type="Node2D" unique_id=270707829]
 position = Vector2(-104, -52)
 script = ExtResource("1_genius")
+victory_slide_duration = 0.4
+victory_slide_distance = 260.0
 
 [node name="Components" type="Node" parent="." unique_id=1429039005]
 
@@ -45,6 +50,43 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("13_rq3m5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ExplosionAnimation" type="TextureRect" parent="UI" unique_id=1106134630]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("14_boom1")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CoolGuy" type="TextureRect" parent="UI" unique_id=243439528]
+visible = false
+offset_left = 266.00012
+offset_top = -2.9999847
+offset_right = 446.00012
+offset_bottom = 177.00002
+scale = Vector2(4.632771, 3.7073073)
+mouse_filter = 2
+texture = ExtResource("15_guy")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ThumbsUp" type="TextureRect" parent="UI/CoolGuy" unique_id=243439529]
+visible = false
+layout_mode = 0
+offset_left = 110.30113
+offset_top = 66.625175
+offset_right = 186.30115
+offset_bottom = 142.62518
+scale = Vector2(0.5800608, 0.5946329)
+mouse_filter = 2
+texture = ExtResource("16_joinha")
 expand_mode = 1
 stretch_mode = 5
 
