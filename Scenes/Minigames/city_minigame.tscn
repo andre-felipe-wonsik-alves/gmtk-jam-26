@@ -306,7 +306,7 @@ rotation = 3.1320086
 
 [node name="Sidewalk" type="Marker2D" parent="SpawnPools" unique_id=140212517]
 z_index = 1
-position = Vector2(1376, 737)
+position = Vector2(1376, 696)
 
 [node name="SpawnComponent" type="Node" parent="SpawnPools/Sidewalk" unique_id=1129921582 node_paths=PackedStringArray("spawn_marker", "path", "path_follow")]
 script = ExtResource("4_kasov")
@@ -332,7 +332,7 @@ metadata/_custom_type_script = "uid://bidlto0mxvg6g"
 
 [node name="Sidewalk2" type="Marker2D" parent="SpawnPools" unique_id=1263632119]
 z_index = 1
-position = Vector2(1367, 717)
+position = Vector2(1367, 676)
 
 [node name="SpawnComponent" type="Node" parent="SpawnPools/Sidewalk2" unique_id=375715026 node_paths=PackedStringArray("spawn_marker", "path", "path_follow")]
 script = ExtResource("4_kasov")
