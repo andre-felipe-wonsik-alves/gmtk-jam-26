@@ -5,7 +5,7 @@ signal display_started
 signal display_finished
 
 @export var flash_duration: float = 0.5  # Duração do flash em segundos
-@export var pause_duration: float = 0.25 # Duração da pausa entre flashes em segundos 
+@export var pause_duration: float = 0.4 # Duração da pausa entre flashes em segundos 
 
 @onready var screen_rect: ColorRect = $ScreenRect
 @onready var status_label: Label = $StatusLabel
@@ -23,23 +23,23 @@ const OFF_COLOR: Color = Color(0.1, 0.1, 0.15) # Cor de fundo quando a tela est�
 func _ready() -> void:
 	set_screen_color(OFF_COLOR)
 	if status_label:
-		status_label.text = "Aguardando..."
+		status_label.text = "Waiting..."
 
 func play_sequence(sequence: Array[int]) -> void:
 	display_started.emit()
 	if status_label:
-		status_label.text = "Preste atenção!"
+		status_label.text = "Pay attention!"
 		
 	for color_id in sequence:
-		await get_tree().create_timer(pause_duration).timeout # Pausa antes de cada flash
+		await get_tree().create_timer(pause_duration, false).timeout # Pausa antes de cada flash
 		if color_id >= 0 and color_id < COLOR_MAP.size():
 			set_screen_color(COLOR_MAP[color_id])
-			await get_tree().create_timer(flash_duration).timeout # Duração do flash
+			await get_tree().create_timer(flash_duration, false).timeout # Duração do flash
 			set_screen_color(OFF_COLOR)
 			
-	await get_tree().create_timer(pause_duration).timeout # Pausa final antes de indicar que a exibição terminou
+	await get_tree().create_timer(pause_duration, false).timeout # Pausa final antes de indicar que a exibição terminou
 	if status_label:
-		status_label.text = "Sua vez!"
+		status_label.text = "Your turn!"
 	display_finished.emit()
 
 func set_screen_color(color: Color) -> void:
@@ -50,5 +50,5 @@ func set_screen_color(color: Color) -> void:
 func flash_color(color_id: int, duration: float = 0.2) -> void:
 	if color_id >= 0 and color_id < COLOR_MAP.size():
 		set_screen_color(COLOR_MAP[color_id])
-		await get_tree().create_timer(duration).timeout # Duração do flash
+		await get_tree().create_timer(duration, false).timeout # Duração do flash
 		set_screen_color(OFF_COLOR)

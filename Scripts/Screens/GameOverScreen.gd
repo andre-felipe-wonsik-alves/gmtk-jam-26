@@ -13,6 +13,11 @@ func _ready() -> void:
 	_add_button_juice(menu_button)
 	_animate_card_in()
 
+	await get_tree().process_frame
+	_add_button_juice(retry_button)
+	_add_button_juice(menu_button)
+	_animate_card_in()
+
 func _on_retry_pressed() -> void:
 	# Reinicia do minigame atual onde ele errou
 	GameManager.load_current_minigame_instruction()

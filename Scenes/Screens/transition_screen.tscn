@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cloig71bbxwbn"]
 
-[ext_resource type="Script" uid="uid://ce1e2ut4we48l" path="res://Scripts/Screens/TransitionScreen.gd" id="1_y408c"]
+[ext_resource type="Script" uid="uid://bb420bt3pj315" path="res://Scripts/Screens/TransitionScreen.gd" id="1_y408c"]
 [ext_resource type="Texture2D" uid="uid://c83bkv14gkxsc" path="res://Assets/Levels/Menu/ants.png" id="2_l63ls"]
 [ext_resource type="FontFile" uid="uid://dadatk151rr8s" path="res://Assets/Fonts/matcha_mint/Matcha Mint.otf" id="2_qg4uf"]
 

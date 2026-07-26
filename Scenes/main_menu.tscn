@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ylvi75g7b7n5"]
 
-[ext_resource type="Script" uid="uid://dmmc0qxnrlylg" path="res://Scripts/Screens/MainMenu.gd" id="1_28flt"]
+[ext_resource type="Script" uid="uid://cgxls02aqgvau" path="res://Scripts/Screens/MainMenu.gd" id="1_28flt"]
 [ext_resource type="Texture2D" uid="uid://cuf05wp537u7s" path="res://Assets/Levels/Menu/screenshot-2026-07-23_21-58-22.png" id="2_48xlc"]
 [ext_resource type="StyleBox" uid="uid://ce6lacdhlhrkt" path="res://Scenes/UI/MenuButton.tres" id="2_n45e2"]
 [ext_resource type="AudioStream" uid="uid://b0jx4t3jasmj0" path="res://Assets/Sounds/Music/genius.mp3" id="3_1ehe0"]

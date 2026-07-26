@@ -1,4 +1,4 @@
-extends Node2D
+extends CanvasLayer
 
 @onready var image: Sprite2D = $CenterContainer/Sprite2D
 
@@ -15,7 +15,7 @@ var current_index = 0
 func _ready() -> void:
 	image.texture = null
 	image.modulate.a = 0.0
-	image.position = get_viewport_rect().size / 2
+	image.position = get_viewport().get_visible_rect().size / 2.0
 	image.top_level = true
 	start_countdown()
 
@@ -40,10 +40,6 @@ func show_next_number() -> void:
 
 	await get_tree().create_timer(1.2).timeout
 	show_next_number()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func _animate_pop() -> void:
 	image.scale = Vector2(0.5, 0.5)
