@@ -1,58 +1,96 @@
 [gd_scene format=3 uid="uid://ylvi75g7b7n5"]
 
 [ext_resource type="Script" uid="uid://cgxls02aqgvau" path="res://Scripts/Screens/MainMenu.gd" id="1_28flt"]
-[ext_resource type="Texture2D" uid="uid://cuf05wp537u7s" path="res://Assets/Levels/Menu/screenshot-2026-07-23_21-58-22.png" id="2_48xlc"]
-[ext_resource type="StyleBox" uid="uid://ce6lacdhlhrkt" path="res://Scenes/UI/MenuButton.tres" id="2_n45e2"]
 [ext_resource type="AudioStream" uid="uid://b0jx4t3jasmj0" path="res://Assets/Sounds/Music/genius.mp3" id="3_1ehe0"]
+[ext_resource type="Texture2D" uid="uid://b0tvx8awhgtcv" path="res://Assets/Levels/Menu/IMG_0800-medium.png" id="3_n45e2"]
 [ext_resource type="Script" uid="uid://c5hrl3ew6447p" path="res://Scripts/Components/MenuCameraComponent.gd" id="4_ce3w2"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ce3w2"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n45e2"]
+content_margin_left = 40.0
+content_margin_top = 14.0
+content_margin_right = 40.0
+content_margin_bottom = 14.0
+bg_color = Color(0.2, 0.85, 0.35, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ew4di"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_opfnp"]
+content_margin_left = 40.0
+content_margin_top = 14.0
+content_margin_right = 40.0
+content_margin_bottom = 14.0
+bg_color = Color(0.1, 0.6, 0.2, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cp0ys"]
+content_margin_left = 40.0
+content_margin_top = 14.0
+content_margin_right = 40.0
+content_margin_bottom = 14.0
+bg_color = Color(0.3, 0.95, 0.45, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ce3w2"]
+content_margin_left = 40.0
+content_margin_top = 14.0
+content_margin_right = 40.0
+content_margin_bottom = 14.0
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
 
 [node name="MainMenu" type="Control" unique_id=1838064]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_28flt")
 
-[node name="PlayButton" type="Button" parent="." unique_id=1525011396]
-top_level = true
+[node name="PlayButton" type="Button" parent="." unique_id=1434295744]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 0
-offset_left = 39.0
-offset_top = 227.00002
-offset_right = 311.0
-offset_bottom = 258.0
-scale = Vector2(1.1067998, 1.7867234)
-mouse_filter = 1
-theme_override_styles/normal = SubResource("StyleBoxEmpty_ce3w2")
-theme_override_styles/hover = ExtResource("2_n45e2")
-text = "
-"
-
-[node name="QuitButton" type="Button" parent="." unique_id=374684086]
-top_level = true
-layout_mode = 0
-offset_left = 38.999992
+offset_left = 35.0
 offset_top = 332.0
-offset_right = 311.0
-offset_bottom = 363.0
-scale = Vector2(1.0734555, 1.7401446)
-mouse_filter = 1
-theme_override_styles/normal = SubResource("StyleBoxEmpty_ew4di")
-theme_override_styles/hover = ExtResource("2_n45e2")
-text = "
-"
+offset_right = 335.0
+offset_bottom = 383.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_n45e2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_opfnp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cp0ys")
+text = "PLAY"
+
+[node name="QuitButton" type="Button" parent="." unique_id=1753723531]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 0
+offset_left = 37.0
+offset_top = 411.0
+offset_right = 337.0
+offset_bottom = 462.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_ce3w2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_opfnp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cp0ys")
+text = "QUIT"
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=25072640]
 z_index = -1
 layout_mode = 0
-offset_left = -78.0
-offset_top = -27.000002
-offset_right = 1073.0
-offset_bottom = 619.0
+offset_left = -34.0
+offset_top = -77.0
+offset_right = 1121.798
+offset_bottom = 616.8661
 scale = Vector2(1.1974411, 1.165931)
 mouse_filter = 2
-texture = ExtResource("2_48xlc")
+texture = ExtResource("3_n45e2")
+expand_mode = 2
+stretch_mode = 4
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=796565837]
 stream = ExtResource("3_1ehe0")

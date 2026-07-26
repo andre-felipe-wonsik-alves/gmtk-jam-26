@@ -1,7 +1,7 @@
 extends Camera2D
 
-@export var max_offset: float = 30.0  # Max pixels the camera moves
-@export var smooth_speed: float = 6.0 # How fast the camera catches up
+@export var max_offset: float = 20.0  # Max pixels the camera moves
+@export var smooth_speed: float = 7.0 # How fast the camera catches up
 
 var initial_position: Vector2
 
