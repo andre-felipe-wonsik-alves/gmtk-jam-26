@@ -38,6 +38,13 @@ var explosion_frames: Array[Texture2D] = [
 	preload("res://Assets/Levels/Genius/boomfinal3.png")
 ]
 
+var sounds: Array[AudioStreamMP3] = [
+	preload("res://Assets/Sounds/Effects/genius_4.mp3"),
+	preload("res://Assets/Sounds/Effects/genius_3.mp3"),
+	preload("res://Assets/Sounds/Effects/genius_2.mp3"),
+	preload("res://Assets/Sounds/Effects/genius_1.mp3"),
+]
+
 func _ready() -> void:
 	super._ready()
 
@@ -107,6 +114,8 @@ func _on_display_finished() -> void:
 	timer_component.start_timer(turn_time_limit)
 
 func _on_secondary_button_pressed() -> void:
+	AudioUtils._play_sound_effect(self, load("res://Assets/Sounds/Effects/freesoundsxx-button-press-beep-269718.mp3"))
+	
 	if is_winning or is_losing:
 		return
 
@@ -123,6 +132,8 @@ func _on_button_color_pressed(color_id: int) -> void:
 
 	# Feedback no monitor quando o jogador aperta um botão
 	monitor_display.flash_color(color_id, 0.15)
+	
+	AudioUtils._play_sound_effect(self, sounds[color_id])
 
 	# Envia a cor para validação
 	sequence_validator.process_input(color_id)
@@ -198,7 +209,7 @@ func _on_time_updated(time_remaining: float) -> void:
 		timer_label.text = "%.1fs" % time_remaining
 
 func _on_secondary_time_updated(time_remaining: float) -> void:
-	if secondary_timer_label:
+	if secondary_timer_label:	
 		secondary_timer_label.text = "%.1fs" % time_remaining
 
 func _set_buttons_enabled(enabled: bool) -> void:
