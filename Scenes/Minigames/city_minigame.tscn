@@ -160,6 +160,7 @@ point_count = 2
 
 [node name="City" type="Node2D" unique_id=1970652152]
 script = ExtResource("1_fmfq8")
+score_required_to_win = 5
 
 [node name="Player" parent="." unique_id=1982141801 instance=ExtResource("2_rejuu")]
 top_level = true
@@ -286,7 +287,7 @@ spawn_marker = NodePath("..")
 path = NodePath("../Path2D")
 path_follow = NodePath("../Path2D/PathFollow2D")
 spawn_interval_seconds = 8.0
-speed = 250
+speed = 210
 metadata/_custom_type_script = "uid://bdqsdxu1hqmfg"
 
 [node name="WalkBobComponent" type="Node" parent="SpawnPools/RoadRight2" unique_id=1100503484 node_paths=PackedStringArray("target")]
