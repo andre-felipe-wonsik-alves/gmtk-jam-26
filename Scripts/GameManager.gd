@@ -59,8 +59,8 @@ func pass_minigame() -> void:
 	minigame_passed.emit()
 	
 	if array_index >= levels.size():
-		print("GameManager: Todos os níveis concluídos! Voltando ao menu principal.")
-		SceneTransition.change_scene("res://Scenes/main_menu.tscn", "fade_in")
+		print("GameManager: Todos os níveis concluídos!")
+		SceneTransition.change_scene("res://Scenes/Screens/game_win.tscn", "fade_in")
 		return
 
 	current_level_index = levels[array_index]

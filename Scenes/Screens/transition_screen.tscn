@@ -4,69 +4,178 @@
 [ext_resource type="Texture2D" uid="uid://c83bkv14gkxsc" path="res://Assets/Levels/Menu/ants.png" id="2_l63ls"]
 [ext_resource type="FontFile" uid="uid://dadatk151rr8s" path="res://Assets/Fonts/matcha_mint/Matcha Mint.otf" id="2_qg4uf"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l63ls"]
-bg_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_track"]
+bg_color = Color(0.105882, 0.090196, 0.188235, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qg4uf"]
-bg_color = Color(0.7977378, 0.76862043, 0.95281494, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fill"]
+bg_color = Color(0.72549, 0.682353, 0.94902, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_imageframe"]
+bg_color = Color(1, 0.984314, 0.92549, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(1, 0.435294, 0.34902, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_color = Color(0.105882, 0.090196, 0.188235, 0.25)
+shadow_size = 8
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hintcard"]
+bg_color = Color(1, 0.984314, 0.92549, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.105882, 0.090196, 0.188235, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0.105882, 0.090196, 0.188235, 0.2)
+shadow_size = 6
+shadow_offset = Vector2(0, 3)
 
 [node name="TransitionScreen" type="Control" unique_id=863703888]
-layout_mode = 3
-anchors_preset = 0
-size_flags_horizontal = 0
-size_flags_vertical = 4
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_y408c")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=474637796]
-top_level = true
-layout_mode = 0
-offset_left = 3.0
-offset_top = 116.0
-offset_right = 270.0
-offset_bottom = 268.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("2_qg4uf")
-theme_override_font_sizes/normal_font_size = 24
+[node name="Background" type="ColorRect" parent="." unique_id=1390283638]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 0.964706, 0.788235, 1)
+
+[node name="CenterContent" type="CenterContainer" parent="." unique_id=1555352033]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="CenterContent" unique_id=1555352034]
+layout_mode = 2
+theme_override_constants/separation = 22
+alignment = 1
+
+[node name="TitleRow" type="HBoxContainer" parent="CenterContent/VBox" unique_id=1555352035]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 14
+alignment = 1
+
+[node name="StarLeft" type="Label" parent="CenterContent/VBox/TitleRow" unique_id=1555352036]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 0.788235, 0.235294, 1)
+theme_override_font_sizes/font_size = 28
+text = "✦"
+
+[node name="Label" type="Label" parent="CenterContent/VBox/TitleRow" unique_id=295090572]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.105882, 0.090196, 0.188235, 1)
+theme_override_colors/font_outline_color = Color(1, 0.435294, 0.34902, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 46
+horizontal_alignment = 1
+text = "ANT HAVOC"
+
+[node name="StarRight" type="Label" parent="CenterContent/VBox/TitleRow" unique_id=1555352037]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 0.788235, 0.235294, 1)
+theme_override_font_sizes/font_size = 28
+text = "✦"
+
+[node name="ImageFrame" type="PanelContainer" parent="CenterContent/VBox" unique_id=1555352032]
+custom_minimum_size = Vector2(440, 260)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_imageframe")
+
+[node name="ImageMargin" type="MarginContainer" parent="CenterContent/VBox/ImageFrame" unique_id=1555352038]
+layout_mode = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 14
+
+[node name="Image" type="TextureRect" parent="CenterContent/VBox/ImageFrame/ImageMargin" unique_id=1555352039]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_l63ls")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HintCard" type="PanelContainer" parent="CenterContent/VBox" unique_id=474637796]
+custom_minimum_size = Vector2(440, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_hintcard")
+
+[node name="HintMargin" type="MarginContainer" parent="CenterContent/VBox/HintCard" unique_id=1555352040]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 16
+
+[node name="Hint" type="RichTextLabel" parent="CenterContent/VBox/HintCard/HintMargin" unique_id=1555352041]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.105882, 0.090196, 0.188235, 1)
+theme_override_font_sizes/normal_font_size = 22
 bbcode_enabled = true
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="Countdown" type="Label" parent="CenterContent/VBox" unique_id=1555352042]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.105882, 0.090196, 0.188235, 0.7)
+theme_override_font_sizes/font_size = 18
+horizontal_alignment = 1
+text = "Get ready..."
 
 [node name="Timer" type="Timer" parent="." unique_id=1130741475]
 wait_time = 1.5
 one_shot = true
 
-[node name="Label" type="Label" parent="." unique_id=295090572]
-top_level = true
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-theme_override_fonts/font = ExtResource("2_qg4uf")
-theme_override_font_sizes/font_size = 48
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1390283638]
-layout_mode = 0
-offset_right = 1582.0
-offset_bottom = 947.0
-mouse_filter = 2
-color = Color(1, 1, 0.8235294, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="Image" type="Sprite2D" parent="." unique_id=1555352032]
-top_level = true
-clip_children = 2
-position = Vector2(940.49994, 359)
-scale = Vector2(0.2828125, 0.67222226)
-texture = ExtResource("2_l63ls")
-
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=1116107246]
-top_level = true
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -1.0
-offset_top = -25.0
+offset_left = 28.0
+offset_top = -52.0
+offset_right = -28.0
+offset_bottom = -24.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_styles/background = SubResource("StyleBoxFlat_l63ls")
-theme_override_styles/fill = SubResource("StyleBoxFlat_qg4uf")
+theme_override_styles/background = SubResource("StyleBoxFlat_track")
+theme_override_styles/fill = SubResource("StyleBoxFlat_fill")
 show_percentage = false
