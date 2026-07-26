@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://cve8rd6uht2ny"]
+
+[ext_resource type="Texture2D" uid="uid://cllwwgt2ih3qc" path="res://Assets/Levels/City/blue-car.png" id="1_0c50u"]
+[ext_resource type="Script" uid="uid://6wybcapgxvhw" path="res://Scripts/Components/InteractableComponent.gd" id="2_ejhjj"]
+[ext_resource type="Script" uid="uid://cmrqf7p1u3hd7" path="res://Scripts/Components/Interactable/Wrong.gd" id="3_bkp3d"]
+[ext_resource type="AudioStream" uid="uid://el5ue53edxfh" path="res://Assets/Sounds/Effects/apebble-fart-3-228243.mp3" id="4_40wbq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_382f7"]
+size = Vector2(357, 177)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_smd1s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0c50u")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Car" type="AnimatableBody2D" unique_id=1876073245]
+scale = Vector2(2, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1808584172]
+position = Vector2(3, -16.5)
+shape = SubResource("RectangleShape2D_382f7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2042302553]
+position = Vector2(1.9073486e-06, -4)
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_smd1s")
+autoplay = "default"
+offset = Vector2(-12.306427, -74.18906)
+
+[node name="InteractableComponent" type="Node" parent="." unique_id=1792679841]
+script = ExtResource("2_ejhjj")
+
+[node name="Wrong" type="Node" parent="InteractableComponent" unique_id=1434538420]
+script = ExtResource("3_bkp3d")
+wrong_sound = ExtResource("4_40wbq")
+metadata/_custom_type_script = "uid://cmrqf7p1u3hd7"

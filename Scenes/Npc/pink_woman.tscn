@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://h6d701qby0om"]
+
+[ext_resource type="Texture2D" uid="uid://b1bb1bstmv62t" path="res://Assets/Levels/City/pink-girl.png" id="1_1or11"]
+[ext_resource type="Script" uid="uid://6wybcapgxvhw" path="res://Scripts/Components/InteractableComponent.gd" id="2_uilcl"]
+[ext_resource type="Script" uid="uid://cmrqf7p1u3hd7" path="res://Scripts/Components/Interactable/Wrong.gd" id="3_c33cy"]
+[ext_resource type="AudioStream" uid="uid://el5ue53edxfh" path="res://Assets/Sounds/Effects/apebble-fart-3-228243.mp3" id="4_nvbr1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5grla"]
+size = Vector2(113, 312.09433)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mt5lt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_1or11")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="YellowWoman" type="AnimatableBody2D" unique_id=692033546]
+top_level = true
+scale = Vector2(0.63671565, 0.5979564)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=810202119]
+scale = Vector2(1.1256477, 1.1256477)
+shape = SubResource("RectangleShape2D_5grla")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=650621309]
+scale = Vector2(0.27015468, 0.27015468)
+sprite_frames = SubResource("SpriteFrames_mt5lt")
+autoplay = "default"
+offset = Vector2(0.1931169, -11.690617)
+
+[node name="InteractableComponent" type="Node" parent="." unique_id=2135864381]
+script = ExtResource("2_uilcl")
+
+[node name="Wrong" type="Node" parent="InteractableComponent" unique_id=1342912500]
+script = ExtResource("3_c33cy")
+wrong_sound = ExtResource("4_nvbr1")
+metadata/_custom_type_script = "uid://cmrqf7p1u3hd7"

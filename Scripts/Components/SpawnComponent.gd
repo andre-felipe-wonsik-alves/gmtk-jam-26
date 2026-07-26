@@ -3,9 +3,7 @@ class_name SpawnComponent extends Node
 signal spawned(instance: Node2D)
 
 @export var spawn_scene: PackedScene
-## Optional array of scenes to pick randomly from on each spawn. If set and not empty, overrides spawn_scene.
 @export var spawn_scenes: Array[PackedScene] = []
-## Optional marker. If empty, the parent marker or first Marker2D child is used.
 @export var spawn_marker: Marker2D
 @export var path: Path2D
 @export var path_follow: PathFollow2D
