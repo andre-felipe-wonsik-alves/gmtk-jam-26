@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://dl1fmybl8mqgg" path="res://Scenes/Npc/red_woman.tscn" id="19_yv2mj"]
 [ext_resource type="PackedScene" uid="uid://h6d701qby0om" path="res://Scenes/Npc/pink_woman.tscn" id="20_fgejj"]
 [ext_resource type="PackedScene" uid="uid://cxo5phvtdsn2a" path="res://Scenes/Npc/yellow_woman.tscn" id="21_ftbhi"]
+[ext_resource type="Script" uid="uid://bidlto0mxvg6g" path="res://Scripts/Components/Walkable.gd" id="22_lsclp"]
 
 [sub_resource type="Shader" id="Shader_5ucmu"]
 code = "shader_type canvas_item;
@@ -224,7 +225,7 @@ scale = Vector2(0.6400006, 0.6400006)
 texture = ExtResource("10_yv2mj")
 
 [node name="PointLight2D" type="PointLight2D" parent="Scenery" unique_id=1493953189]
-position = Vector2(124, 799)
+position = Vector2(124, 770)
 scale = Vector2(896.8504, 1654.1025)
 color = Color(1, 1, 0.4509804, 1)
 energy = 0.5
@@ -233,7 +234,7 @@ texture_scale = 0.01
 height = 106.0
 
 [node name="PointLight2D2" type="PointLight2D" parent="Scenery" unique_id=1942471601]
-position = Vector2(999, 799)
+position = Vector2(999, 766)
 scale = Vector2(896.8504, 1654.1025)
 color = Color(1, 1, 0.4509804, 1)
 energy = 0.5
@@ -288,6 +289,13 @@ curve = SubResource("Curve2D_kxfw3")
 position = Vector2(63, 37)
 rotation = 3.1385605
 
+[node name="WalkBobComponent" type="Node" parent="SpawnPools/RoadRight" unique_id=910060999 node_paths=PackedStringArray("target")]
+script = ExtResource("22_lsclp")
+target = NodePath("..")
+bob_height = 5.0
+bob_speed = 100.0
+metadata/_custom_type_script = "uid://bidlto0mxvg6g"
+
 [node name="Sidewalk" type="Marker2D" parent="SpawnPools" unique_id=140212517]
 z_index = 1
 position = Vector2(1376, 737)
@@ -306,6 +314,13 @@ curve = SubResource("Curve2D_g6eq3")
 [node name="PathFollow2D" type="PathFollow2D" parent="SpawnPools/Sidewalk/Path2D" unique_id=1809746132]
 position = Vector2(0, 3)
 rotation = -3.1346338
+
+[node name="WalkBobComponent" type="Node" parent="SpawnPools/Sidewalk" unique_id=1444076398 node_paths=PackedStringArray("target")]
+script = ExtResource("22_lsclp")
+target = NodePath("..")
+bob_height = 8.0
+bob_speed = 60.0
+metadata/_custom_type_script = "uid://bidlto0mxvg6g"
 
 [node name="Sidewalk2" type="Marker2D" parent="SpawnPools" unique_id=1263632119]
 z_index = 1
@@ -327,6 +342,13 @@ curve = SubResource("Curve2D_g6eq3")
 [node name="PathFollow2D" type="PathFollow2D" parent="SpawnPools/Sidewalk2/Path2D" unique_id=2091416856]
 position = Vector2(0, 3)
 rotation = -3.1346338
+
+[node name="WalkBobComponent" type="Node" parent="SpawnPools/Sidewalk2" unique_id=2006514896 node_paths=PackedStringArray("target")]
+script = ExtResource("22_lsclp")
+target = NodePath("..")
+bob_height = 10.0
+bob_speed = 60.0
+metadata/_custom_type_script = "uid://bidlto0mxvg6g"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1480301289]
 stream = ExtResource("9_r715t")
