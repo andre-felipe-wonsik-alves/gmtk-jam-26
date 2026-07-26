@@ -1,12 +1,13 @@
 extends Control
 
 @onready var progress_bar: ProgressBar = $ProgressBar
-@onready var title: Label = $Label
-@onready var hint: RichTextLabel = $RichTextLabel
-@onready var image: Sprite2D = $Image
+@onready var title: Label = $CenterContent/VBox/TitleRow/Label
+@onready var hint: RichTextLabel = $CenterContent/VBox/HintCard/HintMargin/Hint
+@onready var image: TextureRect = $CenterContent/VBox/ImageFrame/ImageMargin/Image
+@onready var countdown: Label = $CenterContent/VBox/Countdown
 @onready var timer: Timer = $Timer
 
-# Títulos para cada minigame 
+# Títulos para cada minigame
 var names: Array[String] = [
 	"ANT HAVOC",
 	"REMEMBER THE COLORS",
@@ -31,17 +32,15 @@ func _ready() -> void:
 	var index = GameManager.current_level_index
 	if index < instructions.size():
 		title.text = names[index]
-		title.add_theme_color_override("font_color", Color.BLACK)
 		hint.text = instructions[index]
-		hint.add_theme_color_override("font_color", Color.BLACK)
 		image.texture = load(images[index])
 	else:
 		hint.text = "Get ready!"
-	
+
 	# Começa a progressbar cheia
 	progress_bar.max_value = timer.wait_time
 	progress_bar.value = timer.wait_time
-	
+
 	# Conectando o sinal de término do Timer via código
 	timer.timeout.connect(_on_timer_timeout)
 	timer.start()
@@ -51,6 +50,7 @@ func _process(_delta: float) -> void:
 	# de quanto falta para o minigame começar
 	if not timer.is_stopped():
 		progress_bar.value = timer.time_left
+		countdown.text = "Starting in %d..." % ceili(timer.time_left)
 
 func _on_timer_timeout() -> void:
 	GameManager.load_current_minigame(true)
