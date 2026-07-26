@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://cdl5h7ve5ril7" path="res://Assets/Levels/Genius/guy.png" id="15_guy"]
 [ext_resource type="Texture2D" uid="uid://dkj1xgwb2cbtj" path="res://Assets/Levels/Genius/guy_joinha.png" id="16_joinha"]
 [ext_resource type="AudioStream" uid="uid://b0jx4t3jasmj0" path="res://Assets/Sounds/Music/genius.mp3" id="17_rsw7f"]
+[ext_resource type="PackedScene" uid="uid://dh38ajtlp75jh" path="res://Scenes/UI/timerCountdown.tscn" id="18_ea35b"]
 
 [sub_resource type="Theme" id="Theme_j3stb"]
 
@@ -105,13 +106,14 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="TimerPanel" type="Panel" parent="UI" unique_id=1269140963]
-visible = false
 z_index = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -204.0
-offset_bottom = 90.0
+offset_left = 24.0
+offset_top = 81.0
+offset_right = 228.0
+offset_bottom = 171.0
 grow_horizontal = 0
 
 [node name="TimerLabel" type="Label" parent="UI" unique_id=84261161]
@@ -119,10 +121,10 @@ z_index = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -173.0
-offset_top = -3.0
-offset_right = 31.0
-offset_bottom = 87.0
+offset_left = 21.0
+offset_top = 84.0
+offset_right = 225.0
+offset_bottom = 174.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 26
 text = "20.0s"
@@ -266,6 +268,14 @@ theme_override_font_sizes/font_size = 50
 text = "7.0s"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Countdown" parent="UI" unique_id=1894812876 instance=ExtResource("18_ea35b")]
+z_index = 2
+offset_left = 1090.0001
+offset_top = 69.0
+offset_right = 1090.0001
+offset_bottom = 69.0
+scale = Vector2(0.23999977, 0.23999977)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=557174811]
 stream = ExtResource("17_rsw7f")
