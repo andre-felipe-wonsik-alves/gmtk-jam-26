@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://el5ue53edxfh" path="res://Assets/Sounds/Effects/apebble-fart-3-228243.mp3" id="4_hsws6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5grla"]
-size = Vector2(113, 312.09433)
+size = Vector2(65.576744, 312.09433)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mt5lt"]
 animations = [{
@@ -20,9 +20,11 @@ animations = [{
 }]
 
 [node name="GreenDude" type="AnimatableBody2D" unique_id=692033546]
+top_level = true
 scale = Vector2(0.63671565, 0.5979564)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=810202119]
+position = Vector2(-0.785277, 0)
 scale = Vector2(1.1256477, 1.1256477)
 shape = SubResource("RectangleShape2D_5grla")
 

@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://el5ue53edxfh" path="res://Assets/Sounds/Effects/apebble-fart-3-228243.mp3" id="4_2gpv0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5grla"]
-size = Vector2(113, 312.09433)
+size = Vector2(115.80573, 320.90887)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mt5lt"]
 animations = [{
@@ -20,14 +20,16 @@ animations = [{
 }]
 
 [node name="BlueDude" type="AnimatableBody2D" unique_id=692033546]
+top_level = true
 scale = Vector2(0.63671565, 0.5979564)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=810202119]
+position = Vector2(-0.7852829, 11.706531)
 scale = Vector2(1.1256477, 1.1256477)
 shape = SubResource("RectangleShape2D_5grla")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=650621309]
-scale = Vector2(0.27015468, 0.27015468)
+scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_mt5lt")
 autoplay = "default"
 offset = Vector2(0.1931169, -11.690617)

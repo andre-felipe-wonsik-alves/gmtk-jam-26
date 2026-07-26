@@ -19,6 +19,7 @@ animations = [{
 }]
 
 [node name="RedWoman" type="AnimatableBody2D" unique_id=692033546]
+top_level = true
 scale = Vector2(0.63671565, 0.5979564)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=810202119]
