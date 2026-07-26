@@ -104,6 +104,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="TimerPanel" type="Panel" parent="UI" unique_id=1269140963]
+visible = false
 z_index = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -117,8 +118,10 @@ z_index = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -204.0
-offset_bottom = 90.0
+offset_left = -173.0
+offset_top = -3.0
+offset_right = 31.0
+offset_bottom = 87.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 26
 text = "20.0s"
