@@ -116,6 +116,7 @@ offset_bottom = 171.0
 grow_horizontal = 0
 
 [node name="TimerLabel" type="Label" parent="UI" unique_id=84261161]
+visible = false
 z_index = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -146,6 +147,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 5.021018
+offset_top = 5.2839565
+offset_right = 5.0210266
+offset_bottom = 5.283951
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.08, 0.08, 0.12, 1)
