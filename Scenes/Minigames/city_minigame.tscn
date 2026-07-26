@@ -1,23 +1,23 @@
-[gd_scene format=3 uid="uid://5ebc13oupn04"]
+[gd_scene format=3 uid="uid://cmiqs2cvjo7ni"]
 
-[ext_resource type="Script" uid="uid://camtrux0e8g4d" path="res://Scripts/Levels/city.gd" id="1_1m7hl"]
-[ext_resource type="PackedScene" uid="uid://dw7nuint0go5y" path="res://Scenes/player.tscn" id="1_t1nu0"]
-[ext_resource type="Texture2D" uid="uid://onxsjven0ihy" path="res://Assets/Levels/City/city.png" id="2_3yl78"]
-[ext_resource type="Script" uid="uid://bdqsdxu1hqmfg" path="res://Scripts/Components/SpawnComponent.gd" id="3_1m7hl"]
-[ext_resource type="PackedScene" uid="uid://dvypd6srkfcjr" path="res://Scenes/Npc/woman.tscn" id="3_dta0y"]
-[ext_resource type="PackedScene" uid="uid://dyn5iw7y47xdp" path="res://Scenes/Npc/car.tscn" id="4_3yl78"]
-[ext_resource type="Texture2D" uid="uid://cg72e2m4fcqlu" path="res://Assets/Levels/City/Scenery/front_pathway.png" id="4_5ruwa"]
-[ext_resource type="Texture2D" uid="uid://uyacfbuu1wy3" path="res://Assets/Levels/City/Scenery/grass.png" id="5_5ucmu"]
-[ext_resource type="Shader" uid="uid://b7g066boam7u0" path="res://Scripts/Shaders/LeafSway.gdshader" id="5_fxehl"]
-[ext_resource type="PackedScene" uid="uid://dw50tasy8rc7b" path="res://Scenes/Npc/green-car.tscn" id="6_aem5b"]
-[ext_resource type="Texture2D" uid="uid://dki1kf6shl5io" path="res://Assets/Levels/City/Scenery/pole2.png" id="6_fxehl"]
-[ext_resource type="Texture2D" uid="uid://h7yumdoedqxb" path="res://Assets/Levels/City/Scenery/pole.png" id="7_cjp8j"]
-[ext_resource type="PackedScene" uid="uid://dl54ikwipnilr" path="res://Scenes/Npc/random_dude.tscn" id="7_kxfw3"]
-[ext_resource type="Texture2D" uid="uid://3dvpti352b51" path="res://Assets/Levels/City/Scenery/road.png" id="8_mct3n"]
-[ext_resource type="Texture2D" uid="uid://cd258cpgpx5di" path="res://Assets/Levels/City/Scenery/back_pathway.png" id="9_bu3ge"]
-[ext_resource type="PackedScene" uid="uid://cve8rd6uht2ny" path="res://Scenes/Npc/purple-car.tscn" id="13_te005"]
-[ext_resource type="PackedScene" uid="uid://c60tdgru3csrw" path="res://Scenes/Npc/yellow-car.tscn" id="14_bdscv"]
-[ext_resource type="AudioStream" uid="uid://rlp3fykdd5ig" path="res://Assets/Sounds/Music/cidade.mp3" id="18_fxehl"]
+[ext_resource type="Script" uid="uid://camtrux0e8g4d" path="res://Scripts/Minigames/city.gd" id="1_fmfq8"]
+[ext_resource type="PackedScene" uid="uid://dw7nuint0go5y" path="res://Scenes/player.tscn" id="2_rejuu"]
+[ext_resource type="Texture2D" uid="uid://onxsjven0ihy" path="res://Assets/Levels/City/city.png" id="3_0y6uh"]
+[ext_resource type="Script" uid="uid://bdqsdxu1hqmfg" path="res://Scripts/Components/SpawnComponent.gd" id="4_kasov"]
+[ext_resource type="Texture2D" uid="uid://cg72e2m4fcqlu" path="res://Assets/Levels/City/Scenery/front_pathway.png" id="4_tcxh0"]
+[ext_resource type="Texture2D" uid="uid://uyacfbuu1wy3" path="res://Assets/Levels/City/Scenery/grass.png" id="5_doh8d"]
+[ext_resource type="PackedScene" uid="uid://dyn5iw7y47xdp" path="res://Scenes/Npc/car.tscn" id="5_s78fr"]
+[ext_resource type="PackedScene" uid="uid://dw50tasy8rc7b" path="res://Scenes/Npc/green-car.tscn" id="6_63m4s"]
+[ext_resource type="Shader" uid="uid://b7g066boam7u0" path="res://Scripts/Shaders/LeafSway.gdshader" id="6_ukosq"]
+[ext_resource type="PackedScene" uid="uid://dvypd6srkfcjr" path="res://Scenes/Npc/woman.tscn" id="7_07l6q"]
+[ext_resource type="Texture2D" uid="uid://dki1kf6shl5io" path="res://Assets/Levels/City/Scenery/pole2.png" id="7_adguj"]
+[ext_resource type="Texture2D" uid="uid://h7yumdoedqxb" path="res://Assets/Levels/City/Scenery/pole.png" id="8_18rqe"]
+[ext_resource type="PackedScene" uid="uid://dl54ikwipnilr" path="res://Scenes/Npc/random_dude.tscn" id="8_xicqd"]
+[ext_resource type="Texture2D" uid="uid://3dvpti352b51" path="res://Assets/Levels/City/Scenery/road.png" id="9_lsclp"]
+[ext_resource type="AudioStream" uid="uid://rlp3fykdd5ig" path="res://Assets/Sounds/Music/cidade.mp3" id="9_r715t"]
+[ext_resource type="Texture2D" uid="uid://cd258cpgpx5di" path="res://Assets/Levels/City/Scenery/back_pathway.png" id="10_yv2mj"]
+[ext_resource type="PackedScene" uid="uid://cve8rd6uht2ny" path="res://Scenes/Npc/purple-car.tscn" id="14_fgejj"]
+[ext_resource type="PackedScene" uid="uid://c60tdgru3csrw" path="res://Scenes/Npc/yellow-car.tscn" id="15_ftbhi"]
 
 [sub_resource type="Shader" id="Shader_5ucmu"]
 code = "shader_type canvas_item;
@@ -100,7 +100,7 @@ shader_parameter/sway_speed = 0.5
 shader_parameter/sway_height_start = 0.3510000166725
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i5men"]
-shader = ExtResource("5_fxehl")
+shader = ExtResource("6_ukosq")
 shader_parameter/margin_scale = 1.0
 shader_parameter/wind_strength = 0.2
 shader_parameter/wind_scale = 2.0
@@ -115,10 +115,10 @@ shader_parameter/sway_direction = -1.0
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_fxehl")
+"texture": ExtResource("7_adguj")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_cjp8j")
+"texture": ExtResource("8_18rqe")
 }],
 "loop": 1,
 "name": &"default",
@@ -152,9 +152,9 @@ point_count = 4
 [node name="City" type="Node2D" unique_id=1970652152]
 position = Vector2(42.176178, 0.5657654)
 scale = Vector2(0.8366256, 0.9730459)
-script = ExtResource("1_1m7hl")
+script = ExtResource("1_fmfq8")
 
-[node name="Player" parent="." unique_id=1982141801 instance=ExtResource("1_t1nu0")]
+[node name="Player" parent="." unique_id=1982141801 instance=ExtResource("2_rejuu")]
 top_level = true
 
 [node name="Scenery" type="Node" parent="." unique_id=865049262]
@@ -165,27 +165,27 @@ show_behind_parent = true
 z_index = -1
 position = Vector2(569, 322)
 scale = Vector2(0.7584259, 0.7584259)
-texture = ExtResource("2_3yl78")
+texture = ExtResource("3_0y6uh")
 
 [node name="frontPathway" type="Sprite2D" parent="Scenery" unique_id=134609681]
 z_index = -2
 position = Vector2(576, 621)
 scale = Vector2(0.60236937, 0.7005918)
-texture = ExtResource("4_5ruwa")
+texture = ExtResource("4_tcxh0")
 
 [node name="leftGrass" type="Sprite2D" parent="Scenery" unique_id=613921093]
 material = SubResource("ShaderMaterial_fxehl")
 use_parent_material = true
 position = Vector2(193.73567, 501.75092)
 scale = Vector2(0.48333654, 0.5132596)
-texture = ExtResource("5_5ucmu")
+texture = ExtResource("5_doh8d")
 
 [node name="rightGrass" type="Sprite2D" parent="Scenery" unique_id=1706985581]
 material = SubResource("ShaderMaterial_i5men")
 use_parent_material = true
 position = Vector2(995.0001, 499)
 scale = Vector2(-0.39763197, 0.49340257)
-texture = ExtResource("5_5ucmu")
+texture = ExtResource("5_doh8d")
 
 [node name="rightPole" type="AnimatedSprite2D" parent="Scenery" unique_id=1531148028]
 position = Vector2(981, 311)
@@ -207,13 +207,13 @@ z_index = -3
 position = Vector2(530.00006, 385)
 scale = Vector2(0.9148575, 0.9148575)
 skew = -0.5305801
-texture = ExtResource("8_mct3n")
+texture = ExtResource("9_lsclp")
 
 [node name="Sprite2D" type="Sprite2D" parent="Scenery" unique_id=103572109]
 z_index = -5
 position = Vector2(588.99994, 334.99994)
 scale = Vector2(0.6400006, 0.6400006)
-texture = ExtResource("9_bu3ge")
+texture = ExtResource("10_yv2mj")
 
 [node name="SpawnPools" type="Node" parent="." unique_id=663536681]
 
@@ -222,8 +222,8 @@ visible = false
 position = Vector2(-214, 279)
 
 [node name="SpawnComponent" type="Node" parent="SpawnPools/RoadLeft" unique_id=1009406731 node_paths=PackedStringArray("spawn_marker", "path", "path_follow")]
-script = ExtResource("3_1m7hl")
-spawn_scenes = Array[PackedScene]([ExtResource("4_3yl78"), ExtResource("6_aem5b"), ExtResource("13_te005"), ExtResource("14_bdscv")])
+script = ExtResource("4_kasov")
+spawn_scenes = Array[PackedScene]([ExtResource("5_s78fr"), ExtResource("6_63m4s"), ExtResource("14_fgejj"), ExtResource("15_ftbhi")])
 spawn_marker = NodePath("..")
 path = NodePath("../Path2D")
 path_follow = NodePath("../Path2D/PathFollow2D")
@@ -243,8 +243,8 @@ visible = false
 position = Vector2(1299, 379)
 
 [node name="SpawnComponent" type="Node" parent="SpawnPools/RoadRight" unique_id=557816890 node_paths=PackedStringArray("spawn_marker", "path", "path_follow")]
-script = ExtResource("3_1m7hl")
-spawn_scenes = Array[PackedScene]([ExtResource("4_3yl78"), ExtResource("14_bdscv"), ExtResource("13_te005"), ExtResource("6_aem5b")])
+script = ExtResource("4_kasov")
+spawn_scenes = Array[PackedScene]([ExtResource("5_s78fr"), ExtResource("15_ftbhi"), ExtResource("14_fgejj"), ExtResource("6_63m4s")])
 spawn_marker = NodePath("..")
 path = NodePath("../Path2D")
 path_follow = NodePath("../Path2D/PathFollow2D")
@@ -264,8 +264,8 @@ visible = false
 position = Vector2(-219, 646)
 
 [node name="SpawnComponent" type="Node" parent="SpawnPools/Sidewalk" unique_id=1730645144 node_paths=PackedStringArray("spawn_marker", "path", "path_follow")]
-script = ExtResource("3_1m7hl")
-spawn_scenes = Array[PackedScene]([ExtResource("3_dta0y"), ExtResource("7_kxfw3")])
+script = ExtResource("4_kasov")
+spawn_scenes = Array[PackedScene]([ExtResource("7_07l6q"), ExtResource("8_xicqd")])
 spawn_marker = NodePath("..")
 path = NodePath("../Path2D")
 path_follow = NodePath("../Path2D/PathFollow2D")
@@ -283,8 +283,8 @@ visible = false
 position = Vector2(1384, 646)
 
 [node name="SpawnComponent" type="Node" parent="SpawnPools/SidewalkCrosser" unique_id=1129921582 node_paths=PackedStringArray("spawn_marker", "path", "path_follow")]
-script = ExtResource("3_1m7hl")
-spawn_scenes = Array[PackedScene]([ExtResource("7_kxfw3"), ExtResource("3_dta0y")])
+script = ExtResource("4_kasov")
+spawn_scenes = Array[PackedScene]([ExtResource("8_xicqd"), ExtResource("7_07l6q")])
 spawn_marker = NodePath("..")
 path = NodePath("../Path2D")
 path_follow = NodePath("../Path2D/PathFollow2D")
@@ -298,5 +298,5 @@ position = Vector2(0, 3)
 rotation = 3.1415927
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1480301289]
-stream = ExtResource("18_fxehl")
+stream = ExtResource("9_r715t")
 autoplay = true
