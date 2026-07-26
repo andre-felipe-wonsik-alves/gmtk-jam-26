@@ -9,11 +9,13 @@ signal lost
 var is_active: bool = true
 
 func _ready() -> void:
+	print("RECIEVED SIGNAL")
 	# Conecta os próprios sinais ao GameManager
 	won.connect(_on_won)
 	lost.connect(_on_lost)
 
 func _on_won() -> void:
+	print("WON")
 	if not is_active: return
 	is_active = false
 	GameManager.pass_minigame()

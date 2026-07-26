@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://ottq7t44vmxe" path="res://Assets/Levels/Genius/boom1.png" id="14_boom1"]
 [ext_resource type="Texture2D" uid="uid://cdl5h7ve5ril7" path="res://Assets/Levels/Genius/guy.png" id="15_guy"]
 [ext_resource type="Texture2D" uid="uid://dkj1xgwb2cbtj" path="res://Assets/Levels/Genius/guy_joinha.png" id="16_joinha"]
+[ext_resource type="AudioStream" uid="uid://b0jx4t3jasmj0" path="res://Assets/Sounds/Music/genius.mp3" id="17_rsw7f"]
 
 [sub_resource type="Theme" id="Theme_j3stb"]
 
@@ -265,3 +266,7 @@ theme_override_font_sizes/font_size = 50
 text = "7.0s"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=557174811]
+stream = ExtResource("17_rsw7f")
+autoplay = true

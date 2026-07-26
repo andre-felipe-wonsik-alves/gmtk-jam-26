@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cdo4dxp8bcvje" path="res://Assets/Levels/City/car.png" id="1_o408m"]
 [ext_resource type="Script" uid="uid://6wybcapgxvhw" path="res://Scripts/Components/InteractableComponent.gd" id="2_cfmeg"]
 [ext_resource type="Script" uid="uid://chs4h0hihuse6" path="res://Scripts/Components/Interactable/Poppable.gd" id="3_o408m"]
-[ext_resource type="AudioStream" uid="uid://clypsx251ujfi" path="res://Assets/Sounds/dragon-studio-clean-minimal-pop-467466.mp3" id="4_cfmeg"]
+[ext_resource type="AudioStream" uid="uid://clypsx251ujfi" path="res://Assets/Sounds/Effects/dragon-studio-clean-minimal-pop-467466.mp3" id="4_cfmeg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8odeo"]
 size = Vector2(157, 62)

@@ -10,6 +10,13 @@ signal display_finished
 @onready var screen_rect: ColorRect = $ScreenRect
 @onready var status_label: Label = $StatusLabel
 
+var sounds: Array[AudioStreamMP3] = [
+	preload("res://Assets/Sounds/Effects/genius_4.mp3"),
+	preload("res://Assets/Sounds/Effects/genius_3.mp3"),
+	preload("res://Assets/Sounds/Effects/genius_2.mp3"),
+	preload("res://Assets/Sounds/Effects/genius_1.mp3"),
+]
+
 # Cores correspondentes aos IDs: 0 = Azul, 1 = Vermelho, 2 = Amarelo, 3 = Verde
 const COLOR_MAP: Array[Color] = [
 	Color(0.2, 0.4, 1.0), # 0: Azul
@@ -36,6 +43,7 @@ func play_sequence(sequence: Array[int]) -> void:
 			set_screen_color(COLOR_MAP[color_id])
 			await get_tree().create_timer(flash_duration, false).timeout # Duração do flash
 			set_screen_color(OFF_COLOR)
+			AudioUtils._play_sound_effect(self, sounds[color_id])
 			
 	await get_tree().create_timer(pause_duration, false).timeout # Pausa final antes de indicar que a exibição terminou
 	if status_label:

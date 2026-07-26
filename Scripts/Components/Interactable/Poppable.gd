@@ -4,8 +4,10 @@ signal popped
 
 @export var pop_sound: AudioStream
 @export var pop_particles: PackedScene
+@export var clicks_to_pop := 1
 
 var _is_popping := false
+var _current_clicks := 0
 
 
 func interaction_started(_mouse_position: Vector2, _button: MouseButton) -> void:
@@ -20,6 +22,9 @@ func interaction_started(_mouse_position: Vector2, _button: MouseButton) -> void
 
 
 func _pop(target: Node2D) -> void:
+	_current_clicks += 1
+	var is_final_hit := _current_clicks >= clicks_to_pop
+
 	var original_scale := target.scale
 	var original_rotation := target.rotation
 	
@@ -37,15 +42,22 @@ func _pop(target: Node2D) -> void:
 	tween.tween_property(target, "scale", original_scale * Vector2(1.1, 0.9), 0.03)
 	tween.parallel().tween_property(target, "rotation", original_rotation + deg_to_rad(4.0), 0.03)
 	
-	tween.tween_property(target, "scale", Vector2.ZERO, 0.04)
+	if is_final_hit:
+		tween.tween_property(target, "scale", Vector2.ZERO, 0.04)
+	else:
+		tween.tween_property(target, "scale", original_scale, 0.04)
+		tween.parallel().tween_property(target, "rotation", original_rotation, 0.04)
 	
 	await tween.finished
 
-	_spawn_particles(target.global_position)
 	_play_sound(target.global_position)
 
-	popped.emit()
-	target.queue_free()
+	if is_final_hit:
+		_spawn_particles(target.global_position)
+		popped.emit()
+		target.queue_free()
+	else:
+		_is_popping = false
 
 
 func _spawn_particles(global_pos: Vector2) -> void:
