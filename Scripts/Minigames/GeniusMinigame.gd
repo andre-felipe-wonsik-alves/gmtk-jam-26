@@ -1,8 +1,8 @@
 class_name GeniusMinigame
 extends MinigameBase
 
-@export var sequence_length: int = 2
-@export var turn_time_limit: float = 5.0
+@export var sequence_length: int = 5
+@export var turn_time_limit: float = 15.0
 @export var secondary_time_limit: float = 5.0
 @export var explosion_frame_duration: float = 0.25
 @export var victory_display_duration: float = 2.0

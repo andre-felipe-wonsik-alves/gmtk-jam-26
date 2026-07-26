@@ -24,7 +24,6 @@
 [node name="GeniusMinigame" type="Node2D" unique_id=270707829]
 position = Vector2(-104, -52)
 script = ExtResource("1_genius")
-sequence_length = 5
 victory_slide_duration = 0.4
 victory_slide_distance = 260.0
 

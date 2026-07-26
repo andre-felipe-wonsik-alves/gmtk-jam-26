@@ -3,7 +3,7 @@ extends MinigameBase
 
 signal score_changed(new_score: int)
 
-@export_range(1, 100, 1) var score_required_to_win := 5
+@export_range(1, 100, 1) var score_required_to_win := 10
 @export_range(1.0, 120.0, 0.5) var level_duration_seconds := 20.0
 @export var lose_on_wrong_click := false
 
