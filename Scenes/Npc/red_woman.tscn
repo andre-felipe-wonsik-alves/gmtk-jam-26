@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://dl1fmybl8mqgg"]
+
+[ext_resource type="Texture2D" uid="uid://bebbldp47w533" path="res://Assets/Levels/City/red-girl.png" id="1_o33s1"]
+[ext_resource type="Script" uid="uid://6wybcapgxvhw" path="res://Scripts/Components/InteractableComponent.gd" id="2_rxj60"]
+[ext_resource type="Script" uid="uid://chs4h0hihuse6" path="res://Scripts/Components/Interactable/Poppable.gd" id="3_4kijh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5grla"]
+size = Vector2(113, 312.09433)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mt5lt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_o33s1")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="RedWoman" type="AnimatableBody2D" unique_id=692033546]
+scale = Vector2(0.63671565, 0.5979564)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=810202119]
+scale = Vector2(1.1256477, 1.1256477)
+shape = SubResource("RectangleShape2D_5grla")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=650621309]
+scale = Vector2(0.27015468, 0.27015468)
+sprite_frames = SubResource("SpriteFrames_mt5lt")
+autoplay = "default"
+offset = Vector2(0.1931169, -11.690617)
+
+[node name="InteractableComponent" type="Node" parent="." unique_id=2135864381]
+script = ExtResource("2_rxj60")
+
+[node name="Poppable" type="Node" parent="InteractableComponent" unique_id=729016443]
+script = ExtResource("3_4kijh")
+metadata/_custom_type_script = "uid://chs4h0hihuse6"
